@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 header {
     display: flex;
     flex-wrap: nowrap;
@@ -8,4 +12,39 @@ header {
 
 header .head-log {
     text-decoration: none;
+    font-weight: 700;
+}
+
+
+.input-search {
+    padding: 7px;
+    border: 1px solid #0672d0;
+}
+
+.btn-submit {
+    float: right;
+    border-left: none;
+    border: 1px solid #0672d0;
+    padding: 6px 15px 8px 15px;
+    background: #0672d0;
+    color: #fff;
+}
+
+.csv-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 15px;
+}
+
+.csv-link:hover {
+    color: #fff;
+}
+
+.back-link {
+    text-decoration: none;
+    float: right;
+}
+
+.back-link:hover {
+    color: #fff;
 }
