@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -48,3 +50,8 @@ header .head-log {
 .back-link:hover {
     color: #fff;
 }
+
+/* login */
+form .error {
+    color: #ff0000;
+  }
