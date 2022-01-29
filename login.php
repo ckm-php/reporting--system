@@ -6,6 +6,12 @@
             <div class="login-logo text-center mt-5 mb-3">
                 <img src="images/login.png" alt="" width="100px" height="100px">
             </div>
+            <?php 
+                if(isset($_GET['msg'])) {
+                    $message = "Incorrect email or password";
+                    echo "<div class='alert alert-danger'>" . $message . "</div>";
+                }
+            ?>
             <form action="admin/loginAct.php" method="post" name="login_validate">
                 <div class="mb-3">
                     <label for="emailInput" class="form-label">Email</label>

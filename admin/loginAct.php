@@ -1,4 +1,7 @@
-<?php include '../config.php'; ?>
+<?php 
+    session_start();
+    include '../config.php'; 
+?>
 
 <?php
 
@@ -8,12 +11,22 @@
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            $sql = $conn->prepare("SELECT * FROM admin");
-            $sql->execute();
-            $data = $sql->fetchAll(PDO::FETCH_ASSOC);
+            // echo $email;
+            // exit();
 
-            echo '<pre>';
-            print_r($data);
+            $sql = $conn->prepare("SELECT * FROM admin WHERE email = ? ");
+            $sql->execute([$email]);
+            $data = $sql->fetch(PDO::FETCH_ASSOC);
+
+            if($email === $data['email'] and $password === $data['password']) {
+                $_SESSION['user'] = 'Khin Aye';
+                header('Location: index.php');
+            }
+            else {
+                header('Location: ../login.php?msg');
+            }
+
+
         }
         catch(PDOException $e){
             echo "Error: " . $e->getMessage();
