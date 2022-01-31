@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: BRILLIANT Bootstrap Admin Template
+Version: 4.5.6
+Author: WebThemez
+Website: http://www.webthemez.com/ 
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta content="" name="description" />
+    <meta content="webthemez" name="author" />
+    <title>Daily Report</title>
+    <!-- Custom Styles-->
+    <link href="admin/assets/css/style.min.css" rel="stylesheet">
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- <link rel="stylesheet" href="admin/assets/js/Lightweight-Chart/cssCharts.css">  -->
+</head>
+    <body>
+    <div class="main-wrapper">
+            <!-- ============================================================== -->
+            <!-- Preloader - style you can find in spinners.css -->
+            <!-- ============================================================== -->
+            <div class="preloader">
+                <div class="lds-ripple">
+                    <div class="lds-pos"></div>
+                    <div class="lds-pos"></div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- Preloader - style you can find in spinners.css -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Login box.scss -->
+            <!-- ============================================================== -->
+            <div class="error-box">
+                <div class="error-body text-center">
+                    <h1 class="error-title text-danger">404</h1>
+                    <h3 class="text-uppercase error-subtitle">PAGE NOT FOUND !</h3>
+                    <p class="text-muted m-t-30 m-b-30">YOU SEEM TO BE TRYING TO FIND HIS WAY HOME</p>
+                    <a href="index.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40 text-white">Back to home</a>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- Login box.scss -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Page wrapper scss in scafholding.scss -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Page wrapper scss in scafholding.scss -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right Sidebar -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right Sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- All Required js -->
+        <!-- ============================================================== -->
+        <script src="admin/assets/libs/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- ============================================================== -->
+        <!-- This page plugin js -->
+        <!-- ============================================================== -->
+        <script>
+            $(".preloader").fadeOut();
+        </script>
+    </body>
+
+</html>
