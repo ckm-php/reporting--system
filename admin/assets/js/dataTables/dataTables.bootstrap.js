@@ -14,8 +14,7 @@ $.extend($.fn.dataTableExt.oStdClasses, {
     "sLengthSelect": "form-control input-sm"
 });
 
-// In 1.10 we use the pagination renderers to draw the Bootstrap paging,
-// rather than  custom plug-in
+// the pagination renderers to draw the Bootstrap paging,
 if ($.fn.dataTable.Api) {
     $.fn.dataTable.defaults.renderer = 'bootstrap';
     $.fn.dataTable.ext.renderer.pageButton.bootstrap = function(settings, host, idx, buttons, page, pages) {
@@ -109,7 +108,6 @@ if ($.fn.dataTable.Api) {
         );
     }
 } else {
-    // Integration for 1.9-
     $.fn.dataTable.defaults.sPaginationType = 'bootstrap';
 
     /* API method to get paging information */
@@ -207,12 +205,7 @@ if ($.fn.dataTable.Api) {
 }
 
 
-/*
- * TableTools Bootstrap compatibility
- * Required TableTools 2.1+
- */
 if ($.fn.DataTable.TableTools) {
-    // Set the classes that TableTools uses to something suitable for Bootstrap
     $.extend(true, $.fn.DataTable.TableTools.classes, {
         "container": "DTTT btn-group",
         "buttons": {

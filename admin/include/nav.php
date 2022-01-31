@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="dashboard.php"><strong><i class="icon fa fa-plane"></i> Report</strong></a>
+        <a class="navbar-brand" href="dashboard.php"><strong><i class="icon fa fa-calendar"></i> Report</strong></a>
         <div id="sideNav" href="">
             <i class="fa fa-bars icon"></i> 
         </div>
@@ -41,10 +41,13 @@
                 <a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-dashboard"></i>New Report</a>
+                <a href="#"><i class="fa fa-edit"></i>New Report</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-dashboard"></i>New User</a>
+                <a href="#"><i class="fa fa-user"></i>User Profile</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-frown-o"></i>Error Page</a>
             </li>
             
             <!-- <li>
