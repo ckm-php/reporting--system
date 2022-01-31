@@ -55,3 +55,9 @@ header .head-log {
 form .error {
     color: #ff0000;
   }
+
+
+  /* report */
+  .report-new a {
+      text-decoration: none;
+  }

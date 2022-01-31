@@ -27,4 +27,29 @@ $(function() {
         form.submit();
       }
     });
+
+    $("form[name='report_validate']").validate({
+      // Specify validation rules
+      rules: {
+        date: {
+          required: true,
+        },
+        report: {
+          required: true,
+        }
+      },
+      // Specify validation error messages
+      messages: {
+        report: {
+          required: "Please enter report",
+        },
+        date: "Please enter date"
+      },
+      // Make sure the form is submitted to the destination defined
+      // in the "action" attribute of the form when valid
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+
   });

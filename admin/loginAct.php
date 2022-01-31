@@ -19,7 +19,7 @@
             $data = $sql->fetch(PDO::FETCH_ASSOC);
 
             if($email === $data['email'] and $password === $data['password']) {
-                $_SESSION['user'] = 'Khin Aye';
+                $_SESSION['user'] = $data['name'];
                 header('Location: index.php');
             }
             else {

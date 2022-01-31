@@ -14,8 +14,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
             <table class="table table-striped mt-5">
                 <tr>
                     <th>No</th>
@@ -39,7 +39,7 @@
                 </tr>
             </table>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
     </div>
 </div>
 
