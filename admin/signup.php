@@ -32,18 +32,18 @@
                   <p class="mb-0">Enter your email and password to register</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form role="form" action="" method="post">
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Name</label>
-                      <input type="text" class="form-control">
+                      <!-- <label for="name" class="form-label">Name</label> -->
+                      <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Email</label>
-                      <input type="email" class="form-control">
+                      <!-- <label for="email" class="form-label">Email</label> -->
+                      <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Password</label>
-                      <input type="password" class="form-control">
+                      <!-- <label for="password" class="form-label">Password</label> -->
+                      <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                     </div>
                     <div class="form-check form-check-info text-start ps-0">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
@@ -52,7 +52,7 @@
                       </label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
+                      <input type="submit" name="signup" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" value="Sign Up" />
                     </div>
                   </form>
                 </div>

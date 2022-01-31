@@ -4,12 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>
-    Reporting System
-  </title>
-  <!--     Fonts and icons     -->
+  <title>Reporting System</title>
+  <!--Fonts and icons-->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/signin.css?v=3.0.0" rel="stylesheet" />
@@ -47,21 +43,21 @@
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
+                <form role="form" class="text-start" action="" method="post">
                   <div class="input-group input-group-outline my-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control">
+                    <!-- <label for="email" class="form-label">Email</label> -->
+                    <input type="email" name="email" id="email" placeholder="Email" class="form-control" required>
                   </div>
                   <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control">
+                    <!-- <label for="password" class="form-label">Password</label> -->
+                    <input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
                     <input class="form-check-input" type="checkbox" id="rememberMe">
                     <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                    <input type="submit" name="signin" class="btn bg-gradient-primary w-100 my-4 mb-2" value="Sign in"/>
                   </div>
                   <p class="mt-4 text-sm text-center">
                     Don't have an account?
