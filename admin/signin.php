@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+    include_once "model/mysession.php"; 
+    include_once "controller/signin.php";
+?>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,7 +46,14 @@
                 </div>
               </div>
               <div class="card-body">
+
                 <form role="form" class="text-start" action="" method="post">
+                <?php 
+                    if (checkSession("error_login") &&  getSession('error_login') != '') {
+                        echo '<h5 class=" text-danger"> ' . getSession('error_login') . ' </h5>';
+                        unset($_SESSION['error_login']);                 
+                    }
+                  ?>
                   <div class="input-group input-group-outline my-3">
                     <!-- <label for="email" class="form-label">Email</label> -->
                     <input type="email" name="email" id="email" placeholder="Email" class="form-control" required>
