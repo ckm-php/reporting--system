@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-    include_once "model/mysession.php"; 
-    include_once "controller/signup.php";
+    include 'config/connection.php';
+    include "model/mysession.php"; 
+    include "controller/signup.php";
 ?>
 <head>
   <meta charset="utf-8" />

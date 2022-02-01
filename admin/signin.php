@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
+    include 'config/connection.php';
     include_once "model/mysession.php"; 
     include_once "controller/signin.php";
 ?>

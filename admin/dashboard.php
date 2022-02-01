@@ -1,8 +1,8 @@
 ﻿<?php 
-    include_once "model/mysession.php"; 
-    include_once "model/common.php";
+    include "model/mysession.php"; 
+    include "model/common.php";
     include 'include/header.php';
-    include_once "controller/delete_report.php";
+    include "controller/delete_report.php";
     $commons = new Common;
     $id = $_SESSION['id'];
     $results = $commons->getAllRow("SELECT * FROM report WHERE user_id='$id'");

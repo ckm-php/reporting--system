@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php     
-    include_once "admin/config/connection.php";
-    include_once "admin/model/mysession.php"; 
-    include_once "admin/model/common.php"; 
+    include "admin/config/connection.php";
+    include "admin/model/mysession.php"; 
+    include "admin/model/common.php"; 
 ?>
 <head>
     <meta charset="utf-8" />
