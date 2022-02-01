@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 31, 2022 at 06:52 AM
+-- Generation Time: Feb 01, 2022 at 09:39 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.27
 
@@ -51,6 +51,25 @@ CREATE TABLE `report` (
   `updated_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `report`
+--
+
+INSERT INTO `report` (`id`, `user_id`, `date`, `report_details`, `created_date`, `updated_date`) VALUES
+(2, 1, '2022-02-14', 'zz', '2022-02-01 07:00:46', '2022-02-01 10:47:47'),
+(3, 1, '2022-02-03', 'a', '2022-02-01 08:35:42', '2022-02-01 08:35:42'),
+(4, 1, '2022-02-04', 'b', '2022-02-01 08:35:59', '2022-02-01 08:35:59'),
+(9, 1, '2022-02-09', 'g', '2022-02-01 08:37:06', '2022-02-01 08:37:06'),
+(10, 1, '2022-02-10', 'h', '2022-02-01 08:37:15', '2022-02-01 08:37:15'),
+(11, 1, '2022-02-11', 'i', '2022-02-01 08:37:27', '2022-02-01 08:37:27'),
+(12, 2, '2022-02-23', 'Hello', '2022-02-01 09:11:29', '2022-02-01 09:11:29'),
+(13, 1, '2027-10-14', 'c', '2022-02-01 09:54:13', '2022-02-01 09:54:13'),
+(14, 1, '2022-03-04', 'd', '2022-02-01 09:54:31', '2022-02-01 09:54:31'),
+(15, 1, '2022-11-17', 'e', '2022-02-01 09:54:43', '2022-02-01 09:54:43'),
+(16, 1, '2022-08-17', 'f', '2022-02-01 09:54:57', '2022-02-01 09:54:57'),
+(17, 1, '2024-11-10', 'j', '2022-02-01 09:55:12', '2022-02-01 09:55:12'),
+(18, 1, '2022-05-12', 'k', '2022-02-01 09:55:26', '2022-02-01 09:55:26');
+
 -- --------------------------------------------------------
 
 --
@@ -62,12 +81,17 @@ CREATE TABLE `user` (
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `role` int(11) NOT NULL,
-  `role_name` text COLLATE utf8_unicode_ci NOT NULL,
-  `status` enum('0','1') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
   `created_date` datetime NOT NULL,
   `updated_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `created_date`, `updated_date`) VALUES
+(1, 'wady', 'wady@gmail.com', '$2y$10$iUtCNyh2y/TDmgL/iR2ZHuYGEyOBRIQh3GAnvq/wzDiI.hko2nTRS', '2022-02-01 05:34:51', '2022-02-01 05:34:51'),
+(2, 'bobby', 'bobby@gmail.com', '$2y$10$CPusK.Lzzm1aM.EAQKkHIuNJ3LKOUXrec39dhcU07aHzFbEELIqyq', '2022-02-01 05:39:42', '2022-02-01 05:39:42');
 
 --
 -- Indexes for dumped tables
@@ -105,13 +129,13 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
