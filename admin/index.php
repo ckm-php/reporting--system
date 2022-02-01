@@ -1,10 +1,9 @@
     <?php include 'header.php'; 
     ?>
     <?php 
-        include '../config.php';
-        $data = $conn->prepare("SELECT * FROM report");
-        $data->execute();
-        $datas = $data->fetchAll(PDO::FETCH_ASSOC);
+        include 'function.php';
+        $data = new Common();
+        $datas = $data->getAllData("SELECT * FROM report");
     ?>
     
     <div class="container-fluid">
@@ -42,11 +41,14 @@
                    <tbody>
                        <?php
                             foreach($datas as $row){
-                            $i=0; 
+                            $data = new Common();
+                            $name = $data->getOneRowData("SELECT * FROM admin WHERE id = ?", [$row['adminId']]);
+                            $i=1;
+                            if($name['id'] == $row['adminId']) {
                        ?>
                        <tr>
                             <td><?= $row['id'] ?></td>
-                            <td><?php  ?></td>
+                            <td><?= $name['name']; ?></td>
                             <td><?= $row['date'] ?></td>
                             <td><?= $row['report'] ?></td>
                             <td>
@@ -55,7 +57,8 @@
                             </td>
                        </tr>
                        <?php
-                           }
+                            }
+                            }
                            $i++;
                        ?>
                    </tbody>

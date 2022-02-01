@@ -1,17 +1,16 @@
 <?php
 
-    include '../config.php';
+    include 'function.php';
     if(isset($_POST['save'])) {
         try {
-            
+        $id = $_POST['id'];
         $date = $_POST['date'];
         $report = $_POST['report'];
 
-        // echo $date;
+        // echo $id;
         // die();
-
-        $data = $conn->prepare("INSERT INTO report (report, date) VALUES (?, ?)");
-        $datas = $data->execute([$report, $date]);
+        $data = new Common();
+        $datas = $data->getCrudData("INSERT INTO report (report, date, adminId) VALUES (?, ?, ?)", [$report, $date, $id]);
         if($datas) {
             // echo "Create Successfully";
             header('location: index.php');
@@ -21,7 +20,7 @@
         
         }
         catch(PDOException $e) {
-            echo $data . "<br>" . $e->getMessage();
+            echo $datas . "<br>" . $e->getMessage();
           }
     }
 

@@ -1,4 +1,7 @@
-<?php include 'header.php' ?>
+<?php 
+    include 'header.php';
+    session_start();
+ ?>
 <div class="container-fluid">
     <?php include 'top_menu.php' ?>
     <div class="row mt-4">
@@ -11,6 +14,7 @@
                 }
             ?>
             <form action="reportAct.php" method="post" name="report_validate">
+                <input type="hidden" name="id" value="<?= $_SESSION['id']?>">
                 <div class="form-group mb-3">
                     <label for="date">Date</label>
                     <input type="date" class="form-control" name="date" id="date">

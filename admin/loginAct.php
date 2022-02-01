@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include '../config.php'; 
+    include 'function.php'; 
 ?>
 
 <?php
@@ -13,13 +13,12 @@
 
             // echo $email;
             // exit();
+            $datas = new Common();
+            $data = $datas->getOneRowData("SELECT * FROM admin WHERE email = ? ", [$email]);
 
-            $sql = $conn->prepare("SELECT * FROM admin WHERE email = ? ");
-            $sql->execute([$email]);
-            $data = $sql->fetch(PDO::FETCH_ASSOC);
-
-            if($email === $data['email'] and $password === $data['password']) {
+            if($email == $data['email'] and $password == $data['password']) {
                 $_SESSION['user'] = $data['name'];
+                $_SESSION['id'] = $data['id'];
                 header('Location: index.php');
             }
             else {
