@@ -2,10 +2,9 @@
     require_once('model/common.php');
 
     if(isset($_POST['signin'])){
-
+        $commons = new Common;
         $email=$_POST["email"];
         $password=$_POST["password"];
-        $commons = new Common;
         $user = $commons->getRow("SELECT * FROM user WHERE email='$email'");
 
         if($user['email']==""){

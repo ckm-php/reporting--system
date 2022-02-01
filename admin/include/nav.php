@@ -41,19 +41,20 @@
                 <a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-edit"></i>New Report</a>
+                <a href="create_report.php"><i class="fa fa-edit"></i>New Report</a>
+            </li>
+            <li>
+                <a href="list_report.php"><i class="fa fa-list"></i>Report Lists</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-user"></i>User Profile</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-frown-o"></i>Error Page</a>
+                <a href="404.php"><i class="fa fa-frown-o"></i>Error Page</a>
             </li>
             
-            <!-- <li>
-                <a href="table.php" class="active-menu"><i class="fa fa-table"></i></a>
-            </li>
-            <li>
+           
+            <!--<li>
                 <a href="form.php"><i class="fa fa-edit"></i> Forms </a>
             </li> -->
             <!-- <li>

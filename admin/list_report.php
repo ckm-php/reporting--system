@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
     include_once "model/mysession.php"; 
     include_once "model/common.php";
     include 'include/header.php';
@@ -34,9 +34,11 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th style="width:200px;">No</th>
-                                            <th style="width:500px;">Date</th>
+                                            <th>No</th>
+                                            <th>Date</th>
                                             <th>Report Details</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -45,6 +47,8 @@
                                             <td><?php echo $i++; ?></td>
                                             <td><?php echo $result['date']; ?></td>
                                             <td><?php echo $result['report_details']; ?></td>
+                                            <td><a href="edit_report.php?edit_id=<?php echo $result['id']; ?>" formaction="" class="btn btn-xs btn-success confirm_edit">Edit</a></td>
+                                            <td><a href="list_report.php?del_id=<?php echo $result['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                     </tbody>
@@ -65,3 +69,14 @@
 <!-- /. WRAPPER  -->
 
 <?php include 'include/footer.php';?>
+
+<script>
+    $(function(){
+        $('.confirm_del').click(function(){
+            return confirm('Are you sure you want to delete!');
+        });
+        $('.confirm_edit').click(function(){
+            return confirm('Are you sure you want to edit!');
+        });
+    });
+</script>
