@@ -26,7 +26,7 @@
         }
 
          //insert, update, add and delete data to db
-         function getCrudData($query, $param = []) {
+         function getReturnData($query, $param = []) {
             $sql = $this->con->prepare($query);
             if($sql->execute($param)) {
                 return true;

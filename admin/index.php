@@ -1,4 +1,4 @@
-    <?php include 'header.php'; 
+<?php include 'header.php'; 
     ?>
     <?php 
         include 'function.php';
@@ -13,6 +13,8 @@
         <div class="d-flex justify-content-around mt-3">
             <form class="example" action="action_page.php">
                 <input type="text" placeholder="Search.." name="search" class="input-search">
+                <input type="date" name="start-date" class="date-search" placeholder="From.....">
+                <input type="date" name="end-date" class="date-search" placeholder="To.....">
                 <button type="submit" class="btn-submit"><i class="fa fa-search"></i></button>
             </form>
             <!-- add report -->
@@ -28,6 +30,11 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
+                <?
+                    if($_GET['msg']) {
+                        echo $_GET['msg'];
+                    }
+                ?>
                 <table class="table table-striped mt-5">
                    <thead>
                         <tr>
@@ -52,8 +59,8 @@
                             <td><?= $row['date'] ?></td>
                             <td><?= $row['report'] ?></td>
                             <td>
-                               <a href="" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a> 
-                               <a href="" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+                               <a href="reportEdit.php?edit=<?= $row['id']?>" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a> 
+                               <a href="reportDelete.php?delete=<?= $row['id']?>" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                        </tr>
                        <?php

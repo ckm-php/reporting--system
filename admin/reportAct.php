@@ -6,16 +6,18 @@
         $id = $_POST['id'];
         $date = $_POST['date'];
         $report = $_POST['report'];
+        $now = date('Y-m-d h:i:s');
 
         // echo $id;
         // die();
         $data = new Common();
-        $datas = $data->getCrudData("INSERT INTO report (report, date, adminId) VALUES (?, ?, ?)", [$report, $date, $id]);
+        $datas = $data->getReturnData("INSERT INTO report (report, date, adminId, created_date, updated_date) VALUES (?, ?, ?, ?, ?)", [$report, $date, $id, $now, $now]);
         if($datas) {
             // echo "Create Successfully";
             header('location: index.php');
         }else {
-            header('location: index.php?msg');
+            
+            echo 'Create Not Successfully';
         }
         
         }

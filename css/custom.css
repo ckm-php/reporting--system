@@ -18,13 +18,12 @@ header .head-log {
 }
 
 
-.input-search {
+.input-search, .date-search{
     padding: 7px;
     border: 1px solid #0672d0;
 }
 
 .btn-submit {
-    float: right;
     border-left: none;
     border: 1px solid #0672d0;
     padding: 6px 15px 8px 15px;
