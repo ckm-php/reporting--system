@@ -1,9 +1,10 @@
 <?php include 'header.php'; 
     ?>
     <?php 
-        include 'function.php';
+        include '../function.php';
+        $name = $_SESSION['user'];
         $data = new Common();
-        $datas = $data->getAllData("SELECT * FROM report");
+        $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ?", [$_SESSION['id']]);
     ?>
     
     <div class="container-fluid">
@@ -47,15 +48,12 @@
                    </thead>
                    <tbody>
                        <?php
-                            foreach($datas as $row){
-                            $data = new Common();
-                            $name = $data->getOneRowData("SELECT * FROM admin WHERE id = ?", [$row['adminId']]);
-                            $i=1;
-                            if($name['id'] == $row['adminId']) {
+                            foreach($datas as $row):
+                            $i = 1;
                        ?>
                        <tr>
                             <td><?= $row['id'] ?></td>
-                            <td><?= $name['name']; ?></td>
+                            <td><?= $name ?></td>
                             <td><?= $row['date'] ?></td>
                             <td><?= $row['report'] ?></td>
                             <td>
@@ -64,8 +62,7 @@
                             </td>
                        </tr>
                        <?php
-                            }
-                            }
+                           endforeach;
                            $i++;
                        ?>
                    </tbody>

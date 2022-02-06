@@ -1,6 +1,6 @@
 <?php
 
-    include 'function.php';
+    include '../function.php';
     if(isset($_POST['save'])) {
         try {
         $id = $_POST['id'];

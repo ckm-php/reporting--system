@@ -1,5 +1,5 @@
 <?php
-    include 'function.php';
+    include '../function.php';
     $id = $_POST[id];
     $date = $_POST['date'];
     $report = $_POST['report'];
