@@ -1,10 +1,17 @@
 <?php 
-    include_once "model/mysession.php"; 
-    include 'include/header.php';
-    include_once "controller/create_report.php";
+    
+    include_once "../model/mysession.php"; 
+
+    if(!isset($_SESSION['id'])) {
+        die('Direct access not allowed');
+        exit();
+    }
+    
+    include '../include/header.php';
+    include_once "../controller/create_report.php";
 ?>
 <div id="wrapper">
-    <?php include 'include/nav.php';?>
+    <?php include '../include/nav.php';?>
     <div id="page-wrapper" >
         <div class="header"> 
             <h1 class="page-header">
@@ -52,4 +59,4 @@
 </div>
 <!-- /. WRAPPER  -->
 
-<?php include 'include/footer.php';?>
+<?php include '../include/footer.php';?>

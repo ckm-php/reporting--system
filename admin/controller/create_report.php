@@ -1,5 +1,5 @@
 <?php 
-    require_once('model/common.php');
+    require_once('../model/common.php');
 
     if(isset($_POST['report'])){
         $commons = new Common;

@@ -1,5 +1,5 @@
 <?php 
-    require_once('model/common.php');
+    require_once('../model/common.php');
     $commons = new Common;
 
     if(isset($_GET['edit_id'])){
