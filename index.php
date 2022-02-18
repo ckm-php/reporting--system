@@ -3,9 +3,21 @@
     session_start();
     include 'function.php';
     $data = new Common();
-    $datas = $data->getAllData("SELECT * FROM report ORDER BY date");
+    // $datas = $data->getAllData("SELECT * FROM report ORDER BY date DESC");
     $_SESSION['keyword'] = $_POST['keyword'];
     $_SESSION['search'] = $_POST['search'];
+
+    require_once('pagination/pagination_start.php');
+
+      $table = 'report'; 
+      $query = $data->getAllData("SELECT * FROM $table ORDER BY date DESC");
+      $result_count = count($query);
+      // print_r('<pre>');
+      // print_r($result_count);
+      // exit();
+      $total_no_of_pages = ceil($result_count / $total_records_per_page);
+      $second_last = $total_no_of_pages - 1;  
+      $datas = $data->getAllData("SELECT * FROM $table LIMIT $offset, $total_records_per_page");
 
  ?>
  <div class="container-fluid">
@@ -17,9 +29,9 @@
         <form class="example" action="" method="post">
             <input type="text" placeholder="Search.." name="keyword" class="input-search">
             <label for="from">From</label>
-            <input type="date" name="from-keywoard" class="date-search" id="from" placeholder="From.....">
+            <input type="date" name="fromDate" class="date-search" id="from" placeholder="From.....">
             <label for="to">To</label>
-            <input type="date" name="to-keyword" class="date-search" id="to" placeholder="To.....">
+            <input type="date" name="toDate" class="date-search" id="to" placeholder="To.....">
             <button type="submit" name="search" class="btn-submit"><i class="fa fa-search"></i></button>
         </form>
         <div class="p-2 bg-success text-white">
@@ -32,12 +44,21 @@
             <?php
                 if(isset($_POST['search'])) {
                 $keyword = $_POST['keyword'];
+                $fromDate = $_POST['fromDate'];
+                $toDate = $_POST['toDate'];
+                // echo $fromDate;
+                // echo $toDate;
+                // exit();
 
                 $adminData = $data->getAllData("SELECT * FROM admin WHERE name like '%$keyword%' ");
                 if(sizeof($adminData) > 0) {
                     $id = $adminData[0]['id'];
                 $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ?", [$id]);
-                } else {
+                }
+                elseif(isset($fromDate) && isset($toDate)) {
+                    $datas = $data->getOneRowData("SELECT * FROM report WHERE date = ?  AND date = ? ", [$fromDate, $toDate]);
+                }
+                else {
                     $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
                 }
             ?>
@@ -100,6 +121,15 @@
                     <?php } ?>
                 </tbody>
             </table>
+            <?php
+                $serialize_user = serialize($user_arr);
+            ?>
+            <textarea name="export_data" id="" style="display:none;"><?= $serialize_user; ?></textarea>
+            <ul class="pagination">
+                <?php
+                    include_once('pagination/pagination_end.php');
+                ?>
+            </ul>
             <?php } ?>
         </div>
         <div class="col-md-1"></div>
