@@ -9,12 +9,15 @@
 
         try {
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
 
-            // echo $email;
+            // echo $password;
             // exit();
             $datas = new Common();
             $data = $datas->getOneRowData("SELECT * FROM admin WHERE email = ? ", [$email]);
+
+            // echo $data['password'];
+            // exit();
 
             if($email == $data['email'] and $password == $data['password']) {
                 $_SESSION['user'] = $data['name'];

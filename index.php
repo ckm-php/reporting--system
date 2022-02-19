@@ -6,7 +6,13 @@
     // $datas = $data->getAllData("SELECT * FROM report ORDER BY date DESC");
     $_SESSION['keyword'] = $_POST['keyword'];
     $_SESSION['search'] = $_POST['search'];
+    $_SESSION['fromDate'] = $_POST['fromDate'];
+    $_SESSION['toDate'] = $_POST['toDate'];
 
+    // echo $_SESSION['fromDate'];
+    // echo '<br>';
+    // echo $_SESSION['toDate'];
+   
     require_once('pagination/pagination_start.php');
 
       $table = 'report'; 
@@ -29,9 +35,9 @@
         <form class="example" action="" method="post">
             <input type="text" placeholder="Search.." name="keyword" class="input-search">
             <label for="from">From</label>
-            <input type="date" name="fromDate" class="date-search" id="from" placeholder="From.....">
+            <input type="date" name="fromDate" class="date-search" id="from" value="<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>" placeholder="From.....">
             <label for="to">To</label>
-            <input type="date" name="toDate" class="date-search" id="to" placeholder="To.....">
+            <input type="date" name="toDate" class="date-search" id="to" value="<?php if(isset($_POST['toDate'])) echo $_POST['toDate']; ?>" placeholder="To.....">
             <button type="submit" name="search" class="btn-submit"><i class="fa fa-search"></i></button>
         </form>
         <div class="p-2 bg-success text-white">
@@ -49,18 +55,19 @@
                 // echo $fromDate;
                 // echo $toDate;
                 // exit();
-
+               
                 $adminData = $data->getAllData("SELECT * FROM admin WHERE name like '%$keyword%' ");
-                if(sizeof($adminData) > 0) {
+                if(!empty($fromDate) && !empty($toDate)) {
+                    $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
+                }
+                elseif(sizeof($adminData) > 0) {
                     $id = $adminData[0]['id'];
                 $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ?", [$id]);
-                }
-                elseif(isset($fromDate) && isset($toDate)) {
-                    $datas = $data->getOneRowData("SELECT * FROM report WHERE date = ?  AND date = ? ", [$fromDate, $toDate]);
                 }
                 else {
                     $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
                 }
+                
             ?>
             <table class="table table-striped mt-5">
                <thead>
@@ -73,8 +80,8 @@
                 <tbody>
                     <?php
                         if($datas) { 
-                        foreach($datas as $value) { 
-                        $getnum = $data->getOneRowData("SELECT name FROM admin WHERE id = ? ", [$value['adminId']]);
+                            foreach($datas as $value) { 
+                            $getnum = $data->getOneRowData("SELECT name FROM admin WHERE id = ? ", [$value['adminId']]);
                     ?>
                         <tr>
                             <td><?= $getnum['name']; ?></td>
@@ -83,7 +90,7 @@
                         </tr>
                     <?php 
                         }
-                        } else {                    
+                            } else {                    
                      ?>
                     <tr>
                         <td colspan="3" class="text-primary text-center font-weight-bold"><b>There is no datas to show</b></td>
@@ -92,7 +99,7 @@
                 </tbody>
             </table>
             <?php } else { ?>
-                <table class="table table-striped mt-5">
+            <table class="table table-striped mt-5">
                <thead>
                     <tr>
                         <th>Name</th>
@@ -103,8 +110,8 @@
                 <tbody>
                     <?php
                         if($datas) { 
-                        foreach($datas as $value) { 
-                        $getnum = $data->getOneRowData("SELECT name FROM admin WHERE id = ? ", [$value['adminId']]);
+                            foreach($datas as $value) { 
+                            $getnum = $data->getOneRowData("SELECT name FROM admin WHERE id = ? ", [$value['adminId']]);
                     ?>
                         <tr>
                             <td><?= $getnum['name']; ?></td>
@@ -113,7 +120,7 @@
                         </tr>
                     <?php 
                         }
-                        } else {                    
+                            } else {                    
                      ?>
                     <tr>
                         <td colspan="3" class="text-primary text-center font-weight-bold"><b>There is no datas to show</b></td>
@@ -121,6 +128,7 @@
                     <?php } ?>
                 </tbody>
             </table>
+            <!-- ====================== pagination ============================================ -->
             <?php
                 $serialize_user = serialize($user_arr);
             ?>
