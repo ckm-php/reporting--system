@@ -1,3 +1,8 @@
 /admin/config
 backup.php
 table.php
+backup.js
+index-backup.php
+range-backup.php
+search.php
+searchvalue.php
