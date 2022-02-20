@@ -14,6 +14,7 @@
     <title>Admin View</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="../css/all.css" >
+    <link rel="stylesheet" href="../css/pagination.css">
     <link rel="stylesheet" href="../css/custom.css">
     
     <script src="../js/jquery-3.6.0.js"></script>

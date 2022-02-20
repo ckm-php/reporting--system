@@ -17,7 +17,10 @@
                     <label for="report">Report</label>
                     <textarea class="form-control" id="report" name="report" rows="3"></textarea>
                 </div>
+                
                 <button type="submit" class="btn btn-primary" name="save">Save</button>
+                <a href="index.php" class="btn btn-secondary">Cancel</a>
+                
             </form>
         </div>
         <div class="col-md-2"></div>
