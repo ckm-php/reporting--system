@@ -5,4 +5,4 @@ RewriteRule ^ /%1 [NC,L,R]
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^ %{REQUEST_URI}.php [NC,L]
 
-ErrorDocument 404 /report-system/admin/view/404.php
+ErrorDocument 404 /reporting1.ckmphpdev.tech/admin/view/404.php
