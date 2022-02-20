@@ -20,7 +20,7 @@
         $conditions[] = "report.date BETWEEN '$startdate' AND '$enddate'";
         }
         if(! empty($searchvalue)) {
-        $conditions[] = "name='$searchvalue'";
+        $conditions[] = "CONCAT(`name`, `date`, `report_details`) LIKE '%".$searchvalue."%'";
         }
 
         $sql = $query;
