@@ -42,6 +42,7 @@
                             <label>To</label>
                                 <input type="date" class="form-control" placeholder="End"  name="enddate"/>
                             <select class="form-control" name="user">
+                                <option value="">User Filter</option>
                                 <?php  
                                     $sql = "SELECT * FROM `user`";
                                     // print_r($sql);
