@@ -2,7 +2,7 @@
     //  include "admin/model/common.php";
      $commons = new Common;
 
-     $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 3;
+     $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 20;
      $page       = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
      $links      = ( isset( $_GET['links'] ) ) ? $_GET['links'] : 7;
     

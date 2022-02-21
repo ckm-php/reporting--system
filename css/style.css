@@ -33,3 +33,8 @@ label{
 .pagination {
     float: right!important;
 }
+
+.report-table thead tr {font-weight: bold}
+
+.report-table tbody tr:nth-child(odd) {background: #f9f9f9}
+

@@ -70,7 +70,7 @@
                     
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table class="report-table table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
