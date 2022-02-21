@@ -3,8 +3,7 @@
 
     include_once 'admin/model/pagination.php';
 
-    // $commons = new Common;
-
+    $commons = new Common;
     // $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 3;
     // $page       = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
     // $links      = ( isset( $_GET['links'] ) ) ? $_GET['links'] : 7;
@@ -42,8 +41,27 @@
                                 <input type="date" class="form-control" placeholder="Start"  name="startdate"/>
                             <label>To</label>
                                 <input type="date" class="form-control" placeholder="End"  name="enddate"/>
+                            <select class="form-control" name="user">
+                                <?php  
+                                    $sql = "SELECT * FROM `user`";
+                                    // print_r($sql);
+                                    $users = $commons->getAllRow($sql);
+                                    // print_r($users);
+                                    foreach($users as $user):
+                                ?> 
+                                    <option value="<?php echo $user['id'];?>"> 
+                                        <?php echo $user['name']; ?> 
+                                    </option> 
+                                <?php  
+                                    endforeach;
+                                ?> 
+                            </select>
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" name="searchvalue" aria-label="Search">
-                            <button class="btn btn-primary" type="submit" name="searchdate"><span class="glyphicon glyphicon-search"></span></button> <a href="index.php" type="button" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
+                            <button class="btn btn-primary" type="submit" name="searchdate">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button> 
+                            <!-- <button class="btn btn-success" name="reset">Reset</button> -->
+                            <a href="index.php" type="button" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
                         </form>
                         <!-- CSV Export link -->
                         <span class="export-btn"><a href="admin/model/csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>

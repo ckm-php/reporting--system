@@ -35,6 +35,6 @@
 
 </head>
 
-<body style="font-family: Oswald;background-color: #004D97;">
+<body style="font-family: Oswald;background-color: #FFFFFF;">
 
     <div id="wrapper">
