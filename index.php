@@ -3,7 +3,13 @@
 
     include_once 'admin/model/pagination.php';
 
-    $commons = new Common;
+    $commons = new Common();
+
+    $_SESSION['startdate'] = isset($_POST['startdate']);
+    $_SESSION['enddate'] = isset($_POST['enddate']);
+    $_SESSION['searchvalue'] = isset($_POST['searchvalue']);
+    $_SESSION['user'] = isset($_POST['user']);
+
     // $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 3;
     // $page       = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
     // $links      = ( isset( $_GET['links'] ) ) ? $_GET['links'] : 7;
@@ -65,7 +71,7 @@
                             <a href="index.php" type="button" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
                         </form>
                         <!-- CSV Export link -->
-                        <span class="export-btn"><a href="admin/model/csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>
+                        <span class="export-btn"><a href="csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>
                         <!-- <span class="export-btn"><button class="btn btn-success" type="submit" name="export"><i class="dwn"></i> Export</button></span> -->
                     </div> 
                     
