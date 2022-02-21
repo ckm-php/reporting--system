@@ -5,10 +5,10 @@
 
     $commons = new Common();
 
-    $_SESSION['startdate'] = isset($_POST['startdate']);
-    $_SESSION['enddate'] = isset($_POST['enddate']);
-    $_SESSION['searchvalue'] = isset($_POST['searchvalue']);
-    $_SESSION['user'] = isset($_POST['user']);
+    if(isset($_POST['startdate'])){$_SESSION['startdate'] = $_POST['startdate'];}
+    if(isset($_POST['enddate'])){$_SESSION['enddate'] = $_POST['enddate'];}
+    if(isset($_POST['searchvalue'])){$_SESSION['searchvalue'] = $_POST['searchvalue'];}
+    if(isset($_POST['user'])){$_SESSION['user'] = $_POST['user'];}
 
     // $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 3;
     // $page       = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
@@ -44,11 +44,11 @@
                         <!-- Search Date -->
                         <form class="form-inline search-box" method="post">
                             <label>Date: From</label>
-                                <input type="date" class="form-control" placeholder="Start"  name="startdate"/>
+                                <input type="date" class="form-control" placeholder="Start"  name="startdate" value="<?php if(isset($_POST['startdate'])) echo $_POST['startdate']; ?>" />
                             <label>To</label>
-                                <input type="date" class="form-control" placeholder="End"  name="enddate"/>
+                                <input type="date" class="form-control" placeholder="End"  name="enddate" value="<?php if(isset($_POST['enddate'])) echo $_POST['enddate']; ?>" />
                             <select class="form-control" name="user">
-                                <option value="">User Filter</option>
+                                <!-- <option value="">ALL User</option> -->
                                 <?php  
                                     $sql = "SELECT * FROM `user`";
                                     // print_r($sql);
@@ -63,7 +63,7 @@
                                     endforeach;
                                 ?> 
                             </select>
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="searchvalue" aria-label="Search">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="searchvalue" value="<?php if(isset($_POST['searchvalue'])) echo $_POST['searchvalue']; ?>">
                             <button class="btn btn-primary" type="submit" name="searchdate">
                                 <span class="glyphicon glyphicon-search"></span>
                             </button> 
@@ -90,7 +90,12 @@
                                     <!--  -->
                                 </tbody>
                             </table>
-                            <?php echo $paginator->createLinks( $links, 'pagination pagination-sm' ); ?>
+                            <?php 
+                                if($results){
+                                   echo $paginator->createLinks( $links, 'pagination pagination-sm' ); 
+                                }
+                            ?>
+                            
                         </div>
                     </div>
 

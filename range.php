@@ -12,12 +12,16 @@
         $startdate = $_POST['startdate'];
         $enddate = $_POST['enddate'];
         $searchvalue = $_POST['searchvalue'];
+        $user = $_POST['user'];
 
         $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
         $conditions = array();
 
         if(! empty($startdate) || ! empty($enddate) ) {
         $conditions[] = "report.date BETWEEN '$startdate' AND '$enddate'";
+        }
+        if(! empty($user)) {
+        $conditions[] = "user_id='$user'";
         }
         if(! empty($searchvalue)) {
         $conditions[] = "CONCAT(`name`, `date`, `report_details`) LIKE '%".$searchvalue."%'";
@@ -29,11 +33,36 @@
         }
 
         // $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id WHERE report.date BETWEEN '$startdate' AND '$enddate' ORDER BY report.date DESC";
-        $row = $commons->getAllRow($sql);
-        $paginator  = new Pagination( $commons->pdo, $sql );
-        $results    = $paginator->getData( $limit, $page );
-        if($row>0){
+        $rows = $commons->getAllRow($sql);
+
+        
+        if($rows) { 
+            $paginator  = new Pagination( $commons->pdo, $sql );
+            $results    = $paginator->getData( $limit, $page );
             for( $i = 0; $i < count( $results->data ); $i++ ) :
+        ?>
+                <tr>
+                    <td><?php echo $results->data[$i]['name'];?></td>
+                    <td><?php echo $results->data[$i]['report_details'];?></td>
+                    <td><?php echo $results->data[$i]['date'];?></td>
+                </tr>
+        <?php
+                endfor;
+        }else{
+    ?>
+            <tr>
+                <td colspan = "3"><center>Record Not Found</center></td>
+            </tr>
+    <?php
+        }
+       
+    }else{
+        $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id ORDER BY report.date DESC";
+        // $rows = $commons->getAllRow($query);
+        $paginator  = new Pagination( $commons->pdo, $query );
+        $results    = $paginator->getData( $limit, $page );
+        
+        for( $i = 0; $i < count( $results->data ); $i++ ) :
     ?>
                 <tr>
                     <td><?php echo $results->data[$i]['name'];?></td>
@@ -42,28 +71,6 @@
                 </tr>
     <?php
             endfor;
-        }else{
-    ?>
-            <tr>
-                <td colspan = "3"><center><?php echo "Record Not Found";?></center></td>
-            </tr>
-    <?php
-        }
-       
-    }else{
-        $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id ORDER BY report.date DESC";
-        $paginator  = new Pagination( $commons->pdo, $query );
-        $results    = $paginator->getData( $limit, $page );
-        
-        for( $i = 0; $i < count( $results->data ); $i++ ) :
-    ?>
-            <tr>
-                <td><?php echo $results->data[$i]['name'];?></td>
-                <td><?php echo $results->data[$i]['report_details'];?></td>
-                <td><?php echo $results->data[$i]['date'];?></td>
-            </tr>
-    <?php
-       endfor;
     }
 
 ?>

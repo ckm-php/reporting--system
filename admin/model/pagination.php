@@ -18,7 +18,7 @@
               
         }
 
-        public function getData( $limit = 10, $page = 1 ) {
+        public function getData( $limit = 20, $page = 1 ) {
       
             $this->_limit   = $limit;
             $this->_page    = $page;

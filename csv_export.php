@@ -1,25 +1,28 @@
 <?php
+    session_start();
     include "admin/config/connection.php";
     include "admin/model/common.php"; 
     $commons = new Common();
     $filename = 'report_'.time().'.csv';
 
     // POST values
-    $startdate = $_SESSION['startdate'];
-    $enddate = $_SESSION['enddate'];
-    $searchvalue = $_SESSION['searchvalue'];
-    $user = $_SESSION['user'];
+    if(isset($_SESSION['startdate'])){$startdate = $_SESSION['startdate'];}
+    if(isset($_SESSION['enddate'])){$enddate = $_SESSION['enddate'];;}
+    if(isset($_SESSION['searchvalue'])){$searchvalue = $_SESSION['searchvalue'];}
+    if(isset($_SESSION['user'])){$user = $_SESSION['user'];}
     
+    $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
+
     if($searchvalue || $user || $startdate || $enddate ){
 
-        $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
+        // $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
         $conditions = array();
 
         if(! empty($startdate) && ! empty($enddate) ) {
         $conditions[] = "report.date BETWEEN '$startdate' AND '$enddate'";
         }
         if(! empty($user)) {
-        $conditions[] = "name='$user'";
+        $conditions[] = "user_id='$user'";
         }
         if(! empty($searchvalue)) {
         $conditions[] = "CONCAT(`name`, `date`, `report_details`) LIKE '%".$searchvalue."%'";
@@ -29,9 +32,8 @@
         }
         $results = $commons->getAllRow($query);
     
-    }
-    else {
-        $results = $commons->getAllData("SELECT * FROM report INNER JOIN user ON report.user_id=user.id");
+    }else{
+         $results = $commons->getAllRow($query);
     }
 
     $report_arr = array();
@@ -59,7 +61,9 @@
     header("Content-Type: application/csv; ");
 
     readfile($filename);
-
-    // deleting file
+    session_destroy();
+    // // deleting file
     unlink($filename);
-    exit();
+    // exit();
+
+?>
