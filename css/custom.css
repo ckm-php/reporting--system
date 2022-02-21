@@ -26,9 +26,14 @@ header .head-log {
 .btn-submit {
     border-left: none;
     border: 1px solid #0672d0;
-    padding: 6px 15px 8px 15px;
+    padding: 7px 15px;
     background: #0672d0;
     color: #fff;
+}
+
+.userDrop {
+    padding: 7px 15px;
+    border: 1px solid #0672d0;
 }
 
 .csv-link {

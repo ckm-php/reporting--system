@@ -16,6 +16,7 @@
     $keyword = $_SESSION['keyword'];
     $fromDate = $_SESSION['fromDate'];
     $toDate = $_SESSION['toDate'];
+    $selectname = $_SESSION['username'];
 
     // echo $fromDate;
     // echo $toDate;
@@ -24,12 +25,15 @@
     // echo $keyword;
     // exit();
     
-    if($search || $keyword || ($fromDate && $toDate) ){
+    if($search || $keyword || ($fromDate && $toDate) || $selectname){
 
         $adminData = $data->getAllData("SELECT * FROM admin WHERE name Like  '%$keyword%' ");
         $datas = null;
         if(!empty($fromDate) && !empty($toDate)) {
             $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
+        }
+        elseif(!empty($selectname)) {
+            $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ", [$selectname]);
         }
         elseif (sizeof($adminData) > 0) {
             $id = $adminData[0]['id'];

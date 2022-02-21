@@ -27,9 +27,9 @@
             <form  method="post">
                 <input type="text" placeholder="Search.." name="keyword" class="input-search">
                 <label for="from">From</label>
-                <input type="date" name="fromDate" id="from" class="date-search" placeholder="From.....">
+                <input type="date" name="fromDate" id="from" class="date-search" value="<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>" placeholder="From.....">
                 <label for="to">To</label>
-                <input type="date" name="toDate" id="to" class="date-search" placeholder="To.....">
+                <input type="date" name="toDate" id="to" class="date-search" value="<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>" placeholder="To.....">
                 <button type="submit" name="search" class="btn-submit"><i class="fa fa-search"></i></button>
             </form>
 

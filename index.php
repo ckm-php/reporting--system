@@ -8,10 +8,16 @@
     $_SESSION['search'] = $_POST['search'];
     $_SESSION['fromDate'] = $_POST['fromDate'];
     $_SESSION['toDate'] = $_POST['toDate'];
+    $_SESSION['username'] = $_POST['username'];
 
     // echo $_SESSION['fromDate'];
     // echo '<br>';
     // echo $_SESSION['toDate'];
+
+    // $names= $data->getAllData("SELECT * FROM admin");
+    // echo '<pre>';
+    // print_r($names);
+    // die();
    
     require_once('pagination/pagination_start.php');
 
@@ -38,6 +44,16 @@
             <input type="date" name="fromDate" class="date-search" id="from" value="<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>" placeholder="From.....">
             <label for="to">To</label>
             <input type="date" name="toDate" class="date-search" id="to" value="<?php if(isset($_POST['toDate'])) echo $_POST['toDate']; ?>" placeholder="To.....">
+            <select name="username" class="userDrop">
+                <?php
+                    $names= $data->getAllData("SELECT * FROM admin");
+                    foreach($names as $row):
+                ?>
+                <option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
+                <?php endforeach; ?>
+                <!-- <option value="">Wady</option>
+                <option value="">Sai</option> -->
+            </select>
             <button type="submit" name="search" class="btn-submit"><i class="fa fa-search"></i></button>
         </form>
         <div class="p-2 bg-success text-white">
@@ -52,13 +68,17 @@
                 $keyword = $_POST['keyword'];
                 $fromDate = $_POST['fromDate'];
                 $toDate = $_POST['toDate'];
-                // echo $fromDate;
+                $selectname = $_POST['username'];
+                // echo $selectname;
                 // echo $toDate;
                 // exit();
                
                 $adminData = $data->getAllData("SELECT * FROM admin WHERE name like '%$keyword%' ");
                 if(!empty($fromDate) && !empty($toDate)) {
                     $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
+                }
+                elseif(!empty($selectname)) {
+                    $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ", [$selectname]);
                 }
                 elseif(sizeof($adminData) > 0) {
                     $id = $adminData[0]['id'];
@@ -67,7 +87,6 @@
                 else {
                     $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
                 }
-                
             ?>
             <table class="table table-striped mt-5">
                <thead>
