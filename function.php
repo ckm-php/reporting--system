@@ -31,7 +31,9 @@
             if($sql->execute($param)) {
                 return true;
             }
-            return false;
+            else {
+                return false;
+            }
          }
 
     }

@@ -1,11 +1,12 @@
 <?php include 'header.php' ?>
-<div class="container">
-    <div class="row">
+<div class="container-fluid">
+    <header>
+        <h3 class="head-title text-primary">Login</h3>
+        <a href="index.php" class="back-link btn btn-outline-info">Back User View <i class="fas fa-reply-all"></i></a>
+    </header>
+    <div class="row mt-3">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <div class="login-logo text-center mt-5 mb-3">
-                <img src="images/login.png" alt="" width="100px" height="100px">
-            </div>
             <?php 
                 if(isset($_GET['msg'])) {
                     $message = "Incorrect email or password";
@@ -21,9 +22,15 @@
                     <label for="passInput" class="form-label">Password</label>
                     <input type="password" class="form-control" id="passInput" name="password" placeholder="Enter Password">
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary">Login</button>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" name="submit" class="btn btn-primary btn-name">Login</button>
+                </div>
             </form>
-            <a href="index.php" class="back-link btn btn-outline-info">Back User View <i class="fas fa-reply-all"></i></a>
+            <div class="mt-3 signup">
+                <span>Don't have an account?</span>
+                <a href="signup.php" class="text-primary">Sign up</a>
+            </div>
+            
         </div>
     </div>
 </div>

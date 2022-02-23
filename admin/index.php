@@ -25,7 +25,7 @@
 
         <div class="d-flex justify-content-around mt-3">
             <form  method="post">
-                <input type="text" placeholder="Search.." name="keyword" class="input-search">
+                <input type="text" placeholder="Search.." name="keyword" class="input-search" value="<?php if(isset($_POST['keyword'])) echo $_POST['keyword']; ?>">
                 <label for="from">From</label>
                 <input type="date" name="fromDate" id="from" class="date-search" value="<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>" placeholder="From.....">
                 <label for="to">To</label>

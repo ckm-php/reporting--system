@@ -29,7 +29,7 @@
       // exit();
       $total_no_of_pages = ceil($result_count / $total_records_per_page);
       $second_last = $total_no_of_pages - 1;  
-      $datas = $data->getAllData("SELECT * FROM $table LIMIT $offset, $total_records_per_page");
+      $datas = $data->getAllData("SELECT * FROM $table ORDER BY date DESC LIMIT $offset, $total_records_per_page");
 
  ?>
  <div class="container-fluid">
@@ -39,22 +39,22 @@
     </header>
     <div class="d-flex justify-content-around mt-3">
         <form class="example" action="" method="post">
-            <input type="text" placeholder="Search.." name="keyword" class="input-search">
-            <label for="from">From</label>
-            <input type="date" name="fromDate" class="date-search" id="from" value="<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>" placeholder="From.....">
-            <label for="to">To</label>
-            <input type="date" name="toDate" class="date-search" id="to" value="<?php if(isset($_POST['toDate'])) echo $_POST['toDate']; ?>" placeholder="To.....">
+            <input type="text" placeholder="Search.." name="keyword" value="<?php if(isset($_POST['keyword'])) echo $_POST['keyword']; ?>" class="input-search">
             <select name="username" class="userDrop">
+                <option value="all">All</option>
                 <?php
                     $names= $data->getAllData("SELECT * FROM admin");
                     foreach($names as $row):
                 ?>
                 <option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
                 <?php endforeach; ?>
-                <!-- <option value="">Wady</option>
-                <option value="">Sai</option> -->
             </select>
+            <label for="from">From</label>
+            <input type="date" name="fromDate" class="date-search" id="from" value="<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>" placeholder="From.....">
+            <label for="to">To</label>
+            <input type="date" name="toDate" class="date-search" id="to" value="<?php if(isset($_POST['toDate'])) echo $_POST['toDate']; ?>" placeholder="To.....">
             <button type="submit" name="search" class="btn-submit"><i class="fa fa-search"></i></button>
+            <a href="index.php" class="btn btn-secondary refresh-icon"><i class="fas fa-sync-alt"></i></a>
         </form>
         <div class="p-2 bg-success text-white">
             <a href="exportCsv.php" class="csv-link">Export Csv</a>
@@ -74,18 +74,25 @@
                 // exit();
                
                 $adminData = $data->getAllData("SELECT * FROM admin WHERE name like '%$keyword%' ");
-                if(!empty($fromDate) && !empty($toDate)) {
-                    $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
-                }
-                elseif(!empty($selectname)) {
-                    $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ", [$selectname]);
-                }
-                elseif(sizeof($adminData) > 0) {
+                // print_r($adminData);
+
+                if(sizeof($adminData) > 0) {
                     $id = $adminData[0]['id'];
                 $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ?", [$id]);
                 }
-                else {
-                    $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
+                // elseif(!empty($selectname)) {
+                //      $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ", [$selectname]);
+                // }
+                // elseif(!empty($fromDate) && !empty($toDate)) {
+                //     $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
+                // }
+                // elseif(!empty($keyword)) {
+                //     $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
+                // }
+                // else {
+                //     $datas = $data->getAllData("SELECT * FROM report");
+                // }
+                else { $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
                 }
             ?>
             <table class="table table-striped mt-5">

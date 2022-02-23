@@ -29,17 +29,21 @@
 
         $adminData = $data->getAllData("SELECT * FROM admin WHERE name Like  '%$keyword%' ");
         $datas = null;
-        if(!empty($fromDate) && !empty($toDate)) {
+        if (sizeof($adminData) > 0) {
+            $id = $adminData[0]['id'];
+            $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ?", [$id]);
+        } 
+        elseif(!empty($fromDate) && !empty($toDate)) {
             $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
         }
         elseif(!empty($selectname)) {
-            $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ", [$selectname]);
+            if($selectname == "all"){
+                $datas = $data->getAllData("SELECT * FROM report");
+            }
+            else {
+                $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ", [$selectname]);
+            }
         }
-        elseif (sizeof($adminData) > 0) {
-            $id = $adminData[0]['id'];
-            $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ?", [$id]);
-        
-        } 
         elseif ($keyword !== null || $search !== null) {
             $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
         }

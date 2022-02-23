@@ -60,8 +60,22 @@ form .error {
     color: #ff0000;
   }
 
+.btn-name {
+    text-transform: uppercase;
+  }
+
 
   /* report */
   .report-new a {
       text-decoration: none;
   }
+
+/* signup */
+.signup {
+    text-align: center;
+}
+
+.signup a {
+    text-decoration: none;
+    font-weight: 600;
+}
