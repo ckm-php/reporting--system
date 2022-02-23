@@ -49,9 +49,7 @@
             <li>
                 <a href="#"><i class="fa fa-user"></i>User Profile</a>
             </li>
-            <li>
-                <a href="404.php"><i class="fa fa-frown-o"></i>Error Page</a>
-            </li>
+            
             
            
             <!--<li>
