@@ -21,7 +21,7 @@
         if(! empty($startdate) && ! empty($enddate) ) {
         $conditions[] = "report.date BETWEEN '$startdate' AND '$enddate'";
         }
-        if(! empty($user)) {
+        if(! empty($user) && $user!="") {
         $conditions[] = "user_id='$user'";
         }
         if(! empty($searchvalue)) {
