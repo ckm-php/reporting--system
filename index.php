@@ -48,15 +48,16 @@
                             <label>To</label>
                                 <input type="date" class="form-control" placeholder="End"  name="enddate" value="<?php if(isset($_POST['enddate'])) echo $_POST['enddate']; ?>" />
                             <select class="form-control" name="user">
-                                <!-- <option value="">ALL User</option> -->
+                                <option value="">Select User</option>
                                 <?php  
                                     $sql = "SELECT * FROM `user`";
+                                    $select=$_POST['user'];
                                     // print_r($sql);
                                     $users = $commons->getAllRow($sql);
                                     // print_r($users);
                                     foreach($users as $user):
                                 ?> 
-                                    <option value="<?php echo $user['id'];?>"> 
+                                    <option value="<?php echo $user['id'];?>" <?php if($user['id']==$select ){ echo "selected"; } ?>> 
                                         <?php echo $user['name']; ?> 
                                     </option> 
                                 <?php  

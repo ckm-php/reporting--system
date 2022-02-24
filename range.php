@@ -12,15 +12,16 @@
         $startdate = $_POST['startdate'];
         $enddate = $_POST['enddate'];
         $searchvalue = $_POST['searchvalue'];
-        $user = $_POST['user'];
-
+        if (isset ($user)&&$user!=""){  
+            $user = $_POST['user'];
+        }
         $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
         $conditions = array();
 
         if(! empty($startdate) || ! empty($enddate) ) {
         $conditions[] = "report.date BETWEEN '$startdate' AND '$enddate'";
         }
-        if(! empty($user)) {
+        if(! empty($user) && $user!="" ) {
         $conditions[] = "user_id='$user'";
         }
         if(! empty($searchvalue)) {
