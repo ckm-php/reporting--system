@@ -10,8 +10,8 @@
     <div class="row mt-3">
         <?php
         
-        print_r($_COOKIE['email']);
-        print_r(hay);
+        // print_r($_COOKIE['email']);
+        // print_r(hay);
 
         ?>
         <div class="col-md-4"></div>
