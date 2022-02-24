@@ -16,12 +16,27 @@
             $datas = new Common();
             $data = $datas->getOneRowData("SELECT * FROM admin WHERE email = ? ", [$email]);
 
+            $count = sizeof($data);
+            // echo $count;
+            // exit();
+
             // echo $data['password'];
             // exit();
 
-            if($email == $data['email'] and $password == $data['password']) {
+            if($email == $data['email'] and $password == $data['password'] and $count > 0) {
                 $_SESSION['user'] = $data['name'];
                 $_SESSION['id'] = $data['id'];
+
+                if(!empty($_POST['remerberme'])) {
+                    $remerberme = $_POST['remerberme'];
+
+                    setcookie('email', $email, time()+3600*24*7);
+                    setcookie('password', $password, time()+3600*24*7);
+                }
+                else {
+                    setcookie('email', $email,time()-3600*24*7);
+                    setcookie('password', $password,time()-3600*24*7);
+                }
                 header('Location: index.php');
             }
             else {

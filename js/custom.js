@@ -29,7 +29,6 @@ $(function() {
     });
 
     $("form[name='signup_validate']").validate({
-      // Specify validation rules
       rules: {
         name: {
           required: true
@@ -47,7 +46,6 @@ $(function() {
           minlength: 5
         }
       },
-      // Specify validation error messages
       messages: {
         name: {
           required: "Please provide a name"
@@ -62,15 +60,27 @@ $(function() {
         },
         email: "Please enter a valid email address"
       },
-      // Make sure the form is submitted to the destination defined
-      // in the "action" attribute of the form when valid
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+
+    $("form[name='forgot_validate']").validate({
+      rules: {
+        email: {
+          required: true,
+          email: true
+        }
+      },
+      messages: {
+        email: "Please enter a valid email address"
+      },
       submitHandler: function(form) {
         form.submit();
       }
     });
 
     $("form[name='report_validate']").validate({
-      // Specify validation rules
       rules: {
         date: {
           required: true,
@@ -79,15 +89,12 @@ $(function() {
           required: true,
         }
       },
-      // Specify validation error messages
       messages: {
         report: {
           required: "Please enter report",
         },
         date: "Please enter date"
       },
-      // Make sure the form is submitted to the destination defined
-      // in the "action" attribute of the form when valid
       submitHandler: function(form) {
         form.submit();
       }

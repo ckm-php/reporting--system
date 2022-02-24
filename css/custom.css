@@ -75,7 +75,12 @@ form .error {
     text-align: center;
 }
 
-.signup a {
+.signup a , .forgotpass {
     text-decoration: none;
     font-weight: 600;
+}
+
+/* forgot password */
+.mr-1 {
+    margin-right: 10px;
 }
