@@ -41,12 +41,14 @@
         <form class="example" action="" method="post">
             <input type="text" placeholder="Search.." name="keyword" value="<?php if(isset($_POST['keyword'])) echo $_POST['keyword']; ?>" class="input-search">
             <select name="username" class="userDrop">
-                <option value="all">All</option>
+                <option value="">All</option>
                 <?php
                     $names= $data->getAllData("SELECT * FROM admin");
                     foreach($names as $row):
                 ?>
-                <option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
+                <option value="<?= $row['id'] ?>" <?php if($row['id'] == $_POST['username']) { echo "selected"; } ?> > 
+                <?= $row['name'] ?>
+                </option>
                 <?php endforeach; ?>
             </select>
             <label for="from">From</label>
@@ -72,28 +74,21 @@
                 // echo $selectname;
                 // echo $toDate;
                 // exit();
-               
-                $adminData = $data->getAllData("SELECT * FROM admin WHERE name like '%$keyword%' ");
-                // print_r($adminData);
 
-                if(sizeof($adminData) > 0) {
-                    $id = $adminData[0]['id'];
-                $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ?", [$id]);
+                if(!empty($keyword)) { 
+                    $datas = $data->getAllData("SELECT * FROM report INNER JOIN admin ON report.adminId = admin.id WHERE name LIKE '%$keyword%' OR date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
                 }
-                // elseif(!empty($selectname)) {
-                //      $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ", [$selectname]);
-                // }
-                // elseif(!empty($fromDate) && !empty($toDate)) {
-                //     $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
-                // }
-                // elseif(!empty($keyword)) {
-                //     $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
-                // }
-                // else {
-                //     $datas = $data->getAllData("SELECT * FROM report");
-                // }
-                else { $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
+
+                if(!empty($selectname)) {
+                    $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ", [$selectname]);
+                }else {
+                    $datas = $data->getAllData("SELECT * FROM report");
                 }
+
+                if(!empty($fromDate) && !empty($toDate)) {
+                    $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
+                }
+                
             ?>
             <table class="table table-striped mt-5">
                <thead>
