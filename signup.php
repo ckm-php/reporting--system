@@ -9,7 +9,7 @@
         <div class="col-md-4">
             <?php
                 if(isset($_GET['success'])) {
-                    $success = "Your registeration is success.";
+                    $success = "Your Signup is success.";
                     echo '<div class="alert alert-success">'. $success .'</div>';
                 }
                 if(isset($_GET['passnomatch'])) {

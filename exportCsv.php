@@ -27,29 +27,31 @@
     
     if($search || $keyword || ($fromDate && $toDate) || $selectname){
 
-        $adminData = $data->getAllData("SELECT * FROM admin WHERE name Like  '%$keyword%' ");
-        $datas = null;
-        if (sizeof($adminData) > 0) {
-            $id = $adminData[0]['id'];
-            $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ?", [$id]);
-        } 
-        elseif(!empty($fromDate) && !empty($toDate)) {
-            $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
+        $condition = [];
+
+        if(!empty($keyword) ) { 
+            $condition[] = " name LIKE '%$keyword%' OR date LIKE '%$keyword%' OR report LIKE '%$keyword%' ";
         }
-        elseif(!empty($selectname)) {
-            if($selectname == "all"){
-                $datas = $data->getAllData("SELECT * FROM report");
-            }
-            else {
-                $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ", [$selectname]);
-            }
+
+        if(!empty($selectname && $selectname != "")) {
+            $condition[] = " adminId = $selectname ";
         }
-        elseif ($keyword !== null || $search !== null) {
-            $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
+
+        if(!empty($fromDate) && !empty($toDate)) {
+            $condition[] = " date BETWEEN '".$fromDate."' AND '".$toDate."' "; 
         }
+
+        $query = "SELECT * FROM report INNER JOIN admin ON report.adminId = admin.id";
+
+        if($condition) {
+            $query .= " WHERE ".implode('AND', $condition) ."ORDER BY date desc ";
+        }
+
+        $datas = $data->getAllData($query);
+    
     }
     else {
-        $datas = $data->getAllData("SELECT * FROM report");
+        $datas = $data->getAllData("SELECT * FROM report ORDER BY date desc");
     }
 
 

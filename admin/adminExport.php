@@ -15,6 +15,7 @@
     $search = $_SESSION['search'];
     $fromDate = $_SESSION['fromDate'];
     $toDate = $_SESSION['toDate'];
+    $keyword = $_SESSION['keyword'];
 
     // echo $fromDate;
     // echo $toDate;
@@ -23,14 +24,32 @@
     // echo $keyword;
     // exit();
     
-    if($search || $keyword || ($fromDate && $toDate) ){
-        $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
-    }
-    elseif ($keyword !== null || $search !== null) {
-        $datas = $data->getAllData("SELECT * FROM report WHERE date LIKE '%$keyword%' OR report LIKE '%$keyword%'");
+    if($search || $keyword || ($fromDate && $toDate) ) {
+
+        $condition = [];
+
+        if(!empty($keyword) ) { 
+            $condition [] = " date LIKE '%$keyword%' OR report LIKE '%$keyword%' AND adminId = $id";
+        }
+
+        if(!empty($fromDate) && !empty($toDate) )  {
+            $condition [] = " date BETWEEN '".$fromDate."' AND '".$toDate."' AND adminId = $id"; 
+        }
+    
+        $query = "SELECT * FROM report ";
+    
+        if($condition) {
+            $query .= "WHERE".implode('AND', $condition) ." ORDER BY date DESC LIMIT $offset, $total_records_per_page";
+        }
+
+        if(!$condition) {
+            $query = "SELECT * FROM report WHERE adminId = $id  ORDER BY date DESC LIMIT $offset, $total_records_per_page";
+        }
+    
+        $datas = $data->getAllData($query);
     }
     else {
-        $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ?", [$_SESSION['id']]);
+        $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ORDER BY date DESC ", [$_SESSION['id']]);
     }
 
 

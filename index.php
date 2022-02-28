@@ -9,27 +9,8 @@
     $_SESSION['fromDate'] = $_POST['fromDate'];
     $_SESSION['toDate'] = $_POST['toDate'];
     $_SESSION['username'] = $_POST['username'];
-
-    // echo $_SESSION['fromDate'];
-    // echo '<br>';
-    // echo $_SESSION['toDate'];
-
-    // $names= $data->getAllData("SELECT * FROM admin");
-    // echo '<pre>';
-    // print_r($names);
-    // die();
    
     require_once('pagination/pagination_start.php');
-
-      $table = 'report'; 
-      $query = $data->getAllData("SELECT * FROM $table ORDER BY date DESC");
-      $result_count = count($query);
-      // print_r('<pre>');
-      // print_r($result_count);
-      // exit();
-      $total_no_of_pages = ceil($result_count / $total_records_per_page);
-      $second_last = $total_no_of_pages - 1;  
-      $datas = $data->getAllData("SELECT * FROM $table ORDER BY date DESC LIMIT $offset, $total_records_per_page");
 
  ?>
  <div class="container-fluid">
@@ -65,31 +46,6 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <?php
-                if(isset($_POST['search'])) {
-                $keyword = $_POST['keyword'];
-                $fromDate = $_POST['fromDate'];
-                $toDate = $_POST['toDate'];
-                $selectname = $_POST['username'];
-                // echo $selectname;
-                // echo $toDate;
-                // exit();
-
-                if(!empty($keyword)) { 
-                    $datas = $data->getAllData("SELECT * FROM report INNER JOIN admin ON report.adminId = admin.id WHERE name LIKE '%$keyword%' OR date LIKE '%$keyword%' OR report LIKE '%$keyword%' ");
-                }
-
-                if(!empty($selectname)) {
-                    $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ", [$selectname]);
-                }else {
-                    $datas = $data->getAllData("SELECT * FROM report");
-                }
-
-                if(!empty($fromDate) && !empty($toDate)) {
-                    $datas = $data->getAllData("SELECT * FROM report WHERE date between '".$fromDate."' and '".$toDate."' ");
-                }
-                
-            ?>
             <table class="table table-striped mt-5">
                <thead>
                     <tr>
@@ -99,67 +55,17 @@
                     </tr>
                </thead>
                 <tbody>
-                    <?php
-                        if($datas) { 
-                            foreach($datas as $value) { 
-                            $getnum = $data->getOneRowData("SELECT name FROM admin WHERE id = ? ", [$value['adminId']]);
-                    ?>
-                        <tr>
-                            <td><?= $getnum['name']; ?></td>
-                            <td><?= $value['date']; ?></td>
-                            <td><?= $value['report']; ?></td>
-                        </tr>
-                    <?php 
-                        }
-                            } else {                    
-                     ?>
-                    <tr>
-                        <td colspan="3" class="text-primary text-center font-weight-bold"><b>There is no datas to show</b></td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-            <?php } else { ?>
-            <table class="table table-striped mt-5">
-               <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Date</th>
-                        <th>Report</th>
-                    </tr>
-               </thead>
-                <tbody>
-                    <?php
-                        if($datas) { 
-                            foreach($datas as $value) { 
-                            $getnum = $data->getOneRowData("SELECT name FROM admin WHERE id = ? ", [$value['adminId']]);
-                    ?>
-                        <tr>
-                            <td><?= $getnum['name']; ?></td>
-                            <td><?= $value['date']; ?></td>
-                            <td><?= $value['report']; ?></td>
-                        </tr>
-                    <?php 
-                        }
-                            } else {                    
-                     ?>
-                    <tr>
-                        <td colspan="3" class="text-primary text-center font-weight-bold"><b>There is no datas to show</b></td>
-                    </tr>
-                    <?php } ?>
+                    <?php include 'filter_range.php'; ?>
                 </tbody>
             </table>
             <!-- ====================== pagination ============================================ -->
-            <?php
-                $serialize_user = serialize($user_arr);
-            ?>
-            <textarea name="export_data" id="" style="display:none;"><?= $serialize_user; ?></textarea>
-            <ul class="pagination">
-                <?php
-                    include_once('pagination/pagination_end.php');
-                ?>
-            </ul>
-            <?php } ?>
+            <?php if($datas):?>
+                <ul class="pagination">
+                    <?php
+                        include_once('pagination/pagination_end.php');
+                    ?>
+                </ul>
+            <?php endif;?>
         </div>
         <div class="col-md-1"></div>
     </div>
