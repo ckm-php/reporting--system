@@ -2,3 +2,13 @@ images
 config.php
 pass_generate.php
 testdata.php
+admin/dist/img
+# templates for admin part
+admin/dist
+admin/plugins
+admin/footer2.php
+admin/header2.php
+admin/index2.php
+report.php
+nav.php
+sidebar.php

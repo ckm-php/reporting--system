@@ -8,12 +8,12 @@
         // die();
         $condition = [];
 
-        if(!empty($keyword) ) { 
-            $condition [] = " date LIKE '%$keyword%' OR report LIKE '%$keyword%' AND adminId = $id";
+        if(!empty($keyword) ) {
+            $condition[] = " CONCAT(`date`, `report`) LIKE '%".$keyword."%' AND adminId = $id ";
         }
 
         if(!empty($fromDate) && !empty($toDate) )  {
-            $condition [] = " date BETWEEN '".$fromDate."' AND '".$toDate."' AND adminId = $id"; 
+            $condition[] = " date BETWEEN '".$fromDate."' AND '".$toDate."' AND adminId = $id"; 
         }
 
         $query = "SELECT * FROM report ";

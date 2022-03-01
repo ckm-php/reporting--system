@@ -8,7 +8,7 @@
         $condition = [];
 
         if(!empty($keyword) ) { 
-            $condition[] = " name LIKE '%$keyword%' OR date LIKE '%$keyword%' OR report LIKE '%$keyword%' ";
+            $condition[] = " CONCAT(`name`, `date`, `report`) LIKE '%".$keyword."%' ";
         }
 
         if(!empty($selectname && $selectname != "")) {
