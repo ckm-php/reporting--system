@@ -60,7 +60,7 @@
         $table = 'report'; 
         $datas = $data->getAllData("SELECT * FROM $table WHERE adminId = ? ORDER BY date DESC LIMIT $offset, $total_records_per_page", [$_SESSION['id']]);
 
-        $result_count = count(datas);
+        $result_count = count($datas);
         $total_no_of_pages = ceil($result_count / $total_records_per_page);
         $second_last = $total_no_of_pages - 1;
         

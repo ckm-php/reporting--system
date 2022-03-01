@@ -16,11 +16,9 @@
     $fromDate = $_SESSION['fromDate'];
     $toDate = $_SESSION['toDate'];
     $keyword = $_SESSION['keyword'];
+    $id = $_SESSION['id'];
 
-    // echo $fromDate;
-    // echo $toDate;
-    // echo 'heillo';
-    // echo $search;
+    // echo 'hello';
     // echo $keyword;
     // exit();
     
@@ -39,17 +37,17 @@
         $query = "SELECT * FROM report ";
     
         if($condition) {
-            $query .= "WHERE".implode('AND', $condition) ." ORDER BY date DESC LIMIT $offset, $total_records_per_page";
+            $query .= "WHERE".implode('AND', $condition) ." ORDER BY date DESC";
         }
 
         if(!$condition) {
-            $query = "SELECT * FROM report WHERE adminId = $id  ORDER BY date DESC LIMIT $offset, $total_records_per_page";
+            $query = "SELECT * FROM report WHERE adminId = $id  ORDER BY date DESC";
         }
     
         $datas = $data->getAllData($query);
     }
     else {
-        $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ORDER BY date DESC ", [$_SESSION['id']]);
+        $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ORDER BY date DESC ", [$id]);
     }
 
 
