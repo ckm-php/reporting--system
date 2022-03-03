@@ -1,6 +1,5 @@
 <?php include 'header.php'; ?>
     <?php 
-        session_start();
         include '../function.php';
         $name = $_SESSION['user'];
         $id = $_SESSION['id'];
