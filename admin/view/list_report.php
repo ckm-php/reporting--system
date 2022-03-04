@@ -4,13 +4,19 @@
         die('Direct access not allowed');
         exit();
     }
-    include_once "../model/common.php";
+    // include_once "../model/common.php";
     include '../include/header.php';
-    include_once "../controller/delete_report.php";
+    include "../controller/delete_report.php";
+    include '../model/pagination.php';
    
-    $commons = new Common;
-    $id = $_SESSION['id'];
-    $results = $commons->getAllRow("SELECT * FROM report WHERE user_id='$id'");
+    $commons = new Common();
+    $_POST['id'] = $_SESSION['id'];
+    
+    // $results = $commons->getAllRow("SELECT * FROM report WHERE user_id='$id'");
+    
+    if(isset($_POST['startdate'])){$_SESSION['startdate'] = $_POST['startdate'];}
+    if(isset($_POST['enddate'])){$_SESSION['enddate'] = $_POST['enddate'];}
+    if(isset($_POST['searchvalue'])){$_SESSION['searchvalue'] = $_POST['searchvalue'];}
 ?>
 <div id="wrapper">
     <?php include '../include/nav.php';?>
@@ -35,6 +41,52 @@
                             Report Lists
                         </div>
                         <div class="panel-body">
+
+                            <div class="col-md-12">
+                                <!-- Search Date -->
+                                <form class="form-inline search-box" method="post">
+                                    <label>Date: From</label>
+                                        <input type="date" class="form-control" placeholder="Start"  name="startdate" value="<?php if(isset($_POST['startdate'])) echo $_POST['startdate']; ?>" />
+                                    <label>To</label>
+                                        <input type="date" class="form-control" placeholder="End"  name="enddate" value="<?php if(isset($_POST['enddate'])) echo $_POST['enddate']; ?>" />
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search" name="searchvalue" value="<?php if(isset($_POST['searchvalue'])) echo $_POST['searchvalue']; ?>">
+                                    <button class="btn btn-primary" type="submit" name="search">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button> 
+                                    <!-- <button class="btn btn-success" name="reset">Reset</button> -->
+                                    <a href="list_report.php" type="button" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
+                                </form>
+                                <!-- CSV Export link -->
+                                <span class="export-btn"><a href="../controller/csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>
+                            </div> 
+                            
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="report-table table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Date</th>
+                                                <th>Report Details</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php include '../controller/search.php'?>	
+                                            <!--  -->
+                                        </tbody>
+                                    </table>
+                                    <?php 
+                                        if($results){
+                                        echo $paginator->createLinks( $links, 'pagination pagination-sm' ); 
+                                        }
+                                    ?>
+                                    
+                                </div>
+                            </div>
+
+<!-- 
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
@@ -58,7 +110,7 @@
                                     <?php endforeach; ?>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> -->
                             
                         </div>
                     </div>
