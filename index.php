@@ -27,10 +27,9 @@
 
                 <!-- Page Heading -->
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Report Lists
-                        </h1>
+                    <div class="col-lg-12 view-header">
+                        <h1 class="">Report Lists</h1>
+                        <a href="admin/signin.php" class="btn bg-gradient-primary view-signin">Signin</a>
                     </div>
                     <!-- <div class="col-md-6">
                         Search Name 
