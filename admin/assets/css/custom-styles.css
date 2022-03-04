@@ -854,6 +854,35 @@ div.DTFC_LeftFootWrapper table {
     border-top: none;
 }
 
+
+
+/* Search Box*/
+.search-box{
+    float: right!important;
+    margin-bottom: 15px!important;
+    
+}
+
+.search-name{
+    float: left!important;
+}
+
+
+/* CSV export */
+.export-btn{
+    float: right!important;
+    padding-right: 10px;
+}
+
+/* pagination */
+.pagination {
+    float: right!important;
+}
+
+.report-table thead tr {font-weight: bold}
+
+.report-table tbody tr:nth-child(odd) {background: #f9f9f9}
+
 /*----------------------------------------------
     MEDIA QUERIES     
 ------------------------------------------------*/
