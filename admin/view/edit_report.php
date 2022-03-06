@@ -9,6 +9,12 @@
     include '../include/header.php';
     include_once "../controller/edit_report.php";
 
+    $id = $_GET['edit_id'];
+    // print_r($id);
+    // exit();
+    $query = "SELECT * FROM report WHERE id='$id'";
+    $result = $commons->getRow($query);
+
 ?>
 <div id="wrapper">
     <?php include '../include/nav.php';?>
@@ -32,6 +38,7 @@
                              Edit Report
                         </div>
                         <div class="panel-body">
+                            <?php if($_SESSION['id'] == $result['user_id']) {?>
                             <form role="form" action="" method="post">
                                 <?php 
                                     if (checkSession("error_report") &&  getSession('error_report') != '') {
@@ -54,6 +61,7 @@
                                     <button type="submit" name="update_report" class="btn btn-primary">Update Report</button>
                                 </div>
                             </form>
+                            <?php }?>
                         </div>
                     </div>
                     <!--End Advanced Tables -->
