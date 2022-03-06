@@ -9,7 +9,7 @@
     include '../include/header.php';
     include_once "../controller/edit_report.php";
 
-    $id = $_GET['edit_id'];
+    $id = htmlspecialchars($_GET['edit_id']);
     // print_r($id);
     // exit();
     $query = "SELECT * FROM report WHERE id='$id'";
