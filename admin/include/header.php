@@ -15,6 +15,9 @@
     <link href="../assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- include summernote css/js -->
+    <!-- <script type="text/javascript" src="../assets/tinymce/tinymce.min.js"></script> -->
+   
 </head>
 <body>
     <div id="wrapper">

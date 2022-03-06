@@ -62,10 +62,16 @@
 <?php include '../include/footer.php';?>
 
 <script type="text/javascript">
-tinyMCE.init({
-        mode : "textareas",
-        theme : "simple",
-        editor_selector : "mceEditor",
-        editor_deselector : "mceNoEditor"
+    function press(event) {
+            if (event.keyCode == 13 && !event.shiftKey) {
+                
+                //Stops enter from creating a new line
+                event.preventDefault(); 
+             
+            }
+
+        }
 });
 </script>
+
+

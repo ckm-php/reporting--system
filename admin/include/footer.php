@@ -7,9 +7,9 @@
 <script src="../assets/js/jquery.metisMenu.js"></script>
     <!-- DATA TABLE SCRIPTS -->
 <script src="../assets/js/dataTables/jquery.dataTables.js"></script>
-<script src="../assets/js/dataTables/dataTables.bootstrap.js"></script>
-<script src="../assets/js/tinymce/5/tinymce.min.js?apiKey=5wnu1n43wcfbldah0qx8jo9m6qska46s58cw4w1wr6kdykli" referrerpolicy="origin"></script>
-
+<script src="../assets/js/dataTables/dataTables.bootstrap.js"></script> -->
+<!-- <script src="../assets/summernote.min.js"></script> -->
+<!-- <script type="text/javascript" src="../assets/tinymce/tinymce.min.js"></script> -->
 <script>
     $(document).ready(function () {
         $('#dataTables-example').dataTable();
@@ -18,6 +18,21 @@
         <!-- Custom Js -->
 <script src="assets/js/custom-scripts.js"></script>
 
+<script type="text/javascript">
+    // tinymce.init({
+    //     // selector: '#editor', //Change this value according to your HTML
+    //     selector: 'textarea',
+    //     auto_focus: 'element1',
+    //     height: "500"
+    // });
+    // $('document').ready(function(){
+    //     $('#summernote').summernote({
+    //         placeholder: 'your Message',
+    //         tabsize: 2,
+    //         height: 300
+    //     });
+
+</script>
 
    
 </body>

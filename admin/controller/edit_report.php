@@ -9,12 +9,16 @@
 
         $date=$result['date'];
         $detail=$result['report_details'];
+        $detail = preg_replace("/[\n\r]/","<br />", $detail);
+        $detail = str_replace('<br /><br />','<br />', $detail);
 
         
 
         if(isset($_POST['update_report'])){
             $date = $_POST['date'];
-            $detail = htmlspecialchars($_POST['detail']);
+            $detail = $_POST['detail'];
+            $detail = preg_replace("/[\n\r]/","<br />", $detail);
+        $detail = str_replace('<br /><br />','<br />', $detail);
             if($_SESSION['id'] == $result['user_id']) {
                 $result = $commons->updateData("UPDATE report SET date='$date', report_details='$detail', updated_date=now() WHERE id='$edit_id'");
                 if($result) {

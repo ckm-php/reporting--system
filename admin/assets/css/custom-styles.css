@@ -891,11 +891,13 @@ div.DTFC_LeftFootWrapper table {
 .report-table tbody tr:nth-child(odd) {background: #f9f9f9}
 
 .panel-body .addreport{
-    width: 50%;
+    /* width: 50%; */
     margin: 0 auto;
-    height: 100vh;
+    /* height: 100vh; */
 }
-
+#date{
+    width: 30%;
+}
 /* calendar date input */
 /* input[type="date"]::-webkit-calendar-picker-indicator {
     width: 15px;
