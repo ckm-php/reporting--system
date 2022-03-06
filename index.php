@@ -42,9 +42,9 @@
                     <div class="col-md-12">
                         <!-- Search Date -->
                         <form class="form-inline search-box" method="post">
-                            <label>Date: From</label>
+                            <label for="startdate">Date: From</label>
                                 <input type="date" class="form-control" placeholder="Start"  name="startdate" value="<?php if(isset($_POST['startdate'])) echo $_POST['startdate']; ?>" />
-                            <label>To</label>
+                            <label for="enddate">To</label>
                                 <input type="date" class="form-control" placeholder="End"  name="enddate" value="<?php if(isset($_POST['enddate'])) echo $_POST['enddate']; ?>" />
                             <select class="form-control" name="user">
                                 <option value="">Select User</option>

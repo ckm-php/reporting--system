@@ -15,6 +15,13 @@ body {
 
  #wrapper {
     width: 100%;
+    height: 100vh;
+    /* overflow: hidden; */
+}
+#wrapperadd{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #page-wrapper {
@@ -883,6 +890,29 @@ div.DTFC_LeftFootWrapper table {
 
 .report-table tbody tr:nth-child(odd) {background: #f9f9f9}
 
+.panel-body .addreport{
+    width: 50%;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+/* calendar date input */
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+    width: 15px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 10px;
+}
+
+.custom-inpt { 
+    padding: 10px !important;
+} */
+
+/* .underlined-text-area .text{
+    -fx-underline: true ;
+    text-decoration:underline;
+} */
+
 /*----------------------------------------------
     MEDIA QUERIES     
 ------------------------------------------------*/
@@ -891,7 +921,7 @@ div.DTFC_LeftFootWrapper table {
      #page-wrapper{
                margin: 0 0 0 260px;
                padding: 0;
-               min-height: unset;
+               min-height: 100vh;
     }
 	
 	

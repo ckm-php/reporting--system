@@ -45,9 +45,9 @@
                             <div class="col-md-12">
                                 <!-- Search Date -->
                                 <form class="form-inline search-box" method="post">
-                                    <label>Date: From</label>
+                                    <label for="startdate">Date: From</label>
                                         <input type="date" class="form-control" placeholder="Start"  name="startdate" value="<?php if(isset($_POST['startdate'])) echo $_POST['startdate']; ?>" />
-                                    <label>To</label>
+                                    <label for="enddate">To</label>
                                         <input type="date" class="form-control" placeholder="End"  name="enddate" value="<?php if(isset($_POST['enddate'])) echo $_POST['enddate']; ?>" />
                                     <input class="form-control mr-sm-2" type="search" placeholder="Search" name="searchvalue" value="<?php if(isset($_POST['searchvalue'])) echo $_POST['searchvalue']; ?>">
                                     <button class="btn btn-primary" type="submit" name="search">
@@ -65,11 +65,11 @@
                                     <table class="report-table table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Date</th>
+                                                <th width="8%">No</th>
+                                                <th width="10%">Date</th>
                                                 <th>Report Details</th>
-                                                <th>Edit</th>
-                                                <th>Delete</th>
+                                                <th width="7%">Edit</th>
+                                                <th width="7%">Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>

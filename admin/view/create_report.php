@@ -10,7 +10,7 @@
     include '../include/header.php';
     include_once "../controller/create_report.php";
 ?>
-<div id="wrapper">
+<div id="wrapperadd">
     <?php include '../include/nav.php';?>
     <div id="page-wrapper" >
         <div class="header"> 
@@ -32,7 +32,7 @@
                              Create New Report
                         </div>
                         <div class="panel-body">
-                            <form role="form" action="" method="post">
+                            <form role="form" action="" method="post" class="addreport">
                                 <input type="hidden" name="id" id="id" value="<?php echo $_SESSION['id']?>">
                                 <div class="form-group">
                                     <label for="date">Choose Date</label>
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="detail">Report Details</label>
-                                    <textarea class="form-control" rows="3" name="detail" id="detail" required></textarea>
+                                    <textarea class="form-control" rows="10" name="detail" id="detail" required></textarea>
                                 </div>
                                 <div class="form-group col-md-12 text-center">
                                     <button type="submit" name="report" class="btn btn-primary">Add New Report</button>
@@ -60,3 +60,14 @@
 <!-- /. WRAPPER  -->
 
 <?php include '../include/footer.php';?>
+
+<script>
+    // var input = document.getElementById("detail");
+
+    // input.addEventListener("keyup", function () {
+    // output.innerHTML = input.value.replace(
+    //     /(\d+)/g, "<span style=\"text-decoration:underline\">$1</span>"
+    // );
+    // });
+
+</script>
