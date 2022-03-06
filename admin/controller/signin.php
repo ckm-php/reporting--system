@@ -13,6 +13,7 @@
             setSession("name",$user['name']);
             setSession("email",$email);
             setSession("id",$user['id']);
+            setSession("loggedin",true);
             header("location: view/dashboard.php");
         }else{
             $_SESSION['error_login']="Email and Password does not incorrect!";

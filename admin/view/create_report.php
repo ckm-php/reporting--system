@@ -61,13 +61,11 @@
 
 <?php include '../include/footer.php';?>
 
-<script>
-    // var input = document.getElementById("detail");
-
-    // input.addEventListener("keyup", function () {
-    // output.innerHTML = input.value.replace(
-    //     /(\d+)/g, "<span style=\"text-decoration:underline\">$1</span>"
-    // );
-    // });
-
+<script type="text/javascript">
+tinyMCE.init({
+        mode : "textareas",
+        theme : "simple",
+        editor_selector : "mceEditor",
+        editor_deselector : "mceNoEditor"
+});
 </script>

@@ -4,6 +4,9 @@
     include 'config/connection.php';
     include_once "model/mysession.php"; 
     include_once "controller/signin.php";
+      if(isset($_SESSION['loggedin'])){
+        header("Location:view/dashboard.php");
+      }
 ?>
 <head>
   <meta charset="utf-8" />
@@ -50,6 +53,11 @@
 
                 <form role="form" class="text-start" action="" method="post">
                 <?php 
+                      // if(isset($_SESSION['loggedin'])){
+                      //   echo "ALready Login";
+                      // }
+
+
                     if (checkSession("error_login") &&  getSession('error_login') != '') {
                         echo '<h5 class=" text-danger"> ' . getSession('error_login') . ' </h5>';
                         unset($_SESSION['error_login']);                 

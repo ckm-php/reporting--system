@@ -8,7 +8,7 @@
     <!-- DATA TABLE SCRIPTS -->
 <script src="../assets/js/dataTables/jquery.dataTables.js"></script>
 <script src="../assets/js/dataTables/dataTables.bootstrap.js"></script>
-<script src="../asset/js/tinymce/5/tinymce.min.js?apiKey=5wnu1n43wcfbldah0qx8jo9m6qska46s58cw4w1wr6kdykli" referrerpolicy="origin"></script>
+<script src="../assets/js/tinymce/5/tinymce.min.js?apiKey=5wnu1n43wcfbldah0qx8jo9m6qska46s58cw4w1wr6kdykli" referrerpolicy="origin"></script>
 
 <script>
     $(document).ready(function () {
