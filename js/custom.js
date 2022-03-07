@@ -100,4 +100,56 @@ $(function() {
       }
     });
 
+    // jQuery('#fromdatepicker').datetimepicker({
+    //   timepicker:false,
+    //   formatDate:'Y-m-d',
+    // });
+
+    // jQuery('#todatepicker').datetimepicker({
+    //   timepicker:false,
+    //   formatDate:'Y-m-d',
+    // });
+
+    // jQuery('#fromdatepicker2').datetimepicker({
+    //   timepicker:false,
+    //   formatDate:'Y-m-d',
+    // });
+
+    // jQuery('#todatepicker2').datetimepicker({
+    //   timepicker:false,
+    //   formatDate:'Y-m-d',
+    // });
+
+    // jQuery('#datepicker').datetimepicker({
+    //   timepicker:false,
+    //   formatDate:'Y-m-d',
+    // });
+
+    // jQuery('#datepickers').datetimepicker({
+    //   timepicker:false,
+    //   formatDate:'Y-m-d',
+    // });
+
+    $("#fromdatepicker").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+    
+    $("#todatepicker").datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+    
+    $("#fromdatepicker2").datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+    
+    $("#todatepicker2").datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+
+    $("#datepicker").datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+
   });
+
+  

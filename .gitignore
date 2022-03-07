@@ -3,6 +3,12 @@ config.php
 pass_generate.php
 testdata.php
 admin/dist/img
+admin/functions.php
+
+login2.php
+logout2.php
+test.html
+
 # templates for admin part
 admin/dist
 admin/plugins

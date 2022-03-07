@@ -1,6 +1,5 @@
 <?php 
     include 'header.php';
-    session_start();
  ?>
 <div class="container-fluid">
     <?php include 'top_menu.php' ?>
@@ -10,12 +9,12 @@
             <form action="reportAct.php" method="post" name="report_validate">
                 <input type="hidden" name="id" value="<?= $_SESSION['id']?>">
                 <div class="form-group mb-3">
-                    <label for="date">Date</label>
-                    <input type="date" class="form-control" name="date" id="date">
+                    <label for="datepicker">Date</label>
+                    <input type="text" id="datepicker" class="form-control" name="date" placeholder="yyyy-mm-dd">
                 </div>
                 <div class="form-group mb-4">
                     <label for="report">Report</label>
-                    <textarea class="form-control" id="report" name="report" rows="3"></textarea>
+                    <textarea class="form-control" name="report" id="report" rows="5" placeholder="Report ..."></textarea>
                 </div>
                 
                 <button type="submit" class="btn btn-primary" name="save">Save</button>

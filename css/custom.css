@@ -53,6 +53,11 @@ header .head-log {
 
 .back-link:hover {
     color: #fff;
+}  
+
+.table-td-style table td {
+    width:50px;
+    word-wrap: break-word;
 }
 
 /* login */

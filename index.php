@@ -16,7 +16,7 @@
  <div class="container-fluid">
     <header>
         <h3 class="head-title text-primary">Reporting System</h3>
-        <a href="login.php" class="head-log btn btn-outline-warning text-primary">Login</a>
+        <a href="/admin/login.php" class="head-log btn btn-outline-warning text-primary">Login</a>
     </header>
     <div class="d-flex justify-content-around mt-3">
         <form class="example" action="" method="post">
@@ -32,10 +32,10 @@
                 </option>
                 <?php endforeach; ?>
             </select>
-            <label for="from">From</label>
-            <input type="date" name="fromDate" class="date-search" id="from" value="<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>" placeholder="From.....">
-            <label for="to">To</label>
-            <input type="date" name="toDate" class="date-search" id="to" value="<?php if(isset($_POST['toDate'])) echo $_POST['toDate']; ?>" placeholder="To.....">
+            <label for="fromdatepicker">From</label>
+            <input type="text" id="fromdatepicker" name="fromDate" class="date-search" value="<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>" placeholder="yyy-mm-dd ">
+            <label for="todatepicker">To</label>
+            <input type="text" id="todatepicker" name="toDate" class="date-search" value="<?php if(isset($_POST['toDate'])) echo $_POST['toDate']; ?>" placeholder="yyy-mm-dd ">
             <button type="submit" name="search" class="btn-submit"><i class="fa fa-search"></i></button>
             <a href="index.php" class="btn btn-secondary refresh-icon"><i class="fas fa-sync-alt"></i></a>
         </form>
@@ -45,7 +45,7 @@
     </div>
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-10">
+        <div class="col-md-10 table-td-style">
             <table class="table table-striped mt-5">
                <thead>
                     <tr>

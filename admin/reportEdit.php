@@ -24,10 +24,10 @@
                         <textarea class="form-control" id="report" name="report" rows="3"><?= $result['report'] ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" name="save">Save</button>
-                    <a href="index.php" class="btn btn-secondary">Cancel</a>
+                    <a href="report_list.php" class="btn btn-secondary">Cancel</a>
                 </form>
             <?php }else {  
-                header('Location: ../login.php');
+                header('Location: login.php');
              } ?>
         </div>
         <div class="col-md-2"></div>

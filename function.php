@@ -36,6 +36,11 @@
             }
          }
 
+         function setSession($key, $value) {
+            session_start();
+             $_SESSION[$key] = $value;
+         }
+
     }
 
 ?>

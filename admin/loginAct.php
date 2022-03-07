@@ -37,10 +37,12 @@
                     setcookie('email', $email,time()-3600*24*7);
                     setcookie('password', $password,time()-3600*24*7);
                 }
-                header('Location: index.php');
+                
+                header('Location: report_list.php');
+                
             }
             else {
-                header('Location: ../login.php?msg');
+                header('Location: login.php?msg');
             }
 
 
@@ -49,6 +51,9 @@
             echo "Error: " . $e->getMessage();
         }
        
+    }
+    else {
+        header('Location: login.php');
     }
 
 ?>

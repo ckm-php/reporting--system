@@ -8,8 +8,9 @@
         $report = $_POST['report'];
         $now = date('Y-m-d h:i:s');
 
-        // echo $id;
+        // echo $date;
         // die();
+
         $data = new Common();
         $datas = $data->getReturnData("INSERT INTO report (report, date, adminId, created_date, updated_date) VALUES (?, ?, ?, ?, ?)", [$report, $date, $id, $now, $now]);
         if($datas) {
