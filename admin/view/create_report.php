@@ -10,7 +10,7 @@
     include '../include/header.php';
     include_once "../controller/create_report.php";
 ?>
-<div id="wrapperadd">
+<div id="wrapper">
     <?php include '../include/nav.php';?>
     <div id="page-wrapper" >
         <div class="header"> 
