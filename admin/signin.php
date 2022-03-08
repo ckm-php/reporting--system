@@ -88,10 +88,10 @@
                   <div class="text-center">
                     <input type="submit" name="signin" class="btn bg-gradient-primary w-100 my-4 mb-2" value="Sign in"/>
                   </div>
-                  <p class="mt-4 text-sm text-center">
+                  <!-- <p class="mt-4 text-sm text-center">
                     Don't have an account?
                     <a href="signup.php" class="text-primary text-gradient font-weight-bold">Sign up</a>
-                  </p>
+                  </p> -->
                 </form>
               </div>
             </div>
