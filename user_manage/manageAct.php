@@ -20,7 +20,7 @@
             // exit();
 
             if($email == $data['email'] and $password == $data['password'] ) {
-                $_SESSION['user'] = $data['name'];
+                $_SESSION['name'] = $data['name'];
                 $_SESSION['id'] = $data['id'];
 
                 header('Location: management.php');
