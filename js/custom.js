@@ -28,7 +28,7 @@ $(function() {
       }
     });
 
-    $("form[name='signup_validate']").validate({
+    $("form[name='create_validate']").validate({
       rules: {
         name: {
           required: true
@@ -40,10 +40,6 @@ $(function() {
         password: {
           required: true,
           minlength: 5
-        },
-        cpassword: {
-          required: true,
-          minlength: 5
         }
       },
       messages: {
@@ -52,10 +48,6 @@ $(function() {
         },
         password: {
           required: "Please provide a password",
-          minlength: "Your password must be at least 5 characters long"
-        },
-        cpassword: {
-          required: "Please provide a confirm password",
           minlength: "Your password must be at least 5 characters long"
         },
         email: "Please enter a valid email address"
@@ -131,11 +123,11 @@ $(function() {
     // });
 
     $("#fromdatepicker").datepicker({
-        dateFormat: "yy-mm-dd"
+        dateFormat: "yy-mm-dd",
     });
     
     $("#todatepicker").datepicker({
-      dateFormat: "yy-mm-dd"
+      dateFormat: "yy-mm-dd",
     });
     
     $("#fromdatepicker2").datepicker({

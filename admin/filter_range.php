@@ -66,13 +66,8 @@
 
         // echo $id;
         // die();
-        
-        foreach($datas as $row){
-            // if($row['adminId'] == $id) {
-            //     echo $row['id'];
-            // }else {
-            //     echo "Not user";
-            // }
+        if($datas) { 
+            foreach($datas as $row){
         ?>
         <tr>
             <td><?= $row['id'] ?></td>
@@ -86,5 +81,11 @@
         </tr>
         <?php
         }
+           } else {
+        ?>
+            <tr>
+                <td colspan="5" class="text-primary text-center font-weight-bold"><b>There is no datas to show</b></td>
+            </tr>
+        <?php } 
     }
 ?>

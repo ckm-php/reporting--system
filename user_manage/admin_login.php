@@ -24,7 +24,7 @@
 <body>
     <div class="container-fluid">
         <header>
-            <h3 class="head-title text-primary">User Login</h3>
+            <h3 class="head-title text-primary">User Management Login</h3>
             <a href="/index.php" class="back-link btn btn-outline-info">Back User View <i class="fas fa-reply-all"></i></a>
         </header>
         <div class="row mt-3">
@@ -41,25 +41,15 @@
                         $message = "Incorrect email or password";
                         echo "<div class='alert alert-danger'>" . $message . "</div>";
                     }
-                    if(isset($_GET['deactivatemsg'])) {
-                        $message = "Your account is deactivated";
-                        echo "<div class='alert alert-danger'>" . $message . "</div>";
-                    }
                 ?>
-                <form action="loginAct.php" method="post" name="login_validate">
+                <form action="manageAct.php" method="post" name="login_validate">
                     <div class="mb-3">
                         <label for="emailInput" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email" id="emailInput" value="<?php if(isset($_COOKIE['email'])) echo $_COOKIE['email']; ?>" placeholder="Enter Email">
+                        <input type="email" class="form-control" name="email" id="emailInput" placeholder="Enter Email">
                     </div>
                     <div class="mb-4">
                         <label for="passInput" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="passInput" value="<?php if(isset($_COOKIE['password'])) echo $_COOKIE['password']; ?>" name="password" placeholder="Enter Password">
-                    </div>
-                    <div class="form-group d-flex justify-content-between mb-3">
-                        <label>
-                            <input type="checkbox" name="remerberme"> Remember me
-                        </label>
-                        <a href="forgot_pass.php" class="text-rimary forgotpass">Forgot Pasword?</a>
+                        <input type="password" class="form-control" id="passInput" name="password" placeholder="Enter Password">
                     </div>
                     </div>
                     <div class="d-flex justify-content-center">

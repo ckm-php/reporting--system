@@ -38,7 +38,12 @@
                     setcookie('password', $password,time()-3600*24*7);
                 }
                 
-                header('Location: report_list.php');
+                if($data['status'] == 0) {
+                    header('Location: report_list.php');
+                }
+                else {
+                    header('Location: login.php?deactivatemsg');
+                }
                 
             }
             else {
