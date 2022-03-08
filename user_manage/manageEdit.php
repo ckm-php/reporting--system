@@ -7,9 +7,9 @@
     // print_r($result);
     // echo $_SESSION['id'];
     // exit();
+    include 'admin_topmenu.php';
  ?>
-<div class="container-fluid">
-    <?php include 'top_menu.php' ?>
+<div class="container">
     <div class="row mt-4">
         <div class="col-md-2"></div>
         <div class="col-md-8">
