@@ -1,5 +1,9 @@
 <?php 
-    require_once('../model/common.php');
+    if($_SESSION['role']=="admin") {
+        require_once "../../model/common.php";
+    }else if($_SESSION['role']=="user") {
+        require_once "../model/common.php";
+    }
     $commons = new Common;
     if(isset($_GET['del_id'])){
         $del_id = htmlspecialchars($_GET['del_id']);
@@ -8,7 +12,7 @@
         if($_SESSION['id'] == $result['user_id']) {
             $result = $commons->deleteData("DELETE FROM report WHERE id='$del_id'");
             if(!empty($result)){
-                header("Location:list_report.php");
+                header("Location:report_lists.php");
             }
         }
     }

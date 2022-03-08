@@ -1,5 +1,10 @@
 <?php 
-    require_once('../model/common.php');
+    if($_SESSION['role']=="admin") {
+        require_once "../../model/common.php";
+    }else if($_SESSION['role']=="user") {
+        require_once "../model/common.php";
+    }
+    // require_once('../model/common.php');
     $commons = new Common;
 
     if(isset($_GET['edit_id'])){
@@ -23,7 +28,7 @@
                 $result = $commons->updateData("UPDATE report SET date='$date', report_details='$detail', updated_date=now() WHERE id='$edit_id'");
                 if($result) {
                     
-                    header ("location: list_report.php");
+                    header ("location: report_lists.php");
                     $_SESSION['success_report']="Update Report Successfully!";
                 }
                 else {

@@ -9,3 +9,8 @@ searchvalue.php
 csv_export-old.php
 index1.php
 searchbox.php
+
+/admin/controller/admin/report_search.php
+/admin/controller/admin/report_delete.php
+/admin/controller/admin/report_create.php
+/admin/controller/admin/report_edit.php

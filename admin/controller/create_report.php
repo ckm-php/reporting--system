@@ -1,5 +1,9 @@
 <?php 
-    require_once('../model/common.php');
+    if($_SESSION['role']=="admin") {
+        require_once "../../model/common.php";
+    }else if($_SESSION['role']=="user") {
+        require_once "../model/common.php";
+    }
 
     if(isset($_POST['report'])){
         $commons = new Common;
@@ -14,7 +18,7 @@
 
         $results = $commons->insertData("INSERT INTO report (user_id, date, report_details ,created_date,updated_date) VALUES ('$id', '$date', '$detail', now(),now())");
         $_SESSION['success']="Create Report Successfully!";
-        header("Location:list_report.php");
+        header("Location:report_lists.php");
  
 
     }

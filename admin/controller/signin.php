@@ -10,11 +10,25 @@
         if($user['email']==""){
             $_SESSION['error_login']="Please Signup!";
         }elseif (password_verify($password,$user['password'])){
-            setSession("name",$user['name']);
-            setSession("email",$email);
-            setSession("id",$user['id']);
-            setSession("loggedin",true);
-            header("location: view/dashboard.php");
+            if($user['status']=="active"){
+                if($user['role']=="admin"){
+                    setSession("name",$user['name']);
+                    setSession("email",$email);
+                    setSession("id",$user['id']);
+                    setSession("role",$user['role']);
+                    setSession("loggedin",true);
+                    header("location: view/admin/user_lists.php");
+                }else{
+                    setSession("name",$user['name']);
+                    setSession("email",$email);
+                    setSession("id",$user['id']);
+                    setSession("role",$user['role']);
+                    setSession("loggedin",true);
+                    header("location: view/dashboard.php");
+                }
+            }else{
+                $_SESSION['error_login']="This account is Deactivate!";
+            }
         }else{
             $_SESSION['error_login']="Email and Password does not incorrect!";
         }

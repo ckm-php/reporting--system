@@ -904,16 +904,26 @@ div.DTFC_LeftFootWrapper table {
     padding: 0px;
     margin: 0px;
     margin-top: 10px;
+}*/
+
+/* User Management */
+.usersearch .form-control {
+    padding: 6px;
 }
 
-.custom-inpt { 
-    padding: 10px !important;
-} */
+.disableduser{
+    background-color: rgb(247, 167, 167)!important;
+}
 
-/* .underlined-text-area .text{
-    -fx-underline: true ;
-    text-decoration:underline;
-} */
+.adduser,.edituser{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.cancel-btn a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
 
 /*----------------------------------------------
     MEDIA QUERIES     

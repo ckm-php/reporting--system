@@ -5,7 +5,17 @@
     include_once "model/mysession.php"; 
     include_once "controller/signin.php";
       if(isset($_SESSION['loggedin'])){
-        header("Location:view/dashboard.php");
+        // print_r($_SESSION['loggedin']);
+        // exit();
+        // $i=isset($_SESSION['role'])=="user";
+        // print_r($i);
+        // exit();
+        if($_SESSION['role']=="admin"){
+          header("Location:view/admin/user_lists.php");
+        }else{
+          header("Location:view/report_lists.php");
+        }
+      
       }
 ?>
 <head>

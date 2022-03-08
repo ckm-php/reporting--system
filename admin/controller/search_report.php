@@ -1,5 +1,10 @@
 <?php
-    //  include "admin/model/common.php";
+        if($_SESSION['role']=="admin") {
+            require_once "../../model/common.php";
+        }else if($_SESSION['role']=="user") {
+            require_once "../model/common.php";
+        }
+   
     // session_start();
     $commons = new Common();
 
@@ -53,7 +58,7 @@
                     <td><?php echo $results->data[$i]['date']; ?></td>
                     <td><?php echo $results->data[$i]['report_details']; ?></td>
                     <td><a href="edit_report.php?edit_id=<?php echo  $results->data[$i]['id']; ?>" formaction="" class="btn btn-xs btn-success confirm_edit">Edit</a></td>
-                    <td><a href="list_report.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td>
+                    <td><a href="report_lists.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td>
                 </tr>
         <?php
                 endfor;
@@ -78,7 +83,7 @@
                     <td><?php echo $results->data[$i]['date']; ?></td>
                     <td><?php echo $results->data[$i]['report_details']; ?></td>
                     <td><a href="edit_report.php?edit_id=<?php echo  $results->data[$i]['id']; ?>" formaction="" class="btn btn-xs btn-success confirm_edit">Edit</a></td>
-                    <td><a href="list_report.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td>
+                    <td><a href="report_lists.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td>
                 </tr>
     <?php
             endfor;

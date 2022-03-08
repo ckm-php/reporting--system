@@ -1,15 +1,17 @@
 <?php 
-    include_once "../model/mysession.php"; 
+    include_once "../../model/mysession.php"; 
     if(!isset($_SESSION['id'])) {
-        die('Direct access not allowed');
-        exit();
+        header("Location:../../signin.php");
     }
-    // include_once "../model/common.php";
-    include '../include/header.php';
-    include "../controller/delete_report.php";
-    include '../model/pagination.php';
+    if($_SESSION['role']=="user") {
+        header("Location:../error.php");
+    }
    
-    $commons = new Common();
+    include_once '../../include/admin_header.php';
+    include "../../controller/delete_report.php";
+    include '../../model/pagination.php';
+   
+    // $commons = new Common();
     $_POST['id'] = $_SESSION['id'];
     
     // $results = $commons->getAllRow("SELECT * FROM report WHERE user_id='$id'");
@@ -19,7 +21,7 @@
     if(isset($_POST['searchvalue'])){$_SESSION['searchvalue'] = $_POST['searchvalue'];}
 ?>
 <div id="wrapper">
-    <?php include '../include/nav.php';?>
+    <?php include '../../include/admin_nav.php';?>
     <div id="page-wrapper" >
         <div class="header"> 
             <h1 class="page-header">
@@ -54,10 +56,10 @@
                                         <span class="glyphicon glyphicon-search"></span>
                                     </button> 
                                     <!-- <button class="btn btn-success" name="reset">Reset</button> -->
-                                    <a href="list_report.php" type="button" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
+                                    <a href="report_lists.php" type="button" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
                                 </form>
                                 <!-- CSV Export link -->
-                                <span class="export-btn"><a href="../controller/csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>
+                                <span class="export-btn"><a href="../controller/report_csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>
                             </div> 
                             
                             <div class="col-md-12">
@@ -73,7 +75,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php include '../controller/search.php'?>	
+                                            <?php include '../../controller/search_report.php'?>	
                                             <!--  -->
                                         </tbody>
                                     </table>
@@ -85,32 +87,6 @@
                                     
                                 </div>
                             </div>
-
-<!-- 
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Date</th>
-                                            <th>Report Details</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php $i=1; foreach($results as $result ) : ?>
-                                        <tr class="odd">
-                                            <td><?php echo $i++; ?></td>
-                                            <td><?php echo $result['date']; ?></td>
-                                            <td><?php echo $result['report_details']; ?></td>
-                                            <td><a href="edit_report.php?edit_id=<?php echo $result['id']; ?>" formaction="" class="btn btn-xs btn-success confirm_edit">Edit</a></td>
-                                            <td><a href="list_report.php?del_id=<?php echo $result['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div> -->
                             
                         </div>
                     </div>
@@ -125,7 +101,7 @@
 </div>
 <!-- /. WRAPPER  -->
 
-<?php include '../include/footer.php';?>
+<?php include_once '../../include/admin_footer.php';?>
 
 <script>
     $(function(){

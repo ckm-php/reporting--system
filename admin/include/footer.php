@@ -7,7 +7,7 @@
 <script src="../assets/js/jquery.metisMenu.js"></script>
     <!-- DATA TABLE SCRIPTS -->
 <script src="../assets/js/dataTables/jquery.dataTables.js"></script>
-<script src="../assets/js/dataTables/dataTables.bootstrap.js"></script> -->
+<script src="../assets/js/dataTables/dataTables.bootstrap.js"></script> 
 <!-- <script src="../assets/summernote.min.js"></script> -->
 <!-- <script type="text/javascript" src="../assets/tinymce/tinymce.min.js"></script> -->
 <script>
