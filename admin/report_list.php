@@ -36,7 +36,7 @@
            <div class="btn btn-success report-new">
                <a href="new_report.php" class="text-white">Add New Report</a>
            </div>
-
+           
         </div>
 
         <div class="row">

@@ -89,3 +89,9 @@ form .error {
 .mr-1 {
     margin-right: 10px;
 }
+
+/* user profile */
+.back-btn {
+    text-decoration: none;
+    font-weight: 500;
+}

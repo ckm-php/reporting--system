@@ -26,6 +26,7 @@
             if($email == $data['email'] and $password == $data['password'] and $count > 0) {
                 $_SESSION['user'] = $data['name'];
                 $_SESSION['id'] = $data['id'];
+                $_SESSION['mail'] = $data['email'];
 
                 if(!empty($_POST['remerberme'])) {
                     $remerberme = $_POST['remerberme'];

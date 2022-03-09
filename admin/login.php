@@ -61,7 +61,6 @@
                         </label>
                         <a href="forgot_pass.php" class="text-rimary forgotpass">Forgot Pasword?</a>
                     </div>
-                    </div>
                     <div class="d-flex justify-content-center">
                         <button type="submit" name="submit" class="btn btn-primary btn-name">Login</button>
                     </div>
