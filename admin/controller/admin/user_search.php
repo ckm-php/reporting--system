@@ -47,10 +47,10 @@
         }
         $rows = $commons->getAllRow($query);
 
-        $paginator  = new Pagination( $commons->pdo, $query );
-        $results    = $paginator->getData( $limit, $page );
+     
         if($rows) { 
-            
+            $paginator  = new Pagination( $commons->pdo, $query );
+            $results    = $paginator->getData( $limit, $page );
             $j=1;
             for( $i = 0; $i < count( $results->data ); $i++ ) :
         ?>
@@ -68,9 +68,6 @@
         <?php
                 endfor;
         }else{
-            // if(isset($results)){
-            //     $results;
-            
 
     ?>
             <tr>
