@@ -21,10 +21,16 @@
     $_POST['id'] = $_SESSION['id'];
     
     // $results = $commons->getAllRow("SELECT * FROM report WHERE user_id='$id'");
+
+    // if(isset($POST[reset])){
+
+    // }
     
     if(isset($_POST['startdate'])){$_SESSION['startdate'] = $_POST['startdate'];}
     if(isset($_POST['enddate'])){$_SESSION['enddate'] = $_POST['enddate'];}
     if(isset($_POST['searchvalue'])){$_SESSION['searchvalue'] = $_POST['searchvalue'];}
+
+
 ?>
 <div id="wrapper">
     <?php
@@ -67,7 +73,8 @@
                                         <span class="glyphicon glyphicon-search"></span>
                                     </button> 
                                     <!-- <button class="btn btn-success" name="reset">Reset</button> -->
-                                    <a href="report_lists.php" type="button" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
+                                    <button type="button" class="btn btn-primary cancel-btn"><a href="report_lists.php"><span class ="glyphicon glyphicon-refresh"><span></a></button>
+                                    <!-- <a href="report_lists.php" type="button" name="reset" class="btn btn-success"><span class ="glyphicon glyphicon-refresh"><span></a> -->
                                 </form>
                                 <!-- CSV Export link -->
                                 <span class="export-btn"><a href="../controller/report_csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>

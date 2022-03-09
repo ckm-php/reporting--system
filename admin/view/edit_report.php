@@ -6,7 +6,7 @@
     }
 
     if($_SESSION['role']=="admin") {
-        include_once '../../include/admin_header.php';
+        include_once '../include/admin_header.php';
     }else if($_SESSION['role']=="user") {
         include '../include/header.php';
     }
