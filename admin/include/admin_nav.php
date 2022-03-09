@@ -53,7 +53,7 @@
                 </ul>
             </li>
             <li>
-                <a href="report_create.php"><i class="fa fa-edit"></i>New Report</a>
+                <a href="create_report.php"><i class="fa fa-edit"></i>New Report</a>
             </li>
             <li>
                 <a href="report_lists.php"><i class="fa fa-list"></i>Report Lists</a>
