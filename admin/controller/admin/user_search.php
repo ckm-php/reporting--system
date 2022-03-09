@@ -82,23 +82,32 @@
         $paginator  = new Pagination( $commons->pdo, $query );
         $results    = $paginator->getData( $limit, $page );
         $j=1;
-        for( $i = 0; $i < count( $results->data ); $i++ ) :
+
+        if( !empty($results->data)){
+            for( $i = 0; $i < count( $results->data ); $i++ ) :
     ?>
-                <tr <?php if($results->data[$i]['status'] == "deactivate"){ ?>class="disableduser"<?php } ?>>
-                    <td><?php echo $j++; ?></td>
-                    <td><?php echo $results->data[$i]['name']; ?></td>
-                    <td><?php echo $results->data[$i]['email']; ?></td>
-                    <td><?php echo $results->data[$i]['created_date']; ?></td>
-                    <td><?php echo $results->data[$i]['role']; ?></td>
-                    <td><?php echo $results->data[$i]['status']; ?></td>
-                    <td><a href="user_edit.php?edit_id=<?php echo  $results->data[$i]['id']; ?>" formaction="" class="btn btn-xs btn-success con_edit">Edit</a></td>
-                    <td><a href="user_lists.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger con_del">Delete</a></td> 
-                    <!-- <td><a href="list_report.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td> -->
+                    <tr <?php if($results->data[$i]['status'] == "deactivate"){ ?>class="disableduser"<?php } ?>>
+                        <td><?php echo $j++; ?></td>
+                        <td><?php echo $results->data[$i]['name']; ?></td>
+                        <td><?php echo $results->data[$i]['email']; ?></td>
+                        <td><?php echo $results->data[$i]['created_date']; ?></td>
+                        <td><?php echo $results->data[$i]['role']; ?></td>
+                        <td><?php echo $results->data[$i]['status']; ?></td>
+                        <td><a href="user_edit.php?edit_id=<?php echo  $results->data[$i]['id']; ?>" formaction="" class="btn btn-xs btn-success con_edit">Edit</a></td>
+                        <td><a href="user_lists.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger con_del">Delete</a></td> 
+                        <!-- <td><a href="list_report.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td> -->
+                        
                     
-                
-                </tr>
+                    </tr>
     <?php
             endfor;
+        }elseif (empty($results->data)){
+            ?>
+                    <tr>
+                        <td colspan = "3"><center>Record Not Found</center></td>
+                    </tr>
+    <?php
+        }
     }
 
 ?>
