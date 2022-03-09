@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include "../config/connection.php";
-    include "../model/common.php";
+    include "../../config/connection.php";
+    include "../../model/common.php";
     $commons = new Common();
     $filename = 'user_'.time().'.csv';
     $id = $_SESSION['id'];

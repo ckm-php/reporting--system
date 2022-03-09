@@ -7,7 +7,6 @@
         header("Location:error.php");
     }
     include_once '../include/admin_header.php';
-    include_once '../model/common.php';
     include_once "../controller/admin/user_delete.php";
     include_once '../model/pagination.php';
    
