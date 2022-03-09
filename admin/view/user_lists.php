@@ -106,8 +106,8 @@
                                                 <th width="8%">No</th>
                                                 <th>Name</th>
                                                 <th width="20%">Email</th>
-                                                <th width="8%">Role</th>
                                                 <th>Created Date</th>
+                                                <th width="8%">Role</th>
                                                 <th width="8%">Status</th>
                                                 <th width="7%">Edit</th>
                                                 <th width="7%">Delete</th>
