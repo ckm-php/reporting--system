@@ -13,13 +13,28 @@
         // exit();
 
         $data = new Common();
-        $sql = $data->getReturnData("INSERT INTO admin (name, email, password, status) VALUES (?, ?, ?, ?)", [$name, $email, $password, $status]);
-        if($sql) {
-            header("location:management.php");
-        }
+
+        $sql = $data->getAllData("SELECT * FROM admin WHERE email = ?", [$email]);
+        $count = count($sql);
+
+        // print_r($count);
+        die();
+
+        if($count == 0) {
+            $sql = $data->getReturnData("INSERT INTO admin (name, email, password, status) VALUES (?, ?, ?, ?)", [$name, $email, $password, $status]);
+            if($sql) {
+                header("location:management.php");
+            }
+            else {
+                echo "Insert Not Success";
+            }
+        } 
         else {
-            echo "Insert Not Success";
+            header("location:new_user.php?emailExist");
         }
+
+
+        
         
     }
         

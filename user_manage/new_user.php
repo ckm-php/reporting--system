@@ -6,6 +6,12 @@
     <div class="row mt-3">
         <div class="col-md-2"></div>
         <div class="col-md-8">
+            <?php
+                if(isset($_GET['emailExist'])) {
+                    $emailExist = "Email already existed";
+                    echo '<div class="alert alert-danger">'. $emailExist .'</div>';
+                }
+            ?>
             <form action="createAct.php" method="post" name="create_validate">
                 <div class="mb-3">
                     <label for="nameInput" class="form-label">Name</label>

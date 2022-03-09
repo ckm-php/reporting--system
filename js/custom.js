@@ -95,6 +95,10 @@ $(function() {
     $("form[name='changepass_validate']").validate({
       // Specify validation rules
       rules: {
+        opassword: {
+          required: true,
+          minlength: 5
+        },
         password: {
           required: true,
           minlength: 5
@@ -106,6 +110,10 @@ $(function() {
       },
       // Specify validation error messages
       messages: {
+        opassword: {
+          required: "Please provide a Old password",
+          minlength: "Your password must be at least 5 characters long"
+        },
         password: {
           required: "Please provide a New password",
           minlength: "Your password must be at least 5 characters long"
