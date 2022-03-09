@@ -98,7 +98,7 @@
                                         </tbody>
                                     </table>
                                     <?php 
-                                        if($results){
+                                        if(isset($results)){
                                         echo $paginator->createLinks( $links, 'pagination pagination-sm' ); 
                                         }
                                     ?>
