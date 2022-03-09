@@ -68,7 +68,7 @@
         $status = $result['status'];
         $created_date = $result['created_date'];
 
-        $user_arr = array($name,$email,$role,$status,$created_date);
+        $user_arr = array($name,$email,$created_date,$role,$status);
         // if(sizeof($user_arr)>0){
             fputcsv($file,$user_arr); 
         // }

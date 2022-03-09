@@ -38,8 +38,9 @@
             $result->page   = $this->_page;
             $result->limit  = $this->_limit;
             $result->total  = $this->_total;
-            $result->data   = $results;
-          
+            if(isset($results)){
+                $result->data   = $results;
+            }
             return $result;
         }
 

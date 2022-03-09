@@ -73,18 +73,26 @@
         $paginator  = new Pagination( $commons->pdo, $query );
         $results    = $paginator->getData( $limit, $page );
         $j=1;
-        for( $i = 0; $i < count( $results->data ); $i++ ) :
+        if( !empty($results->data)){
+            for( $i = 0; $i < count( $results->data ); $i++ ) :
     ?>
-                <tr>
-                    <td><?php echo $j++; ?></td>
-                    <td><?php echo $results->data[$i]['date']; ?></td>
-                    <td><?php echo $results->data[$i]['report_details']; ?></td>
-                    <td><a href="edit_report.php?edit_id=<?php echo  $results->data[$i]['id']; ?>" formaction="" class="btn btn-xs btn-success confirm_edit">Edit</a></td>
-                    <td><a href="report_lists.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td>
-                </tr>
+                    <tr>
+                        <td><?php echo $j++; ?></td>
+                        <td><?php echo $results->data[$i]['date']; ?></td>
+                        <td><?php echo $results->data[$i]['report_details']; ?></td>
+                        <td><a href="edit_report.php?edit_id=<?php echo  $results->data[$i]['id']; ?>" formaction="" class="btn btn-xs btn-success confirm_edit">Edit</a></td>
+                        <td><a href="report_lists.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td>
+                    </tr>
     <?php
             endfor;
-    }
+        }elseif (empty($results->data)){
+    ?>
+            <tr>
+                <td colspan = "3"><center>Record Not Found</center></td>
+            </tr>
+    <?php
+        }
+     }
 
 ?>
 

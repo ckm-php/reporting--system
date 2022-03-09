@@ -58,9 +58,9 @@
                     <td><?php echo $j++; ?></td>
                     <td><?php echo $results->data[$i]['name']; ?></td>
                     <td><?php echo $results->data[$i]['email']; ?></td>
+                    <td><?php echo $results->data[$i]['created_date']; ?></td>
                     <td><?php echo $results->data[$i]['role']; ?></td>
                     <td><?php echo $results->data[$i]['status']; ?></td>
-                    <td><?php echo $results->data[$i]['created_date']; ?></td>
                     <td><a href="user_edit.php?edit_id=<?php echo  $results->data[$i]['id']; ?>" formaction="" class="btn btn-xs btn-success con_edit">Edit</a></td>
                     <td><a href="user_lists.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger con_del">Delete</a></td> 
                     
@@ -88,9 +88,9 @@
                     <td><?php echo $j++; ?></td>
                     <td><?php echo $results->data[$i]['name']; ?></td>
                     <td><?php echo $results->data[$i]['email']; ?></td>
+                    <td><?php echo $results->data[$i]['created_date']; ?></td>
                     <td><?php echo $results->data[$i]['role']; ?></td>
                     <td><?php echo $results->data[$i]['status']; ?></td>
-                    <td><?php echo $results->data[$i]['created_date']; ?></td>
                     <td><a href="user_edit.php?edit_id=<?php echo  $results->data[$i]['id']; ?>" formaction="" class="btn btn-xs btn-success con_edit">Edit</a></td>
                     <td><a href="user_lists.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger con_del">Delete</a></td> 
                     <!-- <td><a href="list_report.php?del_id=<?php echo  $results->data[$i]['id']; ?>" class="btn btn-xs btn-danger confirm_del">Delete</a></td> -->
