@@ -11,9 +11,9 @@
     if(isset($_SESSION['enddate'])){$enddate = $_SESSION['enddate'];;}
     if(isset($_SESSION['searchvalue'])){$searchvalue = $_SESSION['searchvalue'];}
     
-    $query = "SELECT * FROM report WHERE user_id='$id' ORDER BY report.date DESC";
+    
 
-    if($searchvalue || $startdate || $enddate ){
+    if(isset($searchvalue) || isset($startdate) || isset($enddate) ){
 
         // $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
         $conditions = array();
@@ -31,7 +31,8 @@
         $results = $commons->getAllRow($query);
     
     }else{
-         $results = $commons->getAllRow($query);
+        $query = "SELECT * FROM report WHERE user_id='$id' ORDER BY report.date DESC";
+        $results = $commons->getAllRow($query);
     }
 
     $report_arr = array();

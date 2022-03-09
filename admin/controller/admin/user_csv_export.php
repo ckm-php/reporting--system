@@ -21,7 +21,7 @@
     
     $query = "SELECT * FROM user ORDER BY user.created_date DESC";
 
-    if($searchvalue || $startdate || $enddate || $urole || $ustatus || $user){
+    if(isset($searchvalue) || isset($startdate) || isset($enddate) || isset($urole) || isset($ustatus) || isset($user)){
 
         // $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
         $conditions = array();
