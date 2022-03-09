@@ -1,15 +1,15 @@
 <?php 
-    include_once "../../model/mysession.php"; 
+    include_once "../model/mysession.php"; 
     if(!isset($_SESSION['id'])) {
-        header("Location:../../signin.php");
+        header("Location:../signin.php");
     }
     if($_SESSION['role']=="user") {
-        header("Location:../error.php");
+        header("Location:error.php");
     }
-    include_once '../../include/admin_header.php';
-    include_once '../../model/common.php';
-    include_once "../../controller/admin/user_delete.php";
-    include_once '../../model/pagination.php';
+    include_once '../include/admin_header.php';
+    include_once '../model/common.php';
+    include_once "../controller/admin/user_delete.php";
+    include_once '../model/pagination.php';
    
     $commons = new Common();
     $_POST['id'] = $_SESSION['id'];
@@ -29,7 +29,7 @@
 
 ?>
 <div id="wrapper" class="usersearch">
-    <?php include '../../include/admin_nav.php';?>
+    <?php include '../include/admin_nav.php';?>
     <div id="page-wrapper" >
         <div class="header"> 
             <h1 class="page-header">
@@ -37,8 +37,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Tables</a></li>
-                <li class="active">Data</li>
+                <li class="active">User List</li>
             </ol> 						
         </div>
 		
@@ -97,7 +96,7 @@
                                     <a href="user_lists.php" type="button" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
                                 </form>
                                 <!-- CSV Export link -->
-                                <span class="export-btn"><a href="../../controller/admin/user_csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>
+                                <span class="export-btn"><a href="../controller/admin/user_csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>
                             </div> 
                             
                             <div class="col-md-12">
@@ -116,7 +115,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php include '../../controller/admin/user_search.php'?>	
+                                            <?php include '../controller/admin/user_search.php'?>	
                                             <!--  -->
                                         </tbody>
                                     </table>
@@ -142,7 +141,7 @@
 </div>
 <!-- /. WRAPPER  -->
 
-<?php include '../../include/admin_footer.php';?>
+<?php include '../include/admin_footer.php';?>
 
 <script>
     $(function(){

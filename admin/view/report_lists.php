@@ -1,13 +1,21 @@
 <?php 
-    include_once "../model/mysession.php"; 
+
+    include_once "../model/mysession.php";
+    
     if(!isset($_SESSION['id'])) {
-        die('Direct access not allowed');
-        exit();
+        header("Location:../signin.php");
     }
-    // include_once "../model/common.php";
-    include '../include/header.php';
+
+    if($_SESSION['role']=="admin") {
+        include_once '../include/admin_header.php';
+    }else if($_SESSION['role']=="user") {
+        include '../include/header.php';
+    }
     include "../controller/delete_report.php";
     include '../model/pagination.php';
+
+
+
    
     $commons = new Common();
     $_POST['id'] = $_SESSION['id'];
@@ -19,7 +27,13 @@
     if(isset($_POST['searchvalue'])){$_SESSION['searchvalue'] = $_POST['searchvalue'];}
 ?>
 <div id="wrapper">
-    <?php include '../include/nav.php';?>
+    <?php
+        if($_SESSION['role']=="admin") {
+            include '../include/admin_nav.php';
+        }else if($_SESSION['role']=="user") {
+            include '../include/nav.php';
+        }        
+    ?>
     <div id="page-wrapper" >
         <div class="header"> 
             <h1 class="page-header">
@@ -27,8 +41,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Tables</a></li>
-                <li class="active">Data</li>
+                <li class="active">Report List</li>
             </ol> 						
         </div>
 		
@@ -99,7 +112,13 @@
 </div>
 <!-- /. WRAPPER  -->
 
-<?php include '../include/footer.php';?>
+<?php
+    if($_SESSION['role']=="admin") {
+        include_once '../include/admin_footer.php';
+    }else if($_SESSION['role']=="user") {
+        include '../include/footer.php';
+    }        
+?>
 
 <script>
     $(function(){

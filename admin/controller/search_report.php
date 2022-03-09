@@ -1,10 +1,7 @@
 <?php
-        if($_SESSION['role']=="admin") {
-            require_once "../../model/common.php";
-        }else if($_SESSION['role']=="user") {
-            require_once "../model/common.php";
-        }
-   
+    
+    require_once "../model/common.php";
+    
     // session_start();
     $commons = new Common();
 

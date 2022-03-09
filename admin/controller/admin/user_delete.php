@@ -1,5 +1,5 @@
 <?php 
-    require_once('../../model/common.php');
+    require_once('../model/common.php');
     $commons = new Common;
     if(isset($_GET['del_id'])){
         // $del_id = htmlspecialchars($_GET['del_id']);

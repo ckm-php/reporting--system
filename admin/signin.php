@@ -11,7 +11,7 @@
         // print_r($i);
         // exit();
         if($_SESSION['role']=="admin"){
-          header("Location:view/admin/user_lists.php");
+          header("Location:view/user_lists.php");
         }else{
           header("Location:view/report_lists.php");
         }

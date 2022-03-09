@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../../../"><strong><i class="icon fa fa-calendar"></i> Report</strong></a>
+        <a class="navbar-brand" href="../../"><strong><i class="icon fa fa-calendar"></i> Report</strong></a>
         <div id="sideNav" href="">
             <i class="fa fa-bars icon"></i> 
         </div>
@@ -23,7 +23,7 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="../signout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li><a href="signout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
             <!-- /.dropdown-user -->

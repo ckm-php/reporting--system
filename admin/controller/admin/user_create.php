@@ -1,5 +1,5 @@
 <?php 
-    require_once('../../model/common.php');
+    require_once('../model/common.php');
     // session_start();
     if(isset($_POST['adduser'])){
         $commons = new Common();

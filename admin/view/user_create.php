@@ -1,27 +1,28 @@
 <?php 
     session_start();
     if(!isset($_SESSION['id'])) {
+        // die('Direct access not allowed');
+        // exit();
         header("Location:../signin.php");
-    } 
-    if($_SESSION['role']=="user") {
-        header("Location:../error.php");
     }
-    include_once '../../include/admin_header.php';
-    include_once "../../controller/admin/user_edit.php";
+     if($_SESSION['role']=="user") {
+        header("Location:error.php");
+    }
+    include_once '../include/admin_header.php';
+    include_once "../controller/admin/user_create.php";
 
 
 ?>
 <div id="wrapper">
-<?php include '../../include/admin_nav.php';?>
+<?php include '../include/admin_nav.php';?>
     <div id="page-wrapper" >
         <div class="header"> 
             <h1 class="page-header">
-                Update User Information
+                Create New User
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Edit User</a></li>
-                <li class="active">User</li>
+                <li class="active">User Create</li>
             </ol> 						
         </div>
 		
@@ -30,17 +31,18 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             Update User Information
+                             Create New User
                         </div>
-                        <div class="panel-body"> 
-                            <form role="form" action="" method="post" class="edituser">
+                        <div class="panel-body">
+                            <form role="form" action="" method="post" class="adduser">
+                                <input type="hidden" name="id" id="id" value="<?php echo $_SESSION['id']?>">
                                 <div class="form-group">
                                     <label for="name">User Name</label>
-                                    <input type="text" class="form-control" name="name" id="name" required  value="<?php if(isset($name)) echo $name; ?>"/>
+                                    <input type="text" class="form-control" name="name" id="name" required  value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" required value="<?php if(isset($email)) echo $email; ?>"/>
+                                    <input type="email" class="form-control" name="email" id="email" required value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"/>
                                     <?php 
                                         if (isset($_SESSION['email_error']) && $_SESSION['email_error'] != '') {
                                             echo '<p style="color:red;align:center;"> ' . $_SESSION['email_error'] . ' </p>';
@@ -72,11 +74,11 @@
                                 <!-- Role Search -->
                                 <div class="form-group">
                                     <label for="role">Role</label>
-                                    <select class="form-control" name="role" required >
+                                    <select class="form-control" name="role" required>
                                         <option value="">Select Role</option>
                                         <?php $selectedrole=$_POST['role']; ?> 
-                                        <option value="admin" <?php if("admin"==$role || "admin"==$selectedrole ){ echo "selected"; } ?>>Admin</option>
-                                        <option value="user" <?php if("user"==$role || "user"==$selectedrole ){ echo "selected"; } ?>>User</option>
+                                        <option value="admin" <?php if("admin"==$selectedrole ){ echo "selected"; } ?>>Admin</option>
+                                        <option value="user" <?php if("user"==$selectedrole ){ echo "selected"; } ?>>User</option>
                                     </select>
                                 </div>
                                 <!-- Status Search -->
@@ -85,13 +87,13 @@
                                     <select class="form-control" name="status" required>
                                         <option value="">Select Status</option>
                                         <?php $selectedstatus=$_POST['status']; ?> 
-                                        <option value="active" <?php if("active"==$status || "active"==$selectedstatus){ echo "selected"; } ?>>Active</option>
-                                        <option value="deactivate" <?php if("deactivate"==$status || "deactivate"==$selectedstatus){ echo "selected"; } ?>>Deactivate</option>
+                                        <option value="active" <?php if("active"==$selectedstatus ){ echo "selected"; } ?>>Active</option>
+                                        <option value="deactivate" <?php if("deactivate"==$selectedstatus ){ echo "selected"; } ?>>Deactivate</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-12 text-center">
-                                    <button type="button" class="btn btn-primary cancel-btn"><a href="user_edit.php">Reset</a></button>
-                                    <button type="submit" name="updateuser" class="btn btn-primary">Update User</button>
+                                    <button type="button" class="btn btn-primary cancel-btn"><a href="user_create.php">Reset</a></button>
+                                    <button type="submit" name="adduser" class="btn btn-primary">Add New User</button>
                                     <button type="button" class="btn btn-primary cancel-btn"><a href="user_lists.php">Cancel</a></button>
                                 </div>
                             </form>
@@ -108,7 +110,7 @@
 </div>
 <!-- /. WRAPPER  -->
 
-<?php include_once '../../include/admin_footer.php';?>
+<?php include_once '../include/admin_footer.php';?>
 
 
 

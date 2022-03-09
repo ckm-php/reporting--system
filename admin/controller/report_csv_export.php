@@ -18,19 +18,6 @@
         // $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
         $conditions = array();
 
-        // if(! empty($startdate) && ! empty($enddate) ) {
-        // $conditions[] = "report.date BETWEEN '$startdate' AND '$enddate'";
-        // }
-        // if(! empty($user) && $user!="") {
-        // $conditions[] = "user_id='$user'";
-        // }
-        // if(! empty($searchvalue)) {
-        // $conditions[] = "CONCAT(`name`, `date`, `report_details`) LIKE '%".$searchvalue."%'";
-        // }
-        // if (count($conditions) > 0) {
-        // $query .= " WHERE " . implode(' AND ', $conditions) ."ORDER BY report.date DESC";
-        // }
-
         $conditions[] = "user_id = '$id'";
 
         if(! empty($startdate) || ! empty($enddate) ) {

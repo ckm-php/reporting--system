@@ -17,7 +17,7 @@
                     setSession("id",$user['id']);
                     setSession("role",$user['role']);
                     setSession("loggedin",true);
-                    header("location: view/admin/user_lists.php");
+                    header("location: view/user_lists.php");
                 }else{
                     setSession("name",$user['name']);
                     setSession("email",$email);
