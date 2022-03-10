@@ -33,6 +33,12 @@
                         </div>
                         <div class="panel-body"> 
                             <form role="form" action="" method="post" class="edituser">
+                                <?php 
+                                    if (isset($_SESSION['pw_error']) && $_SESSION['pw_error'] != '') {
+                                        echo '<p style="color:red;align:center;"> ' . $_SESSION['pw_error'] . ' </p>';
+                                        unset($_SESSION['pw_error']); 
+                                    } 
+                                ?>
                                 <div class="form-group">
                                     <label for="name">User Name</label>
                                     <input type="text" class="form-control" name="name" id="name" disabled  value="<?php if(isset($name)) echo $name; ?>"/>
@@ -48,17 +54,6 @@
                                         } 
                                     ?>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" name="password" id="password" required />
-                                   
-                                </div>
-                                <div class="form-group">
-                                    <label for="confirm_pass">Confirm Password</label>
-                                    <input type="password" class="form-control" name="confirm_pass" id="confirm_pass" required />
-                                 
-                                 
-                                </div> -->
                                 <!-- Role Search -->
                                 <div class="form-group">
                                     <label for="role">Role</label>
@@ -120,6 +115,7 @@
      $(function(){
 		$('#no').click(function(){
 			$('.yes').hide();
+            $('.req').attr("required",false);
 		});
 		$('#yes').click(function(){
 			$('.yes').show();

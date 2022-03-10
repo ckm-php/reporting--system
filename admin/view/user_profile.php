@@ -42,6 +42,12 @@
                         </div>
                         <div class="panel-body"> 
                             <form role="form" action="" method="post" class="edituser">
+                                <?php 
+                                    if (isset($_SESSION['pw_error']) && $_SESSION['pw_error'] != '') {
+                                        echo '<p style="color:red;align:center;"> ' . $_SESSION['pw_error'] . ' </p>';
+                                        unset($_SESSION['pw_error']); 
+                                    } 
+                                ?>
                                 <div class="form-group">
                                     <label for="name">User Name</label>
                                     <input type="text" class="form-control" name="name" id="name" disabled="disabled"  value="<?php if(isset($_SESSION['name'])) echo $_SESSION['name']; ?>"/>
@@ -141,6 +147,7 @@
      $(function(){
 		$('#no').click(function(){
 			$('.yes').hide();
+            $('.req').attr("required",false);
 		});
 		$('#yes').click(function(){
 			$('.yes').show();
