@@ -7,8 +7,8 @@
     $id = $_SESSION['id'];
 
     // POST values
-    if(isset($_SESSION['startdate'])){$startdate = $_SESSION['startdate'];}
-    if(isset($_SESSION['enddate'])){$enddate = $_SESSION['enddate'];;}
+    // if(isset($_SESSION['startdate'])){$startdate = $_SESSION['startdate'];}
+    // if(isset($_SESSION['enddate'])){$enddate = $_SESSION['enddate'];;}
     if(isset($_SESSION['searchvalue'])){$searchvalue = $_SESSION['searchvalue'];}
     if(isset($_SESSION['user'])){$user = $_SESSION['user'];}
     if(isset($_SESSION['ustatus'])){ $ustatus = $_SESSION['ustatus'];}
@@ -21,14 +21,14 @@
     
     $query = "SELECT * FROM user ORDER BY user.created_date DESC";
 
-    if(isset($searchvalue) || isset($startdate) || isset($enddate) || isset($urole) || isset($ustatus) || isset($user)){
+    if(isset($searchvalue) || isset($urole) || isset($ustatus) || isset($user)){
 
         // $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
         $conditions = array();
 
-        if(! empty($startdate) || ! empty($enddate) ) {
-            $conditions[] = "user.created_date BETWEEN '$startdate' AND '$enddate'";
-        }
+        // if(! empty($startdate) || ! empty($enddate) ) {
+        //     $conditions[] = "user.created_date BETWEEN '$startdate' AND '$enddate'";
+        // }
         if(! empty($user) && $user!="" ) {
             $conditions[] = "id='$user'";
         }

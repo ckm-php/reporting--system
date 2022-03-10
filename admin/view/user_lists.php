@@ -15,8 +15,8 @@
     
     // $results = $commons->getAllRow("SELECT * FROM report WHERE user_id='$id'");
     
-    if(isset($_POST['startdate'])){$_SESSION['startdate'] = $_POST['startdate'];}
-    if(isset($_POST['enddate'])){$_SESSION['enddate'] = $_POST['enddate'];}
+    // if(isset($_POST['startdate'])){$_SESSION['startdate'] = $_POST['startdate'];}
+    // if(isset($_POST['enddate'])){$_SESSION['enddate'] = $_POST['enddate'];}
     if(isset($_POST['searchvalue'])){$_SESSION['searchvalue'] = $_POST['searchvalue'];}
     if(isset($_POST['user'])){$_SESSION['user'] = $_POST['user'];}
     if(isset($_POST['status'])){ $_SESSION['ustatus'] = $_POST['status'];}
@@ -53,10 +53,10 @@
                             <div class="col-md-12">
                                 <form class="form-inline search-box" method="post" id="userlists">
                                     <!-- Created Date Search -->
-                                    <label for="startdate">Date: From</label>
+                                    <!-- <label for="startdate">Date: From</label>
                                         <input type="date" class="form-control" placeholder="Start"  name="startdate" value="<?php if(isset($_POST['startdate'])) echo $_POST['startdate']; ?>" />
                                     <label for="enddate">To</label>
-                                        <input type="date" class="form-control" placeholder="End"  name="enddate" value="<?php if(isset($_POST['enddate'])) echo $_POST['enddate']; ?>" />
+                                        <input type="date" class="form-control" placeholder="End"  name="enddate" value="<?php if(isset($_POST['enddate'])) echo $_POST['enddate']; ?>" /> -->
                                     <!-- User Search -->
                                     <select class="form-control" name="user">
                                         <option value="">Select User</option>
@@ -96,6 +96,8 @@
                                 </form>
                                 <!-- CSV Export link -->
                                 <span class="export-btn"><a href="../controller/admin/user_csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>
+                                 <!-- Add New User -->
+                                 <span class="add-btn"><a href="user_create.php" class="btn btn-success ">Add New User</a></span>
                             </div> 
                             
                             <div class="col-md-12">

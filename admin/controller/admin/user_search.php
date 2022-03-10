@@ -12,8 +12,8 @@
 <?php
     if(isset($_POST['usersearch'])){
 
-        $startdate = $_POST['startdate'];
-        $enddate = $_POST['enddate'];
+        // $startdate = $_POST['startdate'];
+        // $enddate = $_POST['enddate'];
         $searchvalue = $_POST['searchvalue'];
         if (isset ($user)&&$user!=""){  
             $user = $_POST['user'];
@@ -24,9 +24,9 @@
         $query = "SELECT * FROM user";
         $conditions = array();
 
-        if(! empty($startdate) || ! empty($enddate) ) {
-        $conditions[] = "user.created_date BETWEEN '$startdate' AND '$enddate'";
-        }
+        // if(! empty($startdate) || ! empty($enddate) ) {
+        // $conditions[] = "user.created_date BETWEEN '$startdate' AND '$enddate'";
+        // }
         if(! empty($user) && $user!="" ) {
             $conditions[] = "id='$user'";
         }
