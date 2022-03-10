@@ -93,8 +93,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Change Password </label>
-                                    <input type="radio" name="fee_type" value="yes" id="yes" name="password" required>Yes
-                                    <input type="radio" name="fee_type" value="no" id="no" name="password" required>No
+                                    <input type="radio" name="password" value="yes" id="yes" required>Yes
+                                    <input type="radio" name="password" value="no" id="no" required>No
                                 </div>
                                 <div class="form-group yes">
                                     <label for="wave_pass">Old Password</label>

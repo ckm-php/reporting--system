@@ -24,11 +24,11 @@
                             $status = $_POST['status'];
                             $results = $commons->updateData("UPDATE user SET password='$hash_pw', role='$role', status='$status', updated_date=now() WHERE id='$id'");
                             $_SESSION['success']="Update User Successfully!";
-                            header("Location:user_profile.php");
+                            header("Location:user_list.php");
                         }else{
                             $results = $commons->updateData("UPDATE user SET password='$hash_pw', updated_date=now() WHERE id='$id'");
                             $_SESSION['success']="Update User Successfully!";
-                            header("Location:user_profile.php");
+                            header("Location:user_list.php");
                         }
                 
                     } else {
@@ -41,7 +41,7 @@
         }else{
             $results = $commons->updateData("UPDATE user SET role='$role', status='$status', updated_date=now() WHERE id='$id'");
             $_SESSION['success']="Update User Successfully!";
-            header("Location:user_profile.php");
+            header("Location:user_list.php");
         }
     
         
