@@ -16,13 +16,6 @@
         
             $rows = $commons->getAllRow("SELECT * FROM user WHERE email='$email' OR name='$name'");
 
-            // if(isset($rows['name']) && isset($rows['email'])){
-            //     print_r("both");
-            // }else if(isset($rows['name'])){
-            //     print_r("name");
-            // }else if(isset($rows['email'])){
-            //     print_r("email");
-            // }
             foreach($rows as $row) {
                 $oldname = $row['name'];
                 $oldemail = $row['email'];
