@@ -6,9 +6,10 @@
         $email=$_POST["email"];
         $password=$_POST["password"];
         $user = $commons->getRow("SELECT * FROM user WHERE email='$email'");
-
-        if($user['email']==""){
-            $_SESSION['error_login']="Please Signup!";
+        // print_r($user['email']);
+        // exit();
+        if(!isset($user['email'])){
+            $_SESSION['error_login']="Email or Password incorrect!";
         }elseif (password_verify($password,$user['password'])){
             if($user['status']=="active"){
                 if($user['role']=="admin"){
@@ -32,7 +33,7 @@
                 $_SESSION['error_login']="This account is Deactivate!";
             }
         }else{
-            $_SESSION['error_login']="Email and Password does not incorrect!";
+            $_SESSION['error_login']="Email or Password incorrect!";
         }
 
     }

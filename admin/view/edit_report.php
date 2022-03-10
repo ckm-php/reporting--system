@@ -66,6 +66,7 @@
                                 </div>
                                 <div class="form-group col-md-12 text-center">
                                     <button type="submit" name="update_report" class="btn btn-primary">Update Report</button>
+                                    <button type="button" class="btn btn-primary cancel-btn"><a href="report_lists.php">Cancel</a></button>
                                 </div>
                             </form>
                             <?php }?>

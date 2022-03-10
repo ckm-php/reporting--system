@@ -52,7 +52,9 @@
                                     <textarea class="form-control" rows="10" name="detail" id="detail" required></textarea>
                                 </div>
                                 <div class="form-group col-md-12 text-center">
+                                    <button type="button" class="btn btn-primary cancel-btn"><a href="create_report.php">Reset</a></button>
                                     <button type="submit" name="report" class="btn btn-primary">Add New Report</button>
+                                    <button type="button" class="btn btn-primary cancel-btn"><a href="report_lists.php">Cancel</a></button>
                                 </div>
                             </form>
                         </div>
@@ -75,17 +77,5 @@
     }        
 ?>
 
-<script type="text/javascript">
-    function press(event) {
-            if (event.keyCode == 13 && !event.shiftKey) {
-                
-                //Stops enter from creating a new line
-                event.preventDefault(); 
-             
-            }
-
-        }
-});
-</script>
 
 
