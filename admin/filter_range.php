@@ -31,7 +31,6 @@
         $result_count = count($datas);
         $total_no_of_pages = ceil($result_count / $total_records_per_page);
         $second_last = $total_no_of_pages - 1;
-       
         
         if($datas) {
             $i = 1;

@@ -1,3 +1,11 @@
+<?php
+     session_start();
+     // echo $_SESSION['loggedin'];
+     // die();
+     if(isset($_SESSION['loggedin'])) {
+         header('location: report_list.php');
+     }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
