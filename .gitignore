@@ -12,6 +12,5 @@ user_create_backup.php
 
 active-inactive-script.js
 status_script.php
-jquery-2.2.4.min.js
 
-navslidebar.js
+admin_nav_backup.php
