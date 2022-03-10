@@ -35,11 +35,11 @@
                             <form role="form" action="" method="post" class="edituser">
                                 <div class="form-group">
                                     <label for="name">User Name</label>
-                                    <input type="text" class="form-control" name="name" id="name" required  value="<?php if(isset($name)) echo $name; ?>"/>
+                                    <input type="text" class="form-control" name="name" id="name" disabled  value="<?php if(isset($name)) echo $name; ?>"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" required value="<?php if(isset($email)) echo $email; ?>"/>
+                                    <input type="email" class="form-control" name="email" id="email" disabled value="<?php if(isset($email)) echo $email; ?>"/>
                                     <?php 
                                         if (isset($_SESSION['email_error']) && $_SESSION['email_error'] != '') {
                                             echo '<p style="color:red;align:center;"> ' . $_SESSION['email_error'] . ' </p>';
@@ -48,26 +48,17 @@
                                         } 
                                     ?>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control" name="password" id="password" required />
-                                    <?php
-                                    if (isset($_SESSION['pw_error']) && $_SESSION['pw_error'] != '') {
-                                        echo '<p  style="color:red;align:center;"> ' . $_SESSION['pw_error'] . ' </p>';
-                                        unset($_SESSION['pw_error']);
-                                    }
-                                    ?>
+                                   
                                 </div>
                                 <div class="form-group">
                                     <label for="confirm_pass">Confirm Password</label>
                                     <input type="password" class="form-control" name="confirm_pass" id="confirm_pass" required />
-                                    <?php
-                                    if (isset($_SESSION['pw_error']) && $_SESSION['pw_error'] != '') {
-                                        echo '<p  style="color:red;align:center;"> ' . $_SESSION['pw_error'] . ' </p>';
-                                        unset($_SESSION['pw_error']);
-                                    }
-                                    ?>
-                                </div>
+                                 
+                                 
+                                </div> -->
                                 <!-- Role Search -->
                                 <div class="form-group">
                                     <label for="role">Role</label>
@@ -88,8 +79,25 @@
                                         <option value="deactivate" <?php if("deactivate"==$status || "deactivate"==$selectedstatus){ echo "selected"; } ?>>Deactivate</option>
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label for="password">Change Password </label>
+                                    <input type="radio" name="fee_type" value="yes" id="yes" name="password" required>Yes
+                                    <input type="radio" name="fee_type" value="no" id="no" name="password" required>No
+                                </div>
+                                <!-- <div class="form-group yes">
+                                    <label for="wave_pass">Old Password</label>
+                                    <input type="password" name="old_pass" class="form-control req" id="old_pass"/>
+                                </div> -->
+                                <div class="form-group yes">
+                                    <label for="new_pass">New Password</label>
+                                    <input type="password" name="new_pass" class="form-control req" id="new_pass"/>
+                                </div>
+                                <div class="form-group yes">
+                                    <label for="con_pass">Confirm Password</label>
+                                    <input type="password" name="con_pass" class="form-control req" id="con_pass"/>
+                                </div>
                                 <div class="form-group col-md-12 text-center">
-                                    <button type="button" class="btn btn-primary cancel-btn"><a href="user_edit.php">Reset</a></button>
+                                    <!-- <button type="button" class="btn btn-primary cancel-btn"><a href="user_edit.php">Reset</a></button> -->
                                     <button type="submit" name="updateuser" class="btn btn-primary">Update User</button>
                                     <button type="button" class="btn btn-primary cancel-btn"><a href="user_lists.php">Cancel</a></button>
                                 </div>
@@ -108,6 +116,18 @@
 <!-- /. WRAPPER  -->
 
 <?php include_once '../include/admin_footer.php';?>
+<script>
+     $(function(){
+		$('#no').click(function(){
+			$('.yes').hide();
+		});
+		$('#yes').click(function(){
+			$('.yes').show();
+			$('.req').attr("required",true);
+		});
+    });
+
+</script>
 
 
 

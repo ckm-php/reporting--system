@@ -18,7 +18,7 @@
                 <i class="fa fa-user fa-fw"></i><span style="color:black;"><?php echo $_SESSION['name'];?></span> <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                <li><a href="user_profile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                 </li>
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
@@ -58,9 +58,7 @@
             <li>
                 <a href="report_lists.php"><i class="fa fa-list"></i>Report Lists</a>
             </li>
-            <li>
-                <a href="#"><i class="fa fa-user"></i>Admin Profile</a>
-            </li>
+    
             
         
             

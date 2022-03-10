@@ -16,6 +16,7 @@
                     setSession("email",$email);
                     setSession("id",$user['id']);
                     setSession("role",$user['role']);
+                    setSession("status",$user['status']);
                     setSession("loggedin",true);
                     header("location: view/user_lists.php");
                 }else{
@@ -23,6 +24,7 @@
                     setSession("email",$email);
                     setSession("id",$user['id']);
                     setSession("role",$user['role']);
+                    setSession("status",$user['status']);
                     setSession("loggedin",true);
                     header("location: view/dashboard.php");
                 }
