@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    // echo $_SESSION['admin_id'];
+    // die();
+    if(isset($_SESSION['logged_in'])) {
+        header('location: management.php');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

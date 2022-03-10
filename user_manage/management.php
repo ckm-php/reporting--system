@@ -37,11 +37,13 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($datas as $row){ ?>
+            <?php
+            $i = 1; 
+            foreach($datas as $row){ ?>
             <tr>
-                <td><?= $row['id'] ?></td>
+                <td><?= $i ?></td>
                 <td><?= $row['name'] ?></td>
-                <td><?= $row['eamil'] ?></td>
+                <td><?= $row['email'] ?></td>
                 <td>
                     <?php
                         if($row['status'] == 0) {
@@ -56,7 +58,10 @@
                 <a href="manageDelete.php?delete=<?= $row['id']?>" class="btn btn-outline-danger" onclick="return confirm('Are you sure to delete?')"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
-            <?php } ?>
+            <?php
+                $i++; 
+                } 
+            ?>
         </tbody>
     </table>
 

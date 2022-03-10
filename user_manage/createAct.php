@@ -14,11 +14,8 @@
 
         $data = new Common();
 
-        $sql = $data->getAllData("SELECT * FROM admin WHERE email = ?", [$email]);
+        $sql = $data->getAllData(" SELECT * FROM admin WHERE email = ? || name = ? ", [$email, $name]);
         $count = count($sql);
-
-        // print_r($count);
-        //die();
 
         if($count == 0) {
             $sql = $data->getReturnData("INSERT INTO admin (name, email, password, status) VALUES (?, ?, ?, ?)", [$name, $email, $password, $status]);
@@ -30,11 +27,8 @@
             }
         } 
         else {
-            header("location:new_user.php?emailExist");
+            header("location:new_user.php?exist");
         }
-
-
-        
         
     }
         

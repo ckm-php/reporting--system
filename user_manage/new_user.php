@@ -7,9 +7,9 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <?php
-                if(isset($_GET['emailExist'])) {
-                    $emailExist = "Email already existed";
-                    echo '<div class="alert alert-danger">'. $emailExist .'</div>';
+                if(isset($_GET['exist'])) {
+                    $exist = "Email or Name already exist, try something else.";
+                    echo '<div class="alert alert-danger">'. $exist .'</div>';
                 }
             ?>
             <form action="createAct.php" method="post" name="create_validate">

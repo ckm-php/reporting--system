@@ -6,6 +6,8 @@
         $id = $_POST['id'];
         $date = $_POST['date'];
         $report = $_POST['report'];
+        $report = preg_replace("/[\n\r]/","<br />", $report);
+        $report = str_replace('<br /><br />','<br />', $report);
         $now = date('Y-m-d h:i:s');
 
         // echo $date;

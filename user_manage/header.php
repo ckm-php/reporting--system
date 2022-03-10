@@ -1,8 +1,8 @@
 <?php
     session_start();
-    // echo $_SESSION['id'];
+    // echo $_SESSION['psw'];
     // die();
-    if(!isset($_SESSION['id'])) {
+    if(!isset($_SESSION['admin_id'])) {
         header('location: admin_login.php');
         exit();
     }

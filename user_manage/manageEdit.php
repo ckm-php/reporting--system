@@ -4,15 +4,18 @@
     $data = new Common();
     $id = $_GET['edit'];
     $result = $data->getOneRowData("SELECT * FROM admin WHERE id = ?", [$id]);
-    // print_r($result);
-    // echo $_SESSION['id'];
-    // exit();
     include 'admin_topmenu.php';
  ?>
 <div class="container">
     <div class="row mt-4">
         <div class="col-md-2"></div>
         <div class="col-md-8">
+            <?php
+                if(isset($_GET['exist'])) {
+                    $exist = "Email or Name already token, try something else.";
+                    echo '<div class="alert alert-danger">'. $exist .'</div>';
+                }
+            ?>
             <form action="manageUpdate.php?update=<?= $result['id']?>" method="post" name="create_validate">
                 <input type="hidden" name="id" value="<?= $result['id'] ?>">
                 <div class="mb-3">
@@ -29,10 +32,6 @@
                 <div class="mb-3">
                     <label for="emailInput" class="form-label">Email</label>
                     <input type="email" class="form-control" name="email" id="emailInput" value="<?= $result['email'] ?>" >
-                </div>
-                <div class="mb-4">
-                    <label for="passInput" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="passInput" name="password" value="">
                 </div>
                 <div>
                     <button type="submit" name="create" class="btn btn-primary">Update</button>

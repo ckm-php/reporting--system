@@ -13,6 +13,7 @@ signups.php
 signupActs.php
 
 changePassAct2.php
+user_manage/action.php
 
 # templates for admin part
 admin2

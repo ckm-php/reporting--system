@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <header>
         <h3 class="head-title text-primary">Admin Management View</h3>
-        <span class="text-primary"><?= $_SESSION['name']; ?></span>
+        <span class="text-primary"><?= $_SESSION['admin_name']; ?></span>
         <a href="admin_logout.php" class="head-log btn btn-outline-danger">Logout</a>
     </header>
 </div>

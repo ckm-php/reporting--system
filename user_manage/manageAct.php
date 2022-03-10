@@ -20,8 +20,10 @@
             // exit();
 
             if($email == $data['email'] and $password == $data['password'] ) {
-                $_SESSION['name'] = $data['name'];
-                $_SESSION['id'] = $data['id'];
+                $_SESSION['admin_name'] = $data['name'];
+                $_SESSION['admin_id'] = $data['id'];
+                $_SESSION['psw'] = $data['password'];
+                $_SESSION['logged_in'] = true;
 
                 header('Location: management.php');
                 

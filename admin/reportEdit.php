@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group mb-4">
                         <label for="report">Report</label>
-                        <textarea class="form-control" id="report" name="report" rows="3"><?= $result['report'] ?></textarea>
+                        <textarea class="form-control" id="report" name="report" rows="3"><?= htmlspecialchars($result['report']) ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" name="save">Save</button>
                     <a href="report_list.php" class="btn btn-secondary">Cancel</a>
