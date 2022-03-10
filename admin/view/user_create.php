@@ -35,6 +35,13 @@
                         </div>
                         <div class="panel-body">
                             <form role="form" action="" method="post" class="adduser">
+                                <?php 
+                                    if (isset($_SESSION['account_error']) && $_SESSION['account_error'] != '') {
+                                        echo '<p style="color:red;align:center;"> ' . $_SESSION['account_error'] . ' </p>';
+                                        unset($_SESSION['account_error']); 
+                                        //session_destroy();
+                                    } 
+                                    ?>
                                 <input type="hidden" name="id" id="id" value="<?php echo $_SESSION['id']?>">
                                 <div class="form-group">
                                     <label for="name">User Name</label>
@@ -43,13 +50,6 @@
                                 <div class="form-group">
                                     <label for="email">Email</label>
                                     <input type="email" class="form-control" name="email" id="email" required value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"/>
-                                    <?php 
-                                        if (isset($_SESSION['email_error']) && $_SESSION['email_error'] != '') {
-                                            echo '<p style="color:red;align:center;"> ' . $_SESSION['email_error'] . ' </p>';
-                                            unset($_SESSION['email_error']); 
-                                            //session_destroy();
-                                        } 
-                                    ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
