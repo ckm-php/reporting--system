@@ -51,7 +51,7 @@
                         <div class="panel-body">
 
                             <div class="col-md-12">
-                                <form class="form-inline search-box" method="post">
+                                <form class="form-inline search-box" method="post" id="userlists">
                                     <!-- Created Date Search -->
                                     <label for="startdate">Date: From</label>
                                         <input type="date" class="form-control" placeholder="Start"  name="startdate" value="<?php if(isset($_POST['startdate'])) echo $_POST['startdate']; ?>" />

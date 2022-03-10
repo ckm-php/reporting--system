@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../../"><strong><i class="icon fa fa-calendar"></i> Report</strong></a>
-        <div id="sideNav" href="">
+        <div id="sideNav">
             <i class="fa fa-bars icon"></i> 
         </div>
     </div>
@@ -36,31 +36,47 @@
 <nav class="navbar-default navbar-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
-
-            <li>
+            <li class="nav-item">
                 <a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
-            <li>
-                <a href="#"><i class="fa fa-sitemap"></i> User Management</a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="user_create.php">User Create</a>
-                    </li>
-                    <li>
-                        <a href="user_lists.php">User Lists</a>
-                    </li>
+            <!-- User Management -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
+                    <i class="fa fa-sitemap"></i><span>User Management</span>
+                </a>
+                <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#main-menu">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="user_lists.php"><i class="fa fa-list"></i>User Lists</a>
+                            </li>
+                            <li>
+                                <a href="user_create.php"><i class="fa fa-edit"></i>User Create Form</a>
+                            </li>
+                        </ul>
                     
-                </ul>
+                    </div>
+                </div>
             </li>
-            <li>
-                <a href="create_report.php"><i class="fa fa-edit"></i>New Report</a>
+            <!-- Report -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReport" aria-expanded="true" aria-controls="collapseReport">
+                    <i class="fa fa-list-alt"></i><span>Report Management</span>
+                </a>
+                <div id="collapseReport" class="collapse" aria-labelledby="headingReport" data-parent="#main-menu">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="report_lists.php"><i class="fa fa-list"></i>Report Lists</a>
+                            </li>
+                            <li>
+                                <a href="create_report.php"><i class="fa fa-edit"></i>New Report Form</a>
+                            </li>
+                        </ul>
+                    
+                    </div>
+                </div>
             </li>
-            <li>
-                <a href="report_lists.php"><i class="fa fa-list"></i>Report Lists</a>
-            </li>
-    
-            
-        
             
         </ul>
 

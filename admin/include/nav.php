@@ -40,11 +40,24 @@
             <li>
                 <a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
-            <li>
-                <a href="create_report.php"><i class="fa fa-edit"></i>New Report</a>
-            </li>
-            <li>
-                <a href="report_lists.php"><i class="fa fa-list"></i>Report Lists</a>
+            <!-- Report -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReport" aria-expanded="true" aria-controls="collapseReport">
+                    <i class="fa fa-list-alt"></i><span>Report Management</span>
+                </a>
+                <div id="collapseReport" class="collapse" aria-labelledby="headingReport" data-parent="#main-menu">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="report_lists.php"><i class="fa fa-list"></i>Report Lists</a>
+                            </li>
+                            <li>
+                                <a href="create_report.php"><i class="fa fa-edit"></i>New Report Form</a>
+                            </li>
+                        </ul>
+                    
+                    </div>
+                </div>
             </li>
 
             
