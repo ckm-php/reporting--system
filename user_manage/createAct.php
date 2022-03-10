@@ -18,7 +18,7 @@
         $count = count($sql);
 
         // print_r($count);
-        die();
+        //die();
 
         if($count == 0) {
             $sql = $data->getReturnData("INSERT INTO admin (name, email, password, status) VALUES (?, ?, ?, ?)", [$name, $email, $password, $status]);

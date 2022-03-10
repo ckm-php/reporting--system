@@ -18,7 +18,7 @@
                 </div>
                 
                 <button type="submit" class="btn btn-primary" name="save">Save</button>
-                <a href="index.php" class="btn btn-secondary">Cancel</a>
+                <a href="report_list.php" class="btn btn-secondary">Cancel</a>
                 
             </form>
         </div>

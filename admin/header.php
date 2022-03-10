@@ -1,11 +1,12 @@
 <?php
     session_start();
-    // echo $_SESSION['id'];
-    // die();
-    if(!isset($_SESSION['id'])) {
+    echo $_SESSION['loggedin'];
+    die();
+    if(!isset($_SESSION['id']) || $_SESSION['loggedin'] !== true) {
         header('location: login.php');
         exit();
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -67,10 +67,11 @@
         // echo $id;
         // die();
         if($datas) { 
+            $i = 1;
             foreach($datas as $row){
         ?>
         <tr>
-            <td><?= $row['id'] ?></td>
+            <td><?= $i ?></td>
             <td><?= $name ?></td>
             <td><?= $row['date'] ?></td>
             <td><?= $row['report'] ?></td>
@@ -80,6 +81,7 @@
             </td>
         </tr>
         <?php
+        $i++;   
         }
            } else {
         ?>
