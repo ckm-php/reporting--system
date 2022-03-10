@@ -1,7 +1,7 @@
 <?php
     session_start();
-    echo $_SESSION['loggedin'];
-    die();
+    // echo $_SESSION['loggedin'];
+    // die();
     if(!isset($_SESSION['id']) || $_SESSION['loggedin'] !== true) {
         header('location: login.php');
         exit();
