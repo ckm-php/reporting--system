@@ -27,7 +27,7 @@
                     <a href="report_list.php" class="btn btn-secondary">Cancel</a>
                 </form>
             <?php }else {  
-                header('Location: login.php');
+                echo ' This page is not available. <a href="report_list.php" class="back-btn text-primary"><i class="fa-solid fa-share"></i> Back</a>';
              } ?>
         </div>
         <div class="col-md-2"></div>

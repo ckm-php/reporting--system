@@ -3,7 +3,9 @@
      // echo $_SESSION['loggedin'];
      // die();
      if(isset($_SESSION['loggedin'])) {
-         header('location: report_list.php');
+        if($_SESSION['status'] == 0) {
+            header('location: report_list.php');
+        }
      }
 ?>
 <!DOCTYPE html>

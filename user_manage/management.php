@@ -25,6 +25,13 @@
             <a href="new_user.php" class="text-white"><i class="fas fa-plus"></i> Create New User</a>
         </div>
     </div>
+
+    <?php
+        if(isset($_GET['exist'])) {
+            $exist = "Email or Name already token, try something else.";
+            echo '<div class="alert alert-danger">'. $exist .'</div>';
+        }
+    ?>
     
     <table class="table table-striped mt-3">
         <thead>

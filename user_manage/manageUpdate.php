@@ -9,12 +9,19 @@
     
     $now = date('Y-m-d h:i:s');
 
+    // echo $id;
+    // die();
+
     $data = new Common();
 
-    // $sql = $data->getAllData(" SELECT * FROM admin WHERE email = ? || name = ? ", [$email, $name]);
+    // $sql = $data->getAllData(" SELECT * FROM admin WHERE email = ? || name = ? && id = ? ", [$email, $name,$id]);
+    // $sql = $data->getAllData(" SELECT * FROM admin WHERE id = $id");
     // $count = count($sql);
+    // echo '<pre>';
+    // print_r($count);
+    // exit();
 
-    // if($count == 0) {
+    // if( == 0) {
         $sql = $data->getReturnData('UPDATE admin SET name = ?, email = ?, password = ?, status = ? WHERE id = ?', [$name, $email, $password, $status, $id]);
         if($sql) {
             header('location:management.php');
@@ -23,6 +30,6 @@
             $msg = "Fail Data Update";
         }
     // }else {
-    //     header("location:manageEdit.php?exist");
+    //     header("location:management.php?exist");
     // }
 ?>

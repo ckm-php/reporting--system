@@ -10,12 +10,6 @@
     <div class="row mt-4">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <?php
-                if(isset($_GET['exist'])) {
-                    $exist = "Email or Name already token, try something else.";
-                    echo '<div class="alert alert-danger">'. $exist .'</div>';
-                }
-            ?>
             <form action="manageUpdate.php?update=<?= $result['id']?>" method="post" name="create_validate">
                 <input type="hidden" name="id" value="<?= $result['id'] ?>">
                 <div class="mb-3">

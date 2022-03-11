@@ -28,6 +28,7 @@
                 $_SESSION['id'] = $data['id'];
                 $_SESSION['mail'] = $data['email'];
                 $_SESSION['loggedin'] = true;
+                $_SESSION['status'] = $data['status'];
 
                 if(!empty($_POST['remerberme'])) {
                     $remerberme = $_POST['remerberme'];
