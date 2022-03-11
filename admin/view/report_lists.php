@@ -73,7 +73,8 @@
                                         <span class="glyphicon glyphicon-search"></span>
                                     </button> 
                                     <!-- <button class="btn btn-success" name="reset">Reset</button> -->
-                                    <button type="button" class="btn btn-primary cancel-btn"><a href="report_lists.php"><span class ="glyphicon glyphicon-refresh"><span></a></button>
+                                    <a href="report_lists.php" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
+                                    <!-- <button type="button" class="btn btn-primary cancel-btn"><a href="report_lists.php"><span class ="glyphicon glyphicon-refresh"><span></a></button> -->
                                     <!-- <a href="report_lists.php" type="button" name="reset" class="btn btn-success"><span class ="glyphicon glyphicon-refresh"><span></a> -->
                                 </form>
                                 <!-- CSV Export link -->

@@ -92,7 +92,7 @@
                                     <button class="btn btn-primary" type="submit" name="usersearch">
                                         <span class="glyphicon glyphicon-search"></span>
                                     </button> 
-                                    <a href="user_lists.php" type="button" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
+                                    <a href="user_lists.php" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
                                 </form>
                                 <!-- CSV Export link -->
                                 <span class="export-btn"><a href="../controller/admin/user_csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>

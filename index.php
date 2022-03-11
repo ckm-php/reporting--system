@@ -68,7 +68,7 @@
                                 <span class="glyphicon glyphicon-search"></span>
                             </button> 
                             <!-- <button class="btn btn-success" name="reset">Reset</button> -->
-                            <a href="index.php" type="button" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
+                            <a href="index.php" class="btn btn-success"><span class = "glyphicon glyphicon-refresh"><span></a>
                         </form>
                         <!-- CSV Export link -->
                         <span class="export-btn"><a href="csv_export.php" class="btn btn-success "><i class="dwn"></i> Export</a></span>
