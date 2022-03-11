@@ -63,16 +63,24 @@
         $paginator  = new Pagination( $commons->pdo, $query );
         $results    = $paginator->getData( $limit, $page );
         
-        for( $i = 0; $i < count( $results->data ); $i++ ) :
-    ?>
-                <tr>
-                    <td><?php echo $results->data[$i]['name'];?></td>
-                    <td><?php echo $results->data[$i]['report_details'];?></td>
-                    <td><?php echo $results->data[$i]['date'];?></td>
-                </tr>
-    <?php
-            endfor;
-    }
+        if( !empty($results->data)){
+            for( $i = 0; $i < count( $results->data ); $i++ ) :
+        ?>
+                    <tr>
+                        <td><?php echo $results->data[$i]['name'];?></td>
+                        <td><?php echo $results->data[$i]['report_details'];?></td>
+                        <td><?php echo $results->data[$i]['date'];?></td>
+                    </tr>
+        <?php
+                endfor;
+            }elseif (empty($results->data)){
+                ?>
+                        <tr>
+                            <td colspan = "3"><center>Record Not Found</center></td>
+                        </tr>
+        <?php
+            }
+        }
 
 ?>
 

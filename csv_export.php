@@ -13,7 +13,7 @@
     
     $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
 
-    if($searchvalue || $user || $startdate || $enddate ){
+    if(isset($searchvalue) || isset($user) || isset($startdate) || isset($enddate) ){
 
         // $query = "SELECT * FROM report INNER JOIN user ON report.user_id=user.id";
         $conditions = array();
