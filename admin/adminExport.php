@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include '../function.php';
     $data = new Common();
 
@@ -46,12 +47,8 @@
         $datas = $data->getAllData($query);
     }
     else {
-        $datas = $data->getAllData("SELECT * FROM report WHERE adminId = ? ORDER BY date DESC ", [$id]);
+        $datas = $data->getAllData("SELECT * FROM report WHERE adminId = $id ORDER BY date DESC ");
     }
-
-
-    // echo "<pre>";
-    // print_r($datas);
 
     foreach($datas as $row) {
         $name = $_SESSION['user'];
