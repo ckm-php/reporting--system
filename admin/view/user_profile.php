@@ -117,7 +117,7 @@
                                 <div class="form-group col-md-12 text-center">
                                     <!-- <button type="button" class="btn btn-primary cancel-btn"><a href="user_edit.php">Reset</a></button> -->
                                     <button type="submit" name="profile_update" class="btn btn-primary">Update Profile</button>
-                                    <button type="button" class="btn btn-primary cancel-btn"><a href="user_lists.php">Cancel</a></button>
+                                    <button type="button" class="btn btn-primary cancel-btn"><a href="dashboard.php">Cancel</a></button>
                                 </div>
                             </form>
 

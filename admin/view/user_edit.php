@@ -39,13 +39,20 @@
                                         unset($_SESSION['pw_error']); 
                                     } 
                                 ?>
+                                  <?php 
+                                    if (isset($_SESSION['account_error']) && $_SESSION['account_error'] != '') {
+                                        echo '<p style="color:red;align:center;"> ' . $_SESSION['account_error'] . ' </p>';
+                                        unset($_SESSION['account_error']); 
+                                        //session_destroy();
+                                    } 
+                                    ?>
                                 <div class="form-group">
                                     <label for="name">User Name</label>
-                                    <input type="text" class="form-control" name="name" id="name" disabled  value="<?php if(isset($name)) echo $name; ?>"/>
+                                    <input type="text" class="form-control" name="name" id="name" required  value="<?php if(isset($name)) echo $name; ?>"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" disabled value="<?php if(isset($email)) echo $email; ?>"/>
+                                    <input type="email" class="form-control" name="email" id="email" required value="<?php if(isset($email)) echo $email; ?>"/>
                                     <?php 
                                         if (isset($_SESSION['email_error']) && $_SESSION['email_error'] != '') {
                                             echo '<p style="color:red;align:center;"> ' . $_SESSION['email_error'] . ' </p>';

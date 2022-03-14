@@ -17,43 +17,70 @@
         //Update Admin
         if (isset($_POST['updateuser'])) // when click on Update button
         {
-            // $name = $_POST['name'];
-            // $email = $_POST['email'];
+            $name = $_POST['name'];
+            $email = $_POST['email'];
             $role = $_POST['role'];
             $status = $_POST['status'];
            
             if($_SESSION['role']=="admin") {
-    
-                if ( isset($_POST['new_pass']) || isset($_POST['con_pass'])) {
+                $rows = $commons->getAllRow("SELECT * FROM user WHERE (email='$email' AND id!=13) OR (name='$name' AND id!=13)");
 
-                    // $old_pass = $_POST['old_pass'];
-                    $new_pass = $_POST['new_pass'];
-                    $con_pass = $_POST['con_pass'];
-                    $hash_pw = password_hash($new_pass, PASSWORD_DEFAULT);
-                        $pass = $commons->getRow("SELECT * FROM user WHERE email='$email'");    
+                // $rows = $commons->getAllRow("SELECT * FROM user WHERE id!='13');
 
-                        // if (password_verify($old_pass,$pass['password'])) {
-                            if ($new_pass == $con_pass) {
-                
-                                $results = $commons->updateData("UPDATE user SET password='$hash_pw', role='$role', status='$status', updated_date=now() WHERE id='$edit_id'");
-                                $_SESSION['success']="Update User Successfully!";
-                                header("Location:user_lists.php");
-                        
-                        
-                            } else {
-                                $_SESSION['pw_error'] = "Password does not match";
-                            }
-                        // }else {
-                        //     $_SESSION['pw_error'] = "Wrong Password";
-                        // }
-            
-                }else{
-                    $results = $commons->updateData("UPDATE user SET role='$role', status='$status', updated_date=now() WHERE id='$edit_id'");
-                    $_SESSION['success']="Update User Successfully!";
-                    header("Location:user_lists.php");
+                foreach($rows as $row) {
+                    $oldname = $row['name'];
+                    $oldemail = $row['email'];
                 }
+                
+                // print_r(sizeof($rows));
+                // print_r($email);
+                // print_r($name);
+                // print_r($oldname);
+                // print_r($oldemail);
+                // exit();
+            
+                // -- if($result['email'] != $_POST['email'] || $result['name'] != $_POST['name']){
+                    
+                    if (sizeof($rows)>0) {
+                        if(($oldname == $name) && ($oldemail == $email)){
+                            $_SESSION['account_error'] = "Unavilable Account!";
+                        }else if($oldname == $name){
+                            $_SESSION['account_error'] = "Unavilable Name!";
+                        }else if($oldemail == $email){
+                            $_SESSION['account_error'] = "Unavilable Email!";
+                        }
+                    
+                    }else{
+        
+                        if ( isset($_POST['new_pass']) || isset($_POST['con_pass'])) {
+
+                            // $old_pass = $_POST['old_pass'];
+                            $new_pass = $_POST['new_pass'];
+                            $con_pass = $_POST['con_pass'];
+                            $hash_pw = password_hash($new_pass, PASSWORD_DEFAULT);
+                            $pass = $commons->getRow("SELECT * FROM user WHERE email='$email'");    
+
+                            // if (password_verify($old_pass,$pass['password'])) {
+                                if ($new_pass == $con_pass) {
+                    
+                                    $results = $commons->updateData("UPDATE user SET name='$name', email='$email', password='$hash_pw', role='$role', status='$status', updated_date=now() WHERE id='$edit_id'");
+                                    $_SESSION['success']="Update User Successfully!";
+                                    header("Location:user_lists.php");
+                            
+                            
+                                } else {
+                                    $_SESSION['pw_error'] = "Password does not match";
+                                }
+                
+                        }else{
+                            $results = $commons->updateData("UPDATE user SET name='$name', email='$email', role='$role', status='$status', updated_date=now() WHERE id='$edit_id'");
+                            $_SESSION['success']="Update User Successfully!";
+                            header("Location:user_lists.php");
+                        }
+                    }
+                
             }else{
-                header("Location:user_lists.php");
+                    header("Location:user_lists.php");
             }
         }
     }
