@@ -22,6 +22,7 @@
             if($email == $data['email'] and $password == $data['password'] ) {
                 $_SESSION['admin_name'] = $data['name'];
                 $_SESSION['admin_id'] = $data['id'];
+                $_SESSION['admin_email'] = $data['email'];
                 $_SESSION['psw'] = $data['password'];
                 $_SESSION['logged_in'] = true;
 

@@ -22,11 +22,11 @@
             ?>
             <form action="changePassAct.php" method="post" name="changepass_validate">
                 <div class="mb-4">
-                    <label for="passInput" class="form-label">Old Password</label>
-                    <input type="password" class="form-control" id="passInput" name="opassword" placeholder=" Old Password">
+                    <label for="oldPass" class="form-label">Old Password</label>
+                    <input type="password" class="form-control" id="oldPass" name="opassword" placeholder=" Old Password">
                 </div>
                 <div class="mb-4">
-                    <label for="passInput" class="form-label">Password</label>
+                    <label for="passInput" class="form-label">New Password</label>
                     <input type="password" class="form-control" id="passInput" name="password" placeholder=" New Password">
                 </div>
                 <div class="mb-4">

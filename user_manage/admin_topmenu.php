@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <header>
         <h3 class="head-title text-primary">Admin Management View</h3>
-        <span class="text-primary"><?= $_SESSION['admin_name']; ?></span>
+        <!-- <span class="text-primary"><?= $_SESSION['admin_name']; ?></span> -->
         <div class="btn-group">
             <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?= $_SESSION['admin_name']; ?>

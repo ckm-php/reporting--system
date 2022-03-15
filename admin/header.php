@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../css/all.css" >
     <link rel="stylesheet" href="../css/pagination.css">
     <link rel="stylesheet" href="../css/jquery.datetimepicker.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/jquery-ui.css">
     <link rel="stylesheet" href="../css/custom.css">
     

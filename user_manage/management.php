@@ -7,15 +7,16 @@
     $data = new Common();
 
     require_once('../pagination/pagination_start.php');
-    $table = 'admin'; 
+    $table = 'admin';
+    $result = $data->getAllData("SELECT * FROM $table");
+    $result_count = count($result);
+    $total_no_of_pages = ceil($result_count / $total_records_per_page);
+    $second_last = $total_no_of_pages - 1;
+
     $datas = $data->getAllData("SELECT * FROM $table ORDER BY id DESC LIMIT $offset, $total_records_per_page");
 
     // print_r($datas);
     // die();
-
-    $result_count = count($datas);
-    $total_no_of_pages = ceil($result_count / $total_records_per_page);
-    $second_last = $total_no_of_pages - 1;
 ?>
 
 <div class="container">
@@ -28,10 +29,10 @@
 
     <?php
         if(isset($_GET['exist'])) {
-            $exist = "Email or Name already token, try something else.";
-            echo '<div class="alert alert-danger">'. $exist .'</div>';
-        }
-    ?>
+                $exist = "Email or Name already token, try something else.";
+                echo '<div class="alert alert-danger">'. $exist .'</div>';
+            }
+        ?>
     
     <table class="table table-striped mt-3">
         <thead>

@@ -26,11 +26,11 @@
             $query = "SELECT * FROM report WHERE adminId = $id  ORDER BY date DESC LIMIT $offset, $total_records_per_page";
         }
 
-        $datas = $data->getAllData($query);
-        
-        $result_count = count($datas);
+        $result_count = count($query);
         $total_no_of_pages = ceil($result_count / $total_records_per_page);
         $second_last = $total_no_of_pages - 1;
+
+        $datas = $data->getAllData($query);
         
         if($datas) {
             $i = 1;
@@ -58,12 +58,13 @@
         <?php } 
     }
     else {
-        $table = 'report'; 
-        $datas = $data->getAllData("SELECT * FROM $table WHERE adminId = ? ORDER BY date DESC LIMIT $offset, $total_records_per_page", [$_SESSION['id']]);
-
-        $result_count = count($datas);
+        $table = 'report';
+        $result = $data->getAllData("SELECT * FROM $table WHERE adminId = ?", [$_SESSION['id']] );
+        $result_count = count($result);
         $total_no_of_pages = ceil($result_count / $total_records_per_page);
         $second_last = $total_no_of_pages - 1;
+
+        $datas = $data->getAllData("SELECT * FROM $table WHERE adminId = ? ORDER BY date DESC LIMIT $offset, $total_records_per_page", [$_SESSION['id']]);
 
         // echo $id;
         // die();
