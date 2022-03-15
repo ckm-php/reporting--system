@@ -23,7 +23,7 @@
             $status = $_POST['status'];
            
             if($_SESSION['role']=="admin") {
-                $rows = $commons->getAllRow("SELECT * FROM user WHERE (email='$email' AND id!=13) OR (name='$name' AND id!=$id)");
+                $rows = $commons->getAllRow("SELECT * FROM user WHERE (email='$email' AND id!=$id) OR (name='$name' AND id!=$id)");
 
                 // $rows = $commons->getAllRow("SELECT * FROM user WHERE id!='13');
 
