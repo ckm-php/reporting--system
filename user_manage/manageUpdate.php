@@ -14,10 +14,15 @@
 
     $data = new Common();
 
-    $sql = $data->getAllData(" SELECT * FROM admin WHERE email = ? || name = ? ", [$email, $name]);
-    $count = count($sql);
+    // $sql = $data->getAllData(" SELECT * FROM admin WHERE email = ? || name = ? AND id != ? ", [$email, $name, $id]);
+    $sql = $data->getAllData(" SELECT * FROM admin WHERE (name = '$name' AND id != $id) OR (email = '$email' AND id != $id) ");
+    $count = sizeof($sql);
 
-    if($count == 0) {
+    if($count>0) {
+        header("location:management.php?exist");
+    }
+    else {
+        // $sqls = $data->getReturnData("UPDATE admin SET name = '$name', email = '$email', password = '$password', status = '$status' WHERE id = '$id' ");
         $sqls = $data->getReturnData('UPDATE admin SET name = ?, email = ?, password = ?, status = ? WHERE id = ?', [$name, $email, $password, $status, $id]);
         if($sqls) {
             header('location:management.php');
@@ -26,24 +31,6 @@
             $msg = "Fail Data Update";
         }
     }
-    else {
-        header("location:management.php?exist");
-    }
-
-    // $sql = $data->getOneRowData(" SELECT * FROM admin WHERE name = $name && id != 15 ");
-    // $sqlcount = count($sql);
-
-    // if($sqlcount > 0) {
-    //     header("location:management.php?exist");
-    // }else {
-    //     $sqls = $data->getReturnData('UPDATE admin SET name = ?, email = ?, password = ?, status = ? WHERE id = ?', [$name, $email, $password, $status, $id]);
-    //     if($sqls) {
-    //         header('location:management.php');
-    //     }
-    //     else {
-    //         $msg = "Fail Data Update";
-    //     }
-    // }
 
     
 ?>
