@@ -2,7 +2,7 @@ images
 config.php
 pass_generate.php
 testdata.php
-admin/dist/img
+# admin/dist/img
 admin/functions.php
 
 login2.php
