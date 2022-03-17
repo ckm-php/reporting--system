@@ -1,12 +1,18 @@
-// Wait for the DOM to be ready
 $(function() {
+  
+  jQuery.validator.addMethod("emailregex", function(value, element) {
+      return this.optional(element) || /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+
+  }, "Please enter a valid email format");
+
     // Initialize form validation on the registration form.
     $("form[name='login_validate']").validate({
       // Specify validation rules
       rules: {
         email: {
           required: true,
-          email: true
+          email: true,
+          emailregex: true
         },
         password: {
           required: true,
@@ -19,7 +25,10 @@ $(function() {
           required: "Please provide a password",
           minlength: "Your password must be at least 5 characters long"
         },
-        email: "Please enter a valid email address"
+        email: {
+          required: "Please provide a email",
+          email: "Please enter a valid email address"
+        }
       },
       // Make sure the form is submitted to the destination defined
       // in the "action" attribute of the form when valid
@@ -35,7 +44,8 @@ $(function() {
         },
         email: {
           required: true,
-          email: true
+          email: true,
+          emailregex: true
         },
         password: {
           required: true,
@@ -50,7 +60,10 @@ $(function() {
           required: "Please provide a password",
           minlength: "Your password must be at least 5 characters long"
         },
-        email: "Please enter a valid email address"
+        email: {
+          required: "Please provide a email",
+          email: "Please enter a valid email address"
+        }
       },
       submitHandler: function(form) {
         form.submit();
@@ -61,11 +74,15 @@ $(function() {
       rules: {
         email: {
           required: true,
-          email: true
+          email: true,
+          emailregex: true
         }
       },
       messages: {
-        email: "Please enter a valid email address"
+        email: {
+          required: "Please provide a email",
+          email: "Please enter a valid email address"
+        }
       },
       submitHandler: function(form) {
         form.submit();
@@ -130,36 +147,6 @@ $(function() {
       }
     });
 
-    // jQuery('#fromdatepicker').datetimepicker({
-    //   timepicker:false,
-    //   formatDate:'Y-m-d',
-    // });
-
-    // jQuery('#todatepicker').datetimepicker({
-    //   timepicker:false,
-    //   formatDate:'Y-m-d',
-    // });
-
-    // jQuery('#fromdatepicker2').datetimepicker({
-    //   timepicker:false,
-    //   formatDate:'Y-m-d',
-    // });
-
-    // jQuery('#todatepicker2').datetimepicker({
-    //   timepicker:false,
-    //   formatDate:'Y-m-d',
-    // });
-
-    // jQuery('#datepicker').datetimepicker({
-    //   timepicker:false,
-    //   formatDate:'Y-m-d',
-    // });
-
-    // jQuery('#datepickers').datetimepicker({
-    //   timepicker:false,
-    //   formatDate:'Y-m-d',
-    // });
-
     $("#fromdatepicker").datepicker({
         dateFormat: "yy-mm-dd",
     });
@@ -179,6 +166,16 @@ $(function() {
     $("#datepicker").datepicker({
       dateFormat: "yy-mm-dd"
     });
+
+    // admin template
+
+    // $("#fromdatepicker3").datepicker({
+    //   dateFormat: "yy-mm-dd"
+    // });
+    
+    // $("#todatepicker3").datepicker({
+    //   dateFormat: "yy-mm-dd"
+    // });
 
   });
 

@@ -13,12 +13,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin View</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet" >
+    <title>Admin Management Login</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"  >
     <link rel="stylesheet" href="../css/all.css" >
     <link rel="stylesheet" href="../css/pagination.css">
     <link rel="stylesheet" href="../css/jquery.datetimepicker.css">
-    <script src="../css/jquery-ui.css"></script>
+    <link rel="stylesheet" href="../css/jquery-ui.css"></link>
     <link rel="stylesheet" href="../css/custom.css">
     
     <script src="../js/jquery-3.6.0.js"></script>
@@ -60,11 +60,19 @@
                         <label for="passInput" class="form-label">Password</label>
                         <input type="password" class="form-control" id="passInput" name="password" placeholder="Enter Password">
                     </div>
+                    <div class="form-group d-flex justify-content-between mb-3">
+                        <label>
+                            <input type="checkbox" name="remerberme"> Remember me
+                        </label>
+                        <a href=":;" class="text-rimary forgotpass">Forgot Pasword?</a>
                     </div>
                     <div class="d-flex justify-content-center">
                         <button type="submit" name="submit" class="btn btn-primary btn-name">Login</button>
                     </div>
                 </form>
+                <p class="change_link mt-3 txt-style">User Login？
+                    <a href="/admin" class="text-info txt-a"> User Login</a>
+                </p>
             </div>
         </div>
     </div>

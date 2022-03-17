@@ -15,5 +15,10 @@ signupActs.php
 changePassAct2.php
 user_manage/action.php
 
+admin_old
+user_manage_old
+
 # templates for admin part
 admin2
+
+test
