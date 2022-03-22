@@ -28,9 +28,10 @@
             <div class="container-fluid">
                 <div class="row mt-4">
                     <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <form action="manageUpdate.php?update=<?= $result['id']?>" method="post" name="create_validate">
+                    <div class="col-md-8 mb-3">
+                        <form action="manageUpdate.php?update=<?= $result['id']?>" method="post" name="update_validate">
                             <input type="hidden" name="id" value="<?= $result['id'] ?>">
+                            <input type="hidden" name="editpass" value="<?= $result['password'] ?>">
                             <div class="mb-3">
                                 <label for="nameInput" class="form-label">Name</label>
                                 <input type="text" class="form-control" name="name" id="nameInput" value="<?= $result['name'] ?>">
@@ -46,7 +47,28 @@
                                 <label for="emailInput" class="form-label">Email</label>
                                 <input type="email" class="form-control" name="email" id="emailInput" value="<?= $result['email'] ?>" >
                             </div>
-                            <div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-label">Change Password ? </label>
+                            </div>
+                            <label for="yesChk">
+                                <input type="radio" id="yesChk" name="chkPass" value="1" onclick="ShowHideDiv()" required/>
+                                Yes
+                            </label>
+                            <label for="noChk">
+                                <input type="radio" id="noChk" name="chkPass" value="0" onclick="ShowHideDiv()" required/>
+                                No
+                            </label>
+                            <div id="dvchagepass" style="display: none">
+                                <div class="mb-4">
+                                    <label for="passInput" class="form-label">New Password</label>
+                                    <input type="password" class="form-control" id="passInput" name="password" placeholder=" New Password">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="cpassInput" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="cpassInput" name="cpassword" placeholder="Confirm Password">
+                                </div>
+                            </div>
+                            <div class="mt-3">
                                 <button type="submit" name="create" class="btn btn-primary">Update</button>
                                 <a href="management.php" class="btn btn-secondary">Cancel</a>
                             </div>

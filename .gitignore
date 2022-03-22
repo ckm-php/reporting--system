@@ -14,9 +14,20 @@ signupActs.php
 
 changePassAct2.php
 user_manage/action.php
+user_manage/header_old.php
+user_manage/footer_old.php
+
+admin/header_old.php
+admin/footer_old.php
 
 admin_old
 user_manage_old
+
+manageEdit1.php
+manageUpdate1.php
+
+userPassAct.php
+userPassChange.php
 
 # templates for admin part
 admin2

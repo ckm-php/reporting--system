@@ -5,11 +5,15 @@
     $name = $_POST['name'];
     $status = $_POST['status'];
     $email = $_POST['email'];
-    $password = $_SESSION['psw'];;
+    $edit_pass = $_POST['editpass'];
+    $yes = $_POST['chkPassPort'];
+
+    $password = md5($_POST['password']);
+    $cpassword = md5($_POST['cpassword']);
     
     $now = date('Y-m-d h:i:s');
 
-    // echo $id;
+    // echo $yes;
     // die();
 
     $data = new Common();
@@ -22,14 +26,32 @@
         header("location:management.php?exist");
     }
     else {
-        // $sqls = $data->getReturnData("UPDATE admin SET name = '$name', email = '$email', password = '$password', status = '$status' WHERE id = '$id' ");
-        $sqls = $data->getReturnData('UPDATE admin SET name = ?, email = ?, password = ?, status = ? WHERE id = ?', [$name, $email, $password, $status, $id]);
-        if($sqls) {
-            header('location:management.php');
+        if(isset($yes) && $yes != 0) {
+            // echo "change password";
+            if($password == $cpassword) { 
+                $sqls = $data->getReturnData('UPDATE admin SET name = ?, email = ?, password = ?, status = ? WHERE id = ?', [$name, $email, $password, $status, $id]);
+                if($sqls) {
+                    header('location:management.php?success');
+                }
+                else {
+                    $msg = "Fail Data Update";
+                }
+            }
+            else {
+                header("location:management.php?passnomatch");
+            }
         }
         else {
-            $msg = "Fail Data Update";
+            // echo "Insert data to db";
+            $sqls = $data->getReturnData('UPDATE admin SET name = ?, email = ?, password = ?, status = ? WHERE id = ?', [$name, $email, $edit_pass, $status, $id]);
+            if($sqls) { 
+                header('location:management.php');
+            }
+            else {
+                $msg = "Fail Data Update";
+            }
         }
+        
     }
 
     

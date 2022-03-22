@@ -15,10 +15,10 @@
 <!-- <script src="plugins/jquery-ui/jquery-ui.min.js"></script> -->
 
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<script src="plugins/moment/moment.min.js"></script>
-<script src="dist/js/adminlte.js"></script>
-<script src="dist/js/pages/dashboard.js"></script>
+<script src="../plugins/moment/moment.min.js"></script>
+<script src="../dist/js/adminlte.js"></script>
+<script src="../dist/js/pages/dashboard.js"></script>
 </body>
 </html>

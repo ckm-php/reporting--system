@@ -25,15 +25,15 @@
                 $sql = $data->getReturnData("UPDATE admin SET password = '$password' WHERE email ='$email' && name ='$name' ",);
                 if($sql) {
                     // echo 'Data have';
-                    header("location:change_password.php?success");
+                    header("location:user_profile.php?success");
                 }
             }
             else {
-                header("location:change_password.php?passnomatch");
+                header("location:user_profile.php?passnomatch");
             }
         }
         else {
-            header("location:change_password.php?oldpassnomatch");
+            header("location:user_profile.php?oldpassnomatch");
         }
     }
         

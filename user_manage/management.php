@@ -38,10 +38,18 @@
             <div class="container-fluid">
                 <?php
                     if(isset($_GET['exist'])) {
-                            $exist = "Email or Name already token, try something else.";
-                            echo '<div class="alert alert-danger">'. $exist .'</div>';
-                        }
-                    ?>
+                        $exist = "Email or Name already token, try something else.";
+                        echo '<div class="alert alert-danger">'. $exist .'</div>';
+                    }
+                    if(isset($_GET['passnomatch'])) {
+                        $passnomatch = "Password does not match";
+                        echo '<div class="alert alert-danger">'. $passnomatch .'</div>';
+                    }
+                    if(isset($_GET['success'])) {
+                        $success = "Password Changed Successfully";
+                        echo '<div class="alert alert-success">'. $success .'</div>';
+                    }
+                ?>
                 
                 <table class="table table-striped mt-3">
                     <thead>

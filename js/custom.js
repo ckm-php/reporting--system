@@ -147,6 +147,36 @@ $(function() {
       }
     });
 
+    $("form[name='update_validate']").validate({
+      // Specify validation rules
+      rules: {
+        password: {
+          required: true,
+          minlength: 5
+        },
+        cpassword: {
+          required: true,
+          minlength: 5
+        }
+      },
+      // Specify validation error messages
+      messages: {
+        password: {
+          required: "Please provide a New password",
+          minlength: "Your password must be at least 5 characters long"
+        },
+        cpassword: {
+          required: "Please provide a Confirm password",
+          minlength: "Your password must be at least 5 characters long"
+        }
+      },
+      // Make sure the form is submitted to the destination defined
+      // in the "action" attribute of the form when valid
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+
     $("#fromdatepicker").datepicker({
         dateFormat: "yy-mm-dd",
     });
@@ -182,5 +212,11 @@ $(function() {
   $(document).ready(function () {
       $('.dropdown-toggle').dropdown();
   });
+
+  function ShowHideDiv() {
+    var yesChk = document.getElementById("yesChk");
+    var dvchagepass = document.getElementById("dvchagepass");
+    dvchagepass.style.display = yesChk.checked ? "block" : "none";
+}
 
   

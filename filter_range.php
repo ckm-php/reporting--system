@@ -25,7 +25,7 @@
             $query .= " WHERE ".implode('AND', $condition) ."ORDER BY date desc LIMIT $offset, $total_records_per_page";
         }
 
-        $result_count = count($query);
+        $result_count = sizeof($query);
         $total_no_of_pages = ceil($result_count / $total_records_per_page);
         $second_last = $total_no_of_pages - 1;
 
@@ -54,7 +54,7 @@
     } else  {
         $table = 'report'; 
         $result = $data->getAllData("SELECT * FROM $table");
-        $result_count = count($result);
+        $result_count = sizeof($result);
         $total_no_of_pages = ceil($result_count / $total_records_per_page);
         $second_last = $total_no_of_pages - 1; 
         $datas = $data->getAllData("SELECT * FROM $table ORDER BY date DESC LIMIT $offset, $total_records_per_page");
