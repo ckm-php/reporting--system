@@ -1,4 +1,3 @@
-images
 config.php
 pass_generate.php
 testdata.php
@@ -28,6 +27,14 @@ manageUpdate1.php
 
 userPassAct.php
 userPassChange.php
+
+
+# my testing pages
+remember.php
+
+upload.php
+file_upload.php
+photo
 
 # templates for admin part
 admin2

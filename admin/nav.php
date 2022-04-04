@@ -12,13 +12,13 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-            <img src="../dist/img/avatar3.png" class="user-image img-circle elevation-2" alt="User Image">
+            <img src="../img/avatar3.png" class="user-image img-circle elevation-2" alt="User Image">
             <span class="d-none d-md-inline"><?= $_SESSION['user'] ?></span>
             </a>
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <!-- User image -->
           <li class="user-header bg-primary">
-            <img src="../dist/img/avatar3.png" class="img-circle elevation-2" alt="User Image">
+            <img src="../img/avatar3.png" class="img-circle elevation-2" alt="User Image">
             <p>
             <?= $_SESSION['user'] ?> - Web Developer
               <small>Member since Mar. 2022</small>
@@ -36,7 +36,7 @@
           </li>
           <!-- Menu Footer-->
           <li class="user-footer text-center">
-            <a href="logout.php?logout=true" class="btn btn-default btn-flat">Sign out</a>
+            <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
           </li>
         </ul>
       </li>

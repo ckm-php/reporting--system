@@ -2,10 +2,16 @@
    session_start();
    // echo $_SESSION['loggedin'];
    // die();
-   if(!isset($_SESSION['id']) || $_SESSION['loggedin'] !== true) {
-       header('location: login.php');
-       exit();
+   if(isset($_SESSION['id'])) {
+     if((time() - $_SESSION['last_time']) > 1800) {
+       header("location: logout.php?expiremsg=1");
+     }
    }
+
+if(!isset($_SESSION['id']) || $_SESSION['loggedin'] !== true) {
+    header('location: login.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

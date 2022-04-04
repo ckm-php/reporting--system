@@ -37,12 +37,6 @@
             <a href="/index.php" class="back-link btn btn-outline-info">Back User View <i class="fas fa-reply-all"></i></a>
         </header>
         <div class="row mt-3">
-            <?php
-            
-            // print_r($_COOKIE['email']);
-            // print_r(hay);
-
-            ?>
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <?php 
@@ -50,19 +44,24 @@
                         $message = "Incorrect email or password";
                         echo "<div class='alert alert-danger'>" . $message . "</div>";
                     }
+                    if(isset($_GET["expiremsg"])) {
+                        $message = "Login Session is Expired. Please Login Again";
+                        echo "<div class='alert alert-danger'>" . $message . "</div>";
+                    }
                 ?>
                 <form action="manageAct.php" method="post" name="login_validate">
                     <div class="mb-3">
                         <label for="emailInput" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email" id="emailInput" placeholder="Enter Email">
+                        <input type="email" class="form-control" name="email" value="<?php if(isset($_COOKIE['mail'])) echo $_COOKIE['mail']; ?>" id="emailInput" placeholder="Enter Email">
                     </div>
                     <div class="mb-4">
                         <label for="passInput" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="passInput" name="password" placeholder="Enter Password">
+                        <input type="password" class="form-control" id="passInput" name="password" value="<?php
+                            if(isset($_COOKIE['pass'])) echo $_COOKIE['pass']; ?>" placeholder="Enter Password">
                     </div>
                     <div class="form-group d-flex justify-content-between mb-3">
                         <label>
-                            <input type="checkbox" name="remerberme"> Remember me
+                            <input type="checkbox" name="rememb"> Remember me
                         </label>
                         <a href=":;" class="text-rimary forgotpass">Forgot Pasword?</a>
                     </div>

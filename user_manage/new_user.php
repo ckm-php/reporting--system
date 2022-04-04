@@ -33,7 +33,7 @@
                                 echo '<div class="alert alert-danger">'. $exist .'</div>';
                             }
                         ?>
-                        <form action="createAct.php" method="post" name="create_validate">
+                        <form action="createAct.php" method="post" name="create_validate" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="nameInput" class="form-label">Name</label>
                                 <input type="text" class="form-control" name="name" id="nameInput" placeholder="Enter Name">
@@ -53,7 +53,11 @@
                                 <label for="passInput" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="passInput" name="password" placeholder="Enter Password">
                             </div>
-                            <div>
+                            <div class="mb-4">
+                                <label for="img" class="form-label">Choose a profile Image</label><br>
+                                <input type="file" id="img" name="img">
+                            </div>
+                            <div class="mb-4">
                                 <button type="submit" name="create" class="btn btn-primary">Create</button>
                                 <a href="management.php" class="btn btn-secondary">Cancel</a>
                             </div>

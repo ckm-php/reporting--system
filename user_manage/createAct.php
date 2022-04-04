@@ -8,9 +8,20 @@
         $status = $_POST['status'];
         $email = $_POST['email'];
         $password = md5($_POST['password']);
+        $image = $_FILES['img']['name'];
+        $tmp = $_FILES["img"]["tmp_name"];
+        $type = $_FILES["img"]["type"];
 
-        // echo $status;
-        // exit();
+        if($image != "") {
+            $tmp = $_FILES["img"]["tmp_name"];
+            $type = $_FILES["img"]["type"];
+        }
+        else {
+            $image = "img/defalt_img.png";
+        }
+
+        echo $image;
+        exit();
 
         $data = new Common();
 

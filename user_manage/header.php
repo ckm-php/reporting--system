@@ -2,6 +2,12 @@
     session_start();
     // echo $_SESSION['psw'];
     // die();
+    if(isset($_SESSION['admin_id'])) {
+        if((time() - $_SESSION['loggedin_time']) > 1800) {
+            header("location: admin_logout.php?expiremsg=1");
+        }
+    }
+
     if(!isset($_SESSION['admin_id'])) {
         header('location: admin_login.php');
         exit();

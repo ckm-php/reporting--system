@@ -10,6 +10,7 @@
         try {
             $email = $_POST['email'];
             $password = md5($_POST['password']);
+            $pass = $_POST['password'];
 
             // echo $password;
             // exit();
@@ -28,20 +29,16 @@
                 $_SESSION['id'] = $data['id'];
                 $_SESSION['mail'] = $data['email'];
                 $_SESSION['loggedin'] = true;
+                $_SESSION['last_time'] = time(); 
                 $_SESSION['status'] = $data['status'];
 
-                if(!empty($_POST['remerberme'])) {
-                    $remerberme = $_POST['remerberme'];
-
-                    setcookie('email', $email, time()+3600*24*7);
-                    setcookie('password', $password, time()+3600*24*7);
+                if($_POST['remember'] == true) {
+                    setcookie('mail', $email, time()+3600*24*7);
+                    setcookie('pass', $pass, time()+3600*24*7);
+                    header('Location: report_list.php');
                 }
-                else {
-                    setcookie('email', $email,time()-3600*24*7);
-                    setcookie('password', $password,time()-3600*24*7);
-                }
-                
                 if($data['status'] == 0) {
+                    $_SESSION['last_time'] = time(); 
                     header('Location: report_list.php');
                 }
                 else {

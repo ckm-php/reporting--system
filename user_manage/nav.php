@@ -12,13 +12,13 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-            <img src="../dist/img/avatar5.png" class="user-image img-circle elevation-2" alt="User Image">
+            <img src="../img/avatar5.png" class="user-image img-circle elevation-2" alt="User Image">
             <span class="d-none d-md-inline"><?= $_SESSION['admin_name']; ?></span>
             </a>
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <!-- User image -->
           <li class="user-header bg-primary">
-            <img src="../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+            <img src="../img/avatar5.png" class="img-circle elevation-2" alt="User Image">
             <p>
             <?= $_SESSION['admin_name']; ?> - Web Developer
               <small>Member since Mar. 2022</small>
