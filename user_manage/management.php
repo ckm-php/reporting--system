@@ -58,6 +58,7 @@
                             <th>User</th>
                             <th>Email</th>
                             <th>Status</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -77,6 +78,13 @@
                                         echo "<span class='text-danger text-bold'> Deactivate </span>";
                                     }
                                 ?>
+                            </td>
+                            <td>
+                                <?php if($row['image'] != '') {?>
+                                    <img src="../photo/<?= $row['image']?>" alt="admin image" width="100px" height="100px">
+                                <?php } else {?>
+                                    <img src="../photo/default_img.png" alt="default image" width="100px" height="100px">
+                                <?php } ?>
                             </td>
                             <td>
                             <a href="manageEdit.php?edit=<?= $row['id']?>" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a> 

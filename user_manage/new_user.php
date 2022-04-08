@@ -55,7 +55,7 @@
                             </div>
                             <div class="mb-4">
                                 <label for="img" class="form-label">Choose a profile Image</label><br>
-                                <input type="file" id="img" name="img">
+                                <input type="file" id="img" name="image">
                             </div>
                             <div class="mb-4">
                                 <button type="submit" name="create" class="btn btn-primary">Create</button>
