@@ -68,6 +68,15 @@
                                     <input type="password" class="form-control" id="cpassInput" name="cpassword" placeholder="Confirm Password">
                                 </div>
                             </div>
+                            <div class="mb-4">
+                                <label for="img" class="form-label">Choose a profile Image</label><br>
+                                <input type="file" id="img" name="image">
+                            </div>
+                            <?php if(isset($result['image'])) {?>
+                                <img src="../photo/<?= $result['image']?>" alt="image">
+                            <?php } else{?>
+                                <img src="../photo/default_img.png" alt="image">
+                            <?php } ?>
                             <div class="mt-3">
                                 <button type="submit" name="create" class="btn btn-primary">Update</button>
                                 <a href="management.php" class="btn btn-secondary">Cancel</a>

@@ -34,7 +34,7 @@ remember.php
 
 upload.php
 file_upload.php
-photo
+# photo
 
 # templates for admin part
 admin2

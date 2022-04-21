@@ -33,6 +33,7 @@
                     setcookie('pass', $pass, time()+3600*24*7);
                     header('Location: management.php');
                 }
+                header('Location: management.php');
                 
             }
             else {
